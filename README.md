@@ -36,13 +36,13 @@ This project is developed as part of the requirements for a [software engineerin
 
 Please visit our wiki for furthur project info: 
 
-### [User Manual](../../wiki/user-manual) (empty for now)
+### [User Manual](https://github.com/ahmad2806/Animals-shelter/wiki/user-manual) (empty for now)
 
-### [Team Page](../../wiki/team)
+### [Team Page](https://github.com/ahmad2806/Animals-shelter/wiki/team-page)
 
 ### Project Documents
 - [Project Idea](docs/idea.pdf) ([Presentation](docs/idea-slides.pdf))
-- [Project Inception](../../wiki/inception)
+- [Project Inception]https://github.com/ahmad2806/Animals-shelter/wiki/Inception-Planning)
 - [Software Requirements Specification](../../wiki/srs)
 - [Software Design Specification](../../wiki/sds)
 
