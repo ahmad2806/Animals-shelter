@@ -1,33 +1,33 @@
-# project-template
+# Animals-shelter-CRM
 
-A template repository with wiki for a team project at JCE's software engineering course (replace with the mission of your project).
-
+The purpose of the project is to help https://spca.co.il/ to mange all the data related to thier resources and volunteers, by build a CRM for them.
 (See also:rRecommended [checklist](https://github.com/ddbeck/readme-checklist/blob/master/checklist.md) for a README) 
 
-![project logo (this one for is taken from basecamp - a project management service)](https://www.klipfolio.com/sites/default/files/integrations/basecamp.png)
+![project logo (this one for is taken from basecamp - a project management service)](http://www.pets.org.il/UploadedFiles/Editor/JSPCA%20logo.jpg)
 
 ## Tools & Practices
 We're trying to use the best tools and practices in order to produce a quality enginneered product.
-(replace 'jce-il/project-template' with your 'username/repo' and register to the relevant services)
+(replace 'ahmad2806/Animals-shelter' with your 'username/repo' and register to the relevant services)
 
 |Category|Status|
 |---|---|
 | Version Control System| git & github |
 | Recommended IDE | [VSCode](https://code.visualstudio.com) |
-| Group Chat | [![Join the chat at https://gitter.im/jce-il/project-template](https://badges.gitter.im/jce-il/project-template.svg)](https://gitter.im/jce-il/project-template?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
-| Build Status (CI) |  [![Build Status](https://travis-ci.org/jce-il/project-template.svg?branch=master)](https://travis-ci.org/jce-il/project-template) |
-| Dependencies | [![David](https://img.shields.io/david/dev/idleberg/vscode-badges.svg?style=flat-square)](https://david-dm.org/jce-il/project-template?type=dev) |
+| Group Chat | [![Join the chat at https://gitter.im/
+](https://badges.gitter.im/ahmad2806/Animals-shelter.svg)](https://gitter.im/ahmad2806/Animals-shelter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
+| Build Status (CI) |  [![Build Status](https://travis-ci.org/ahmad2806/Animals-shelter.svg?branch=master)](https://travis-ci.org/ahmad2806/Animals-shelter) |
+| Dependencies | [![David](https://img.shields.io/david/dev/idleberg/vscode-badges.svg?style=flat-square)](https://david-dm.org/ahmad2806/Animals-shelter?type=dev) |
 | License | [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/) |
-| Test Coverege | [![codecov.io](https://codecov.io/github/jce-il/project-template/coverage.svg?branch=master)](https://codecov.io/github/jce-il/project-template?branch=master) |
-| Code Quality | [![Code Climate](https://codeclimate.com/github/jce-il/project-template.svg)](https://codeclimate.com/github/jce-il/project-template) |
-| Code Style | [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/jce-il/project-template) |
-| Current Release | [![Current Version](https://img.shields.io/github/release/jce-il/project-template.svg?style=flat)](https://github.com/jce-il/project-template/releases) |
-| Issues | [![GitHub issues](https://img.shields.io/github/issues/jce-il/project-template.svg?style=flat)](https://github.com/jce-il/project-template/issues) |
-| Project Management Board| [here](https://github.com/jce-il/project-template/projects/1) |
-| Contributors | [![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg)](https://github.com/jce-il/project-template/graphs/contributors)|
+| Test Coverege | [![codecov.io](https://codecov.io/github/ahmad2806/Animals-shelter/coverage.svg?branch=master)](https://codecov.io/github/ahmad2806/Animals-shelter?branch=master) |
+| Code Quality | [![Code Climate](https://codeclimate.com/github/ahmad2806/Animals-shelter.svg)](https://codeclimate.com/github/ahmad2806/Animals-shelter) |
+| Code Style | [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/ahmad2806/Animals-shelter) |
+| Current Release | [![Current Version](https://img.shields.io/github/release/ahmad2806/Animals-shelter.svg?style=flat)](https://github.com/ahmad2806/Animals-shelter/releases) |
+| Issues | [![GitHub issues](https://img.shields.io/github/issues/ahmad2806/Animals-shelter.svg?style=flat)](https://github.com/ahmad2806/Animals-shelter/issues) |
+| Project Management Board| [here](https://github.com/ahmad2806/Animals-shelter/projects/1) |
+| Contributors | [![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg)](https://github.com/ahmad2806/Animals-shelter/graphs/contributors)|
 | Deployment | [![Heroku](http://heroku-badge.herokuapp.com/?app=my-app&style=flat&svg=1&root=index.html)] |
-| Security | [![Known Vulnerabilities](https://snyk.io/test/github/jce-il/project-template/badge.svg)](https://snyk.io/test/github/jce-il/project-template) |
-| Documnetation | [![Inline docs](http://inch-ci.org/github/jce-il/project-template.svg?branch=master)](http://inch-ci.org/github/jce-il/project-template) |
+| Security | [![Known Vulnerabilities](https://snyk.io/test/github/ahmad2806/Animals-shelter/badge.svg)](https://snyk.io/test/github/ahmad2806/Animals-shelter) |
+| Documnetation | [![Inline docs](http://inch-ci.org/github/ahmad2806/Animals-shelter.svg?branch=master)](http://inch-ci.org/github/ahmad2806/Animals-shelter) |
 | Project Course Status | ... |
 
 ## Please visit our [live application](https://demo.reactstarterkit.com/)
