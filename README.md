@@ -42,7 +42,7 @@ Please visit our wiki for furthur project info:
 
 ### Project Documents
 - [Project Idea](docs/idea.pdf) ([Presentation](docs/idea-slides.pdf))
-- [Project Inception]https://github.com/ahmad2806/Animals-shelter/wiki/Inception-Planning)
+- [Project Inception](https://github.com/ahmad2806/Animals-shelter/wiki/Inception-Planning)
 - [Software Requirements Specification](../../wiki/srs)
 - [Software Design Specification](../../wiki/sds)
 
