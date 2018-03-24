@@ -1,13 +1,11 @@
 # Animals-shelter-CRM
 
 The purpose of the project is to help https://spca.co.il/ to mange all the data related to thier resources and volunteers, by building a CRM for them.
-(See also:rRecommended [checklist](https://github.com/ddbeck/readme-checklist/blob/master/checklist.md) for a README) 
 
 ![project logo (this one for is taken from basecamp - a project management service)](http://www.pets.org.il/UploadedFiles/Editor/JSPCA%20logo.jpg)
 
 ## Tools & Practices
 We're trying to use the best tools and practices in order to produce a quality enginneered product.
-(replace 'ahmad2806/Animals-shelter' with your 'username/repo' and register to the relevant services)
 
 |Category|Status|
 |---|---|
