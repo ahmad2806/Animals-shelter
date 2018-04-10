@@ -27,8 +27,8 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Documnetation | [![Inline docs](http://inch-ci.org/github/ahmad2806/Animals-shelter.svg?branch=master)](http://inch-ci.org/github/ahmad2806/Animals-shelter) |
 | Project Course Status | ... |
 
-## Please visit our [live application](https://demo.reactstarterkit.com/)
-- Alright, currently only a landing page...
+## Please visit our live application
+- comming soon...
 
 
 ## Disclaimer
