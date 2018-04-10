@@ -1,0 +1,64 @@
+/-----------------------------------------Main Page---------------------------------------------------/
+1- Main HeadeR component
+	1- nav bar component
+		1-  nav bar service
+		2- nav item component
+		3- nav-item model
+	2- search component
+	3- logo
+	4- Title
+
+/***********************Home**************************************/			
+2- DashBoard component is the default Main Page component
+	1- table component
+		1- element component
+		2- element model
+		3- table service
+	2- title	
+/****************************Users*******************************/
+2- Users component
+	1- Users List
+		1- user model
+		2- user component
+			1- user-Edit component
+			2- user Edit model
+		3- USERS list service
+	2- creat new user component
+		1- new-user service
+		2- new-user model
+/**********************************Volunteer module**************************************/
+2- Volunteer 
+	1- Volunteer-nav bar component
+		1-  V-nav bar service
+		2- V-nav item component
+		3- V- nav model
+	2- Component
+		1- Event list Components is the default Volunteer Component
+			1- Event Component (pooped when clicked on)
+				1-Event info Component
+				2- Event-names-List Component (2 is needed)
+				3- delet button
+			2- event model
+			3- event-list-service
+			4- create-new-Event  
+				1- Event-Details component
+					1- EVENT info|--------------related to database transfer data---------------|
+					2- if multi Users radio checked we call multi component
+						1- **two event name list component
+						2- **event list service 
+				2- choose-model dropdown
+				3- submit button
+		2- Volunteer list
+			1- Volunteer component
+			2- Volunteer details Component ( if item in the list clicked it shows  else the compoenent will be disabled)
+			3- Volunteer model
+			4- volunteer-list-service
+		3- Add  Volunteer
+			1- volunteer info |--------------related to database transfer data---------------|
+			2- save button
+
+
+
+
+	
+ 
