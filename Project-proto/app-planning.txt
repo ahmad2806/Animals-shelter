@@ -1,61 +1,57 @@
 /-----------------------------------------Main Page---------------------------------------------------/
 1- Main HeadeR component
 	1- nav bar component
-		1-  nav bar service
 		2- nav item component
 		3- nav-item model
 	2- search component
+		app module service for all the app 
 	3- logo
 	4- Title
 
 /***********************Home**************************************/			
 2- DashBoard component is the default Main Page component
 	1- table component
-		1- element component
-		2- element model
+		1- element component for each element
+		2- element model for each event
 		3- table service
+		4- for transfering from an element to anther we need to use node-js to make server and send to mongo DB
 	2- title	
 /****************************Users*******************************/
 2- Users component
 	1- Users List
-		1- user model
 		2- user component
 			1- user-Edit component
-			2- user Edit model
-		3- USERS list service
-	2- creat new user component
-		1- new-user service
-		2- new-user model
+	2- USERS service
+	3- create new user component
+	4- user model 
+		
 /**********************************Volunteer module**************************************/
 2- Volunteer 
-	1- Volunteer-nav bar component
-		1-  V-nav bar service
+	1- Volunteer-nav bar component + router
 		2- V-nav item component
-		3- V- nav model
 	2- Component
 		1- Event list Components is the default Volunteer Component
 			1- Event Component (pooped when clicked on)
-				1-Event info Component
-				2- Event-names-List Component (2 is needed)
-				3- delet button
+				1- event default first to display
+					1-Event info Component
+					2- Event-names-List Component (2 is needed)
+					3- delet button
 			2- event model
-			3- event-list-service
-			4- create-new-Event  
+			4- create-new-Event component
 				1- Event-Details component
-					1- EVENT info|--------------related to database transfer data---------------|
+					1- EVENT info component 
 					2- if multi Users radio checked we call multi component
-						1- **two event name list component
-						2- **event list service 
-				2- choose-model dropdown
-				3- submit button
+						1- **two event name list array of names not component
+				2- choose-model dropdown (not needed we cacn take the data from the url)
+				3- submit button sent to database using volunteer service
 		2- Volunteer list
 			1- Volunteer component
 			2- Volunteer details Component ( if item in the list clicked it shows  else the compoenent will be disabled)
-			3- Volunteer model
-			4- volunteer-list-service
+			3- clicked component default display
 		3- Add  Volunteer
-			1- volunteer info |--------------related to database transfer data---------------|
-			2- save button
+			1- volunteer info usinng ng form 
+			2- save button (post http request to the node js server)
+	3- volunteer service
 
 
 
