@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('shelter-app App', () => {
+describe('as-app App', () => {
   let page: AppPage;
 
   beforeEach(() => {
