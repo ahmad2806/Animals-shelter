@@ -40,6 +40,8 @@ Please visit our wiki for furthur project info:
 
 ### [Team Page](https://github.com/ahmad2806/Animals-shelter/wiki/team-page)
 
+### [Scrum Planing](https://github.com/ahmad2806/Animals-shelter/projects/1)
+
 ### Project Documents
 - [Project Idea](docs/idea.pdf) ([Presentation](docs/idea-slides.pdf))
 - [Project Inception](https://github.com/ahmad2806/Animals-shelter/wiki/Inception-Planning)
