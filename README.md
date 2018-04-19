@@ -28,7 +28,7 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Project Course Status | ... |
 
 ## Please visit our [live application]()
-- Not Avilibale for Now...
+- Not Available for Now...
 
 
 ## Disclaimer
