@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
+import { UserService } from './users/user.service';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +15,9 @@ import { NavBarComponent } from './header/nav-bar/nav-bar.component';
 import { CreateVolComponent } from './volunteer/create-vol/create-vol.component';
 import { VolListComponent } from './volunteer/vol-list/vol-list.component';
 import { VolNavbarComponent } from './volunteer/vol-navbar/vol-navbar.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
 
 
 @NgModule({
@@ -27,12 +32,16 @@ import { VolNavbarComponent } from './volunteer/vol-navbar/vol-navbar.component'
     NavBarComponent,
     CreateVolComponent,
     VolListComponent,
-    VolNavbarComponent
+    VolNavbarComponent,
+    UsersListComponent,
+    EditUserComponent,
+    AddUserComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-4" dir="rtl" id="table">
+      <table class="table table-hover">
+        <thead >
+          <tr dir="rtl"> 
+            <th scope="col">שם</th>
+            <th scope="col">טלפון</th>
+            <th scope="col">אי-מייל</th>
+            <th scope="col">שם משתמש</th>
+            <th scope="col">סיסמה</th>
+          </tr>
+        </thead>
+        <tbody dir="rtl">
+          <tr *ngFor="let us of userService.usersList" dir="rtl">
+            <td>{{ us.name }} </td>
+            <td>{{ us.phone }} </td>
+            <td>{{ us.email }} </td>
+            <td>{{ us.username }} </td>
+            <td>{{ us.password }} </td>
+            <button type="button" class="btn btn-danger" (click)="onRemove(us)">Remove</button>
+            
+
+          </tr>
+        </tbody>
+      </table>  
+  </div>
+</div>
