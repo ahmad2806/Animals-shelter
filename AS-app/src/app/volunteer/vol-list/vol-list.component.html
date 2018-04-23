@@ -1,15 +1,15 @@
 <div class="container" dir="rtl">
-  
+    <div class="panel panel-default">
+    <div class="panel-heading">
+    <h4 class="panel-title">
+    <label for="Name">שם</label>
+    <label for="ID"> ת"ז</label>
+                    <label for="Mail">דוא"ל</label>
+                  </h4>
+     </div>
+     
 <div class="panel-group" id="accordion">
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-      </table>
+
      
     <span *ngFor="let item of volservice.VolList">
       
@@ -18,4 +18,5 @@
 
  
   </div>
+</div>
 </div>
