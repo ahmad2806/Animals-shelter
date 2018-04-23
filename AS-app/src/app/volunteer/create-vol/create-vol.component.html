@@ -1,3 +1,110 @@
-<p>
-  create-vol works!
-</p>
+<div dir="rtl" class="container">
+        <p class="par">נא למלאת את כל פרטי המתנדב.</p>
+        <hr>
+
+        <label for="fName"><b>שם פרטי:</b></label>
+        <input class="inp" type="text" placeholder="שם פרטי" name="Name" required #Name>
+
+        <label for="lName"><b>שם משפחה:</b></label>
+        <input class="inp" type="text" placeholder="שם משפחה" name="Name" required #familyname>
+
+        <label for="ID"><b>ת"ז:</b></label>
+        <input class="inp" type="number" placeholder="הזן את מספר תעודת הזהות" name="ID" required #ID>
+        <label for="Address"><b>כתובת:</b></label>
+        <input class="inp" type="text" placeholder="הזן את הכתובת" name="Address" required #address>
+       <br>
+        <form>
+                <label for="gender"><b>מין: </b></label>
+                 זכר <input class="radioinp" type="radio" name="gender" value="male" checked #male>
+                נקבה <input class="radioinp" type="radio" name="gender" value="female">
+          
+        </form>
+        <br>
+        
+        <label for="bDate"><b>תאריך לידה: </b></label>
+        <input class="inp" type="date"  name="date" required #date>
+
+        
+        <label for="E-mail"><b>דואר אלקטרוני</b></label>
+        <input class="inp" type="text" placeholder="ד-אלקטרוני" name="e-mail" #mail>
+    
+        <label for="Tel"><b>טלפונים:</b></label>
+        <br>
+        <br>
+        <label for="Tel"><b>בית:</b></label>
+        <input class="inp1" type="number" placeholder="מספר טלפון בית" name="Tel" required #tel>
+        <label for="Tel"><b>נייד:</b></label>
+        <input class="inp1" type="number" placeholder="מספר טלפון נייד" name="Tel" required #tel1>
+        <label for="Tel"><b>נוסף:</b></label>
+        <input class="inp1" type="number" placeholder="מספר טלפון נוסף" name="Tel"  #tel2>
+    
+        <label for="vol"><b>תחום התנדבות: </b></label>
+        <input class="inp" type="vol"  name="vol" required #vol>
+        <label for="Career"><b>עבודה</b></label>
+        <input class="inp" type="text" placeholder="הכנס עבודה" name="Career" required #career>
+        <br>
+        
+        <form>
+                <label for="Car"><b>האם ברושותו רכב: </b></label>
+                 כן <input class="radioinp" type="radio" name="Car" value="yes" checked #car>
+                לא <input class="radioinp" type="radio" name="Car" value="No">
+          
+        </form>
+        <br>
+        
+        <form>
+                <label for="inCar"><b>האם הוא מסכים להסיע כלבים/חתולים ברכב: </b></label>
+                 כן <input class="radioinp" type="radio" name="inCar" value="yes" checked #incar>
+                לא <input class="radioinp" type="radio" name="inCar" value="No">
+          
+        </form>
+        
+        <br>
+
+        
+<!--Checkbox butons-->
+
+
+<div class="Days">
+                <label for="Days"><b>ימים הוא יכול להתנדב: </b></label>
+<div class="btn-group mr-4" data-toggle="buttons">
+
+        <label class="btn btn-primary  form-check-label">
+            <input type="checkbox" class="form-check-input"  autocomplete="off" #sunday> ראשון
+        </label>
+    
+        <label class="btn btn-primary form-check-label">
+            <input type="checkbox" class="form-check-input" autocomplete="off" #monday> שני
+        </label>
+    
+        <label class="btn btn-primary form-check-label">
+            <input type="checkbox" class="form-check-input" autocomplete="off" #tuesday> שלישי
+        </label>
+        <label class="btn btn-primary form-check-label">
+                <input type="checkbox" class="form-check-input" autocomplete="off" #wednesday> רביעי
+            </label>
+            <label class="btn btn-primary form-check-label">
+                <input type="checkbox" class="form-check-input" autocomplete="off" #thursday> חמישי
+            </label>
+            <label class="btn btn-primary form-check-label">
+                <input type="checkbox" class="form-check-input" autocomplete="off" #friday> שישי
+            </label>
+    
+    </div>
+</div>
+    <!--Checkbox butons-->
+                <br>
+                <br>    
+        
+       
+
+        <div class="clearfix">
+                <button type="button" class="btn btn-primary" (click)='onclick(Name.value,familyname.value,
+                ID.value,address.value,male.checked,date.value,
+                mail.value , tel.value,tel1.value,
+                tel2.value, vol.value,career.value,car.checked,incar.checked,sunday.checked,
+                monday.checked,tuesday.checked,wednesday.checked,thursday.checked,friday.checked)'>שמור</button>
+        </div>  
+</div>
+ 
+    

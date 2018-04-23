@@ -15,10 +15,14 @@ import { NavBarComponent } from './header/nav-bar/nav-bar.component';
 import { CreateVolComponent } from './volunteer/create-vol/create-vol.component';
 import { VolListComponent } from './volunteer/vol-list/vol-list.component';
 import { VolNavbarComponent } from './volunteer/vol-navbar/vol-navbar.component';
+import { OneVolComponent } from './volunteer/one-vol/one-vol.component';
+import { VolunteerServiceService } from './volunteer/volunteer-service.service';
 const appRoutes:Routes=[
   {path:'volenteer',component:VolunteerComponent},
   {path:'',component:LoginComponent},
+  
 ];
+
 
 @NgModule({
   declarations: [
@@ -32,14 +36,15 @@ const appRoutes:Routes=[
     NavBarComponent,
     CreateVolComponent,
     VolListComponent,
-    VolNavbarComponent
+    VolNavbarComponent,
+    OneVolComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [],
+  providers: [VolunteerServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

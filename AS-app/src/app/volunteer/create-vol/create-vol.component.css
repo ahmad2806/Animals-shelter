@@ -1,0 +1,75 @@
+p{
+    font-weight: bold;
+    color:black;
+}
+.btn{
+    margin-right:4px;
+}
+a{
+    cursor: pointer;
+}
+#j1{
+    color:white;
+    cursor: default;
+    margin-right:5%;
+}
+.nav-item a{
+    color:rgb(92, 202, 92);
+} 
+.container{
+    margin:auto;
+    margin-top:5%;
+    margin-bottom:2.5%;
+   background-color:white;
+    width :50%;
+    height:80%;
+    -webkit-box-shadow: 0px 0px 25px 14px rgba(153,153,153,1);
+-moz-box-shadow: 0px 0px 25px 14px rgba(153,153,153,1);
+box-shadow: 0px 0px 25px 14px rgba(153,153,153,1);
+border:none;
+border-radius: 10px;
+padding: 20px;
+    
+}
+.inp {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+.inp1 {
+    width: 25%;
+   
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+.container button:hover {
+    opacity:1;
+    float: left;
+  /* width: 50%; */
+}
+.radioinp{
+    margin-left: 2%;
+}
+.container button{
+    margin:auto;
+    width:100%;
+}
+
+.clearfix {
+    margin:auto;
+    width:50%;
+}
+
+.Days{
+    width: 100%;
+    
+}
+
