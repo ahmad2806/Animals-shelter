@@ -1,3 +1,26 @@
-<p>
-  users works!
-</p>
+<br>
+<br>
+<div class="container" dir="rtl">
+  <div *ngIf="!UserService.isCreating">
+    <div class="row" dir="rtl">
+      <div class="col-sm-8" id="cont" dir="rtl">
+        <app-users-list class="usr">
+        </app-users-list>
+      </div>
+      <div class="col-sm-4" dir="rtl">
+        <button type="button" class="btn btn-info" (click)="onCreate()">הוספת משתמש חדש</button>
+      </div>
+    </div>
+    <hr>
+    <div class="row" dir="rtl">
+      <div class="col-sm-8" id="cont" dir="rtl">
+        <app-edit-user *ngIf="UserService.isEditing">
+
+        </app-edit-user>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-add-user *ngIf="UserService.isCreating"></app-add-user>
