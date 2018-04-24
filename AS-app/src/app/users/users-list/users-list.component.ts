@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 
 @Component({
@@ -21,6 +22,18 @@ export class UsersListComponent implements OnInit {
     }else{
    let index=this.userService.UsersList.indexOf(removeUser);
    this.userService.UsersList.splice(index,1);
+    }
+  }
+  onEdit(editUser:User){
+    if(this.userService.isEditing==true){
+      this.userService.isEditing=false;
+    }
+    if(editUser.username=="admin"){
+      alert("the admin cannot be edited");
+    }else{
+      let index=this.userService.UsersList.indexOf(editUser);
+      this.userService.userToEdit=index;
+      this.userService.isEditing=true;
     }
   }
 }

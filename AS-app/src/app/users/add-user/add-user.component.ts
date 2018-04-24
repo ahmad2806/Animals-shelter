@@ -27,20 +27,26 @@ export class AddUserComponent implements OnInit {
     for (let index = 0; index < this.UserService.UsersList.length; index++) {
       if(this.username==this.UserService.UsersList[index].username){
         alert("username is already in use");
-        break;
+        return;
       }
     }
-    if(this.password==this.password2){
+    if(Vper==Dper==Aper==false){
+      alert("please give at least 1 permission for the new user");
+      return;
+    }
+    if(this.password!=this.password2){
+      alert("confirm password isn't correct")
+      return;
+    }
+    else{ //on Success
       newUser=new User(this.name,this.tel,this.email,this.username,this.password,Vper,Dper,Aper);
       this.UserService.usersList.push(newUser);
       this.UserService.isCreating=!this.UserService.isCreating;
-    }
-    else{
-      alert("confirm password isn't correct")
     }
   }
   onBack(){
     this.UserService.isCreating=!this.UserService.isCreating;
   }
+  
   
 }

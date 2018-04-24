@@ -14,7 +14,9 @@
     <hr>
     <div class="row" dir="rtl">
       <div class="col-sm-8" id="cont" dir="rtl">
-        <app-edit-user></app-edit-user>
+        <app-edit-user *ngIf="UserService.isEditing">
+
+        </app-edit-user>
       </div>
     </div>
   </div>
