@@ -28,7 +28,7 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Project Course Status | ... |
 
 ## Please visit our [live application]()
-- Not Avilibale for Now...
+- Not Available for Now...
 
 
 ## Disclaimer
@@ -40,6 +40,8 @@ Please visit our wiki for furthur project info:
 
 ### [Team Page](https://github.com/ahmad2806/Animals-shelter/wiki/team-page)
 
+### [Scrum Planing](https://github.com/ahmad2806/Animals-shelter/projects/1)
+
 ### Project Documents
 - [Project Idea](docs/idea.pdf) ([Presentation](docs/idea-slides.pdf))
 - [Project Inception](https://github.com/ahmad2806/Animals-shelter/wiki/Inception-Planning)
@@ -47,8 +49,8 @@ Please visit our wiki for furthur project info:
 - [Software Design Specification](../../wiki/sds)
 
 ### Iteration Pages
-- [Iteration 0 - ZFR](../../wiki/iter0-zfr)
-- [Iteration 1 - MVP]()
+- [Iteration 0 - ZFR](https://github.com/ahmad2806/Animals-shelter/wiki/ZFR)
+- [Iteration 1 - MVP](https://github.com/ahmad2806/Animals-shelter/wiki/Iteration-1-MVP)
 - [Iteration 2 - Feature X]()
 - [Iteration 3 - Feature Y]()
 - [Iteration 4 - Feature Z]()

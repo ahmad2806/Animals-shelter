@@ -1,3 +1,16 @@
-<p>
-  login works!
-</p>
+<div class="container">
+ 
+  <h3>Sign in</h3>
+  <div>
+  <img src="../assets/img.jpg" alt="Avatar" class="avatar">
+</div>
+<form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+
+  <div><input [(ngModel)]="username" name="username" type="text" placeholder="שמ משתמש" required></div>
+  
+  <div><input [(ngModel)]="password" name="password" type="password" placeholder="סיסמה" required></div>
+  <button >כניסה</button>
+  </form>
+</div>
+
+

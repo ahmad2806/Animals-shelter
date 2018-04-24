@@ -1,3 +1,29 @@
-<p>
-  volunteer works!
-</p>
+<div class="container ">
+    <app-header ></app-header>
+
+    
+  <br>
+
+<ul class="nav nav-pills">
+ 
+  <li class="nav-item">
+    <a class="nav-link" (click)="add()">הוספת מתנדבים</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" >רשימת האירועים</a>
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link" (click)="list()">רשימת המתנדבים</a>
+  </li>
+</ul>
+<br>
+<hr>
+</div>
+
+<app-create-vol *ngIf="addVol"></app-create-vol>
+<app-vol-list *ngIf="VolList"></app-vol-list>
+
+
+
+

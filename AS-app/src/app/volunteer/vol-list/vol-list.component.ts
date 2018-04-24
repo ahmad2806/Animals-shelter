@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VolunteerServiceService } from '../volunteer-service.service';
 
 @Component({
   selector: 'app-vol-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public volservice:VolunteerServiceService) { }
 
   ngOnInit() {
   }

@@ -1,3 +1,22 @@
-<p>
-  vol-list works!
-</p>
+<div class="container" dir="rtl">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+    <h4 class="panel-title">
+    <label for="Name">שם</label>
+    <label for="ID"> ת"ז</label>
+                    <label for="Mail">דוא"ל</label>
+                  </h4>
+     </div>
+     
+<div class="panel-group" id="accordion">
+
+     
+    <span *ngFor="let item of volservice.VolList">
+      
+        <app-one-vol [vol]="item"></app-one-vol>
+      </span>
+
+ 
+  </div>
+</div>
+</div>

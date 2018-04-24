@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { UserService } from './users/user.service';
+import {Routes, RouterModule} from '@angular/router'
+
 
 
 import { AppComponent } from './app.component';
@@ -18,6 +20,13 @@ import { VolNavbarComponent } from './volunteer/vol-navbar/vol-navbar.component'
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
+import { OneVolComponent } from './volunteer/one-vol/one-vol.component';
+import { VolunteerServiceService } from './volunteer/volunteer-service.service';
+const appRoutes:Routes=[
+  {path:'volenteer',component:VolunteerComponent},
+  {path:'',component:LoginComponent},
+  
+];
 
 
 @NgModule({
@@ -35,13 +44,20 @@ import { AddUserComponent } from './users/add-user/add-user.component';
     VolNavbarComponent,
     UsersListComponent,
     EditUserComponent,
+    OneVolComponent,
     AddUserComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,
+    VolunteerServiceService],
   bootstrap: [AppComponent]
+
+  
+ 
+ 
 })
 export class AppModule { }

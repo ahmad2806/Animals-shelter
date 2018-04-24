@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  clicked='';
+  @Output() Loginform=true;
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  calltype(value){
+    this.clicked=value;
+  }
+
+  change(){
+      this.Loginform=false;
+
+  }
+
+  clk(){
+    
+  }
+  onFormSubmit(userForm){
+    if(userForm.value.username=="m" && userForm.value.password=="m")
+    {
+      this.router.navigate(["/volenteer"]);
+    }
+    else{
+      alert("אחד או יותר מהנתונים שגויים");
+    }
+  }
 }
