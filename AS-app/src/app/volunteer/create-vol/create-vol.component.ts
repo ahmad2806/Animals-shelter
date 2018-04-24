@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { VolunteerModel } from '../volunteer.model';
 
 import { VolunteersService } from '../volunteers.service';
+import { NgForm } from '@angular/forms';
+import { FreeDayes } from '../free-days.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-vol',
@@ -9,39 +12,53 @@ import { VolunteersService } from '../volunteers.service';
   styleUrls: ['./create-vol.component.css']
 })
 export class CreateVolComponent implements OnInit {
-private vol:VolunteerModel;
+private volunteer:VolunteerModel;
+private week:FreeDayes;
 private gender;
 private car;
 private incar;
+private oneid=false;
 
-  constructor(public volservice:VolunteersService) { }
+
+  constructor(public volservice:VolunteersService,private router: Router) { }
 
   ngOnInit() {
   }
-  onclick(Name,familyname,
-    ID,address,male,date,
-    mail , tel,tel1,
-    tel2, type,career,car,incar,sunday
-    ,monday,tuesday,wednesday,thursday,friday){
-      if(male==true){
-        this.gender="male";
-      }else{
-        this.gender="female";
+ 
+  onSubmit(form:NgForm){
+    let i=0;
+    let notAvailable:boolean=true;
+    for(i;i<this.volservice.volunteers.length;i++){
+      if(form.value.ID==this.volservice.volunteers[i].id){
+        notAvailable=false;
+        
       }
+    }
+  if(notAvailable==true){
+    this.oneid=false;
+     this.volunteer=new VolunteerModel(form.value.name,form.value.ID,form.value.date
+    ,form.value.address,form.value.extranum,form.value.phonenum,form.value.homenum,form.value.email,form.value.type
+  ,this.week,this.car,this.incar,form.value.job);
 
-      if(car==true){
-        this.car="yes";
-       }else{
-        this.car="no";
-       }
-       if(incar==true){
-        this.incar="yes";
-       }else{
-        this.incar="no";
-       }
-      // this.vol=new VolunteerModel(Name,familyname,ID,address,this.gender,date,mail,tel,tel1,tel2,type,career,this.car,this.incar,!sunday,!monday,!tuesday,!wednesday,!thursday,!friday);
-   this.volservice.add(this.vol);
-
+  this.volservice.add(this.volunteer);
+}else{
+  this.oneid=true;
+}
+    
+    
   }
+  days(saturday,sunday,monday,tuesday,wednesday,thursday,friday,car,incar){
+    // this.saturday=saturday;
+    // this.sunday=sunday;
+    // this.monday=monday;
+    // this.tuesday=tuesday;
+    // this.wednesday=wednesday;
+    // this.thursday=thursday;
+    // this.friday=friday;
+ this.car=car;
+ this.incar=incar;
+   this.week=new FreeDayes(sunday,monday,tuesday,wednesday,thursday,friday,saturday);
+  }
+
 
 }

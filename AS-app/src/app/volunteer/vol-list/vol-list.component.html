@@ -1,22 +1,22 @@
-<!-- <div class="container" dir="rtl">
+<div class="container" dir="rtl">
     <div class="panel panel-default">
-    <div class="panel-heading">
-    <h4 class="panel-title">
-    <label for="Name">שם</label>
-    <label for="ID"> ת"ז</label>
-                    <label for="Mail">דוא"ל</label>
-                  </h4>
-     </div>
-     
-<div class="panel-group" id="accordion">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <label for="Name">שם</label>
+                <label for="ID"> ת"ז</label>
+                <label for="Mail">דוא"ל</label>
+            </h4>
+        </div>
 
-     
-    <span *ngFor="let item of volservice.VolList">
-      
-        <app-one-vol [vol]="item"></app-one-vol>
-      </span>
+        <div class="panel-group" id="accordion">
 
- 
-  </div>
+
+            <span *ngFor="let item of volservice.volunteers">
+
+                <app-one-vol class="volunteer" [vol]="item"></app-one-vol>
+            </span>
+
+
+        </div>
+    </div>
 </div>
-</div> -->

@@ -10,3 +10,13 @@ th{
     margin-left: 1%;
     margin-right: 1%;
 }
+.panel-heading{
+    cursor: pointer;
+}
+
+.week{
+    border-bottom: 1px solid royalblue;
+}
+.center{
+    text-align: center;
+}

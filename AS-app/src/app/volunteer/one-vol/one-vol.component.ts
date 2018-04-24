@@ -9,6 +9,7 @@ import { VolunteerComponent } from '../volunteer.component';
 })
 export class OneVolComponent implements OnInit {
  @Input() vol:VolunteerComponent;
+s=false;
   constructor() { }
 
   ngOnInit() {

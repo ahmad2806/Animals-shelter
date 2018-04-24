@@ -1,110 +1,220 @@
-<div dir="rtl" class="container">
-        <p class="par">נא למלאת את כל פרטי המתנדב.</p>
-        <hr>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-        <label for="fName"><b>שם פרטי:</b></label>
-        <input class="inp" type="text" placeholder="שם פרטי" name="Name" required #Name>
+<div class="container ">
+        <div class="row ">
+                <div class="col-md-8">
+                        <section>
+                                <h1 class="entry-title text-right">
+                                        <span>הוספת מתנדב חדש</span>
+                                </h1>
+                                <hr>
+                                <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm" method="post" name="signup" id="signup" enctype="multipart/form-data">
+                                        <div class="form-group">
 
-        <label for="lName"><b>שם משפחה:</b></label>
-        <input class="inp" type="text" placeholder="שם משפחה" name="Name" required #familyname>
+                                                <label class="control-label col-sm-3">שם </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <div class="input-group">
+                                                                <input type="text" class="form-control text-right" name="name" id="nameid" required  ngModel placeholder="הזן את שם המתנדב" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-user"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div>
 
-        <label for="ID"><b>ת"ז:</b></label>
-        <input class="inp" type="number" placeholder="הזן את מספר תעודת הזהות" name="ID" required #ID>
-        <label for="Address"><b>כתובת:</b></label>
-        <input class="inp" type="text" placeholder="הזן את הכתובת" name="Address" required #address>
-       <br>
-        <form>
-                <label for="gender"><b>מין: </b></label>
-                 זכר <input class="radioinp" type="radio" name="gender" value="male" checked #male>
-                נקבה <input class="radioinp" type="radio" name="gender" value="female">
-          
-        </form>
-        <br>
-        
-        <label for="bDate"><b>תאריך לידה: </b></label>
-        <input class="inp" type="date"  name="date" required #date>
+                                        <div class="form-group">
+                                                <label class="control-label col-sm-3">ת"ז
 
-        
-        <label for="E-mail"><b>דואר אלקטרוני</b></label>
-        <input class="inp" type="text" placeholder="ד-אלקטרוני" name="e-mail" #mail>
-    
-        <label for="Tel"><b>טלפונים:</b></label>
-        <br>
-        <br>
-        <label for="Tel"><b>בית:</b></label>
-        <input class="inp1" type="number" placeholder="מספר טלפון בית" name="Tel" required #tel>
-        <label for="Tel"><b>נייד:</b></label>
-        <input class="inp1" type="number" placeholder="מספר טלפון נייד" name="Tel" required #tel1>
-        <label for="Tel"><b>נוסף:</b></label>
-        <input class="inp1" type="number" placeholder="מספר טלפון נוסף" name="Tel"  #tel2>
-    
-        <label for="vol"><b>תחום התנדבות: </b></label>
-        <input class="inp" type="vol"  name="vol" required #vol>
-        <label for="Career"><b>עבודה</b></label>
-        <input class="inp" type="text" placeholder="הכנס עבודה" name="Career" required #career>
-        <br>
-        
-        <form>
-                <label for="Car"><b>האם ברושותו רכב: </b></label>
-                 כן <input class="radioinp" type="radio" name="Car" value="yes" checked #car>
-                לא <input class="radioinp" type="radio" name="Car" value="No">
-          
-        </form>
-        <br>
-        
-        <form>
-                <label for="inCar"><b>האם הוא מסכים להסיע כלבים/חתולים ברכב: </b></label>
-                 כן <input class="radioinp" type="radio" name="inCar" value="yes" checked #incar>
-                לא <input class="radioinp" type="radio" name="inCar" value="No">
-          
-        </form>
-        
-        <br>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <div class="input-group">
+                                                                <input type="text" required ngModel class="form-control text-right" name="ID" id="nameid" placeholder="הזן את תועדת הזהות של המתנדב" value="">
 
-        
-<!--Checkbox butons-->
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-user"></i>
+                                                                </span>
+                                                        </div>
+                                                        <span class="help-block pull-right" *ngIf="oneid">תועדת זהות הנ"ל קיימת כבר במערכת</span>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="control-label col-sm-3">דוא"ל
+                                                        <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <div class="input-group">
+                                                                <input type="email" email ngModel required class="form-control text-right" #email="ngModel" name="email" id="emailid" placeholder="הזן את הדואר האלקטרוני" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-envelope"></i>
+                                                                </span>
+                                                                
+
+                                                        </div>
+                                                        <span class="help-block pull-right" *ngIf="!email.valid && email.touched">דוא"ל לא תקין</span>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label class="control-label col-sm-3">תאריך לידה
+
+                                                </label>
+                                                <div class="col-xs-8">
+                                                        <div class="input-group">
+                                                                <input type="date" required  ngModel name="date" class="date-time form-control pull-right col-xs-12 text-right">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-calendar"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label class="control-label col-sm-3"> *כתובת
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <div class="input-group">
+                                                                <input type="text" required  ngModel class="form-control text-right" name="address" id="mem_name" placeholder="הזן את הכתובת" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-road"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="control-label col-sm-3">טלפונים
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9 ">
+                                                        <div class="input-group">
+                                                                <input  type="text" class="form-control text-right" required  ngModel name="phonenum" id="PhoneNumber" placeholder="טלפון נייד" value="">
+                                                                <input type="text" class="form-control text-right" required  ngModel name="homenum" id="HomeNumber" placeholder="טלפון נייח" value="">
+                                                                <input type="text" class="form-control text-right" ngModel name="extranum" id="ExtraNumber" placeholder="טלפון נוסף" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-phone"></i>
+                                                                </span>
+
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group" dir="ltr">
+                                                <label class="control-label col-sm-3"> *עבודה
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <div class="input-group">
+                                                                <input type="text" required  ngModel class="form-control text-right" name="job" id="job" placeholder="הזן את העבודה " value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-briefcase"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group" dir="ltr">
+                                                <label class="control-label col-sm-3"> *סוג התנדבות
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+
+                                                        <input type="text" required  ngModel class="form-control text-right" name="type" id="type" placeholder="הזן את סוג ההתנדבות" value="">
+
+                                                </div>
+                                        </div>
 
 
-<div class="Days">
-                <label for="Days"><b>ימים הוא יכול להתנדב: </b></label>
-<div class="btn-group mr-4" data-toggle="buttons">
 
-        <label class="btn btn-primary  form-check-label">
-            <input type="checkbox" class="form-check-input"  autocomplete="off" #sunday> ראשון
-        </label>
-    
-        <label class="btn btn-primary form-check-label">
-            <input type="checkbox" class="form-check-input" autocomplete="off" #monday> שני
-        </label>
-    
-        <label class="btn btn-primary form-check-label">
-            <input type="checkbox" class="form-check-input" autocomplete="off" #tuesday> שלישי
-        </label>
-        <label class="btn btn-primary form-check-label">
-                <input type="checkbox" class="form-check-input" autocomplete="off" #wednesday> רביעי
-            </label>
-            <label class="btn btn-primary form-check-label">
-                <input type="checkbox" class="form-check-input" autocomplete="off" #thursday> חמישי
-            </label>
-            <label class="btn btn-primary form-check-label">
-                <input type="checkbox" class="form-check-input" autocomplete="off" #friday> שישי
-            </label>
-    
-    </div>
-</div>
-    <!--Checkbox butons-->
-                <br>
-                <br>    
-        
-       
 
-        <div class="clearfix">
-                <button type="button" class="btn btn-primary" (click)='onclick(Name.value,familyname.value,
-                ID.value,address.value,male.checked,date.value,
-                mail.value , tel.value,tel1.value,
-                tel2.value, vol.value,career.value,car.checked,incar.checked,sunday.checked,
-                monday.checked,tuesday.checked,wednesday.checked,thursday.checked,friday.checked)'>שמור</button>
-        </div>  
-</div>
- 
-    
+
+
+
+
+
+                                        <!-- <div class="form-group">
+                                                <label class="control-label col-sm-3">תמונה
+                                                        <br>
+
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <div class="input-group">
+
+                                                                <input type="file" ngModel name="file_nm" id="file_nm" class="form-control upload " placeholder="" aria-describedby="file_upload">
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-picture"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div> -->
+
+                                        <div class="form-group" >
+                                                        <label class="control-label col-sm-3"> *ימים הוא יכול להתנדב
+                                                                        <span class="text-danger"></span>
+                                                                </label>
+                                        <div class="col-md-8 col-sm-9" data-toggle="buttons">
+
+                                                        <label class="btn btn-primary  form-check-label">
+                                                                        <input type="checkbox"  ngModel name="saturday"  class="form-check-input"  autocomplete="off" #saturday> שבת
+                                                                    </label>
+                                        
+                                                <label class="btn btn-primary  form-check-label">
+                                                    <input type="checkbox" class="form-check-input"  ngModel name="sunday"autocomplete="off" #sunday> ראשון
+                                                </label>
+                                            
+                                                <label class="btn btn-primary form-check-label">
+                                                    <input type="checkbox" class="form-check-input" ngModel name="monday" autocomplete="off" #monday> שני
+                                                </label>
+                                            
+                                                <label class="btn btn-primary form-check-label">
+                                                    <input type="checkbox" class="form-check-input" ngModel name="tuesday" autocomplete="off" #tuesday> שלישי
+                                                </label>
+                                                <label class="btn btn-primary form-check-label">
+                                                        <input type="checkbox" class="form-check-input" ngModel name="wednesday" autocomplete="off" #wednesday> רביעי
+                                                    </label>
+                                                    <label class="btn btn-primary form-check-label">
+                                                        <input type="checkbox" class="form-check-input" ngModel name="thursday" autocomplete="off" #thursday> חמישי
+                                                    </label>
+                                                    <label class="btn btn-primary form-check-label">
+                                                        <input type="checkbox" class="form-check-input" ngModel name="friday" autocomplete="off" #friday> שישי
+                                                    </label>
+                                            
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" dir="ltr">
+                                                <label class="control-label col-sm-3">*ברושתו רכב
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <label>
+                                                                <input name="type" type="radio" #car value="yes" checked> כן </label>
+
+                                                        <label>
+                                                                <input name="type" type="radio" value="no"> לא </label>
+                                                </div>
+                                        </div>
+                                        <div class="form-group" dir="ltr">
+                                                <label class="control-label col-sm-3">*האם הוא מכניס חיות ברכב
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <label>
+                                                                <input name="incar" type="radio" #incar value="yes" checked> כן </label>
+
+                                                        <label>
+                                                                <input name="incar" type="radio" value="no"> לא </label>
+                                                </div>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                                <div class="col-xs-offset-3 col-xs-10">
+                                                        <input  name="Submit"(click)="days(saturday.checked,sunday.checked,monday.checked,tuesday.checked,wednesday.checked,thursday.checked,friday.checked,car.checked,incar.checked)" [disabled]="!f.valid" type="submit" value="שמור" class="btn btn-primary">
+                                                </div>
+                                               
+                                        </div>
