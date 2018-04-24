@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventModel } from './event.model';
-import { VolunteerModel } from '../volunteer/volunteer.model';
+import {VolunteerModel } from '../volunteer/volunteer.model';
 import { empty } from 'rxjs/Observer';
 
 @Injectable()
@@ -30,3 +30,4 @@ export class EventService {
   }
 
 }
+

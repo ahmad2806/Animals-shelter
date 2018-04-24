@@ -1,5 +1,5 @@
 <div class="container ">
-    <app-header ></app-header>
+   
 
     
   <br>
@@ -10,7 +10,7 @@
     <a class="nav-link" (click)="add()">הוספת מתנדבים</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" >רשימת האירועים</a>
+    <a class="nav-link" (click)="events()">רשימת האירועים</a>
   </li>
   
   <li class="nav-item">
@@ -23,6 +23,7 @@
 
 <app-create-vol *ngIf="addVol"></app-create-vol>
 <app-vol-list *ngIf="VolList"></app-vol-list>
+<app-event *ngIf="eventList"></app-event>
 
 
 

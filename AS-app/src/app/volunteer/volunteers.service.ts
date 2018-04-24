@@ -55,7 +55,7 @@ export class VolunteersService {
     return this.volunteers.slice;
   }
   
-   public add(vol:volunteer){
+   public add(vol:VolunteerModel){
     this.volunteers.push(vol);
    }
 

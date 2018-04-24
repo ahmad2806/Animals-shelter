@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppboolService } from '../appbool.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   clicked='';
   @Output() Loginform=true;
-  constructor(private router: Router) { }
+  constructor(private router: Router,private app:AppboolService) { }
 
   ngOnInit() {
   }
@@ -29,7 +30,9 @@ export class LoginComponent implements OnInit {
   onFormSubmit(userForm){
     if(userForm.value.username=="m" && userForm.value.password=="m")
     {
-      this.router.navigate(["/volenteer"]);
+
+      this.router.navigate(["/main"]);
+      this.app.logged=true;
     }
     else{
       alert("אחד או יותר מהנתונים שגויים");

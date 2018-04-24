@@ -1,4 +1,4 @@
-import { VolunteerModel } from "../volunteer/volunteer.model";
+import {  VolunteerModel } from "../volunteer/volunteer.model";
 
 export class EventModel{
     constructor(public name: string, public type: string,

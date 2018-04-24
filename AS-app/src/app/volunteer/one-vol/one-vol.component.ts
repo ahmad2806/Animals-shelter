@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { volunteer } from '../volunteer.model';
+import { VolunteerModel} from '../volunteer.model';
+import { VolunteerComponent } from '../volunteer.component';
 
 @Component({
   selector: 'app-one-vol',
@@ -7,7 +8,7 @@ import { volunteer } from '../volunteer.model';
   styleUrls: ['./one-vol.component.css']
 })
 export class OneVolComponent implements OnInit {
- @Input() vol:volunteer
+ @Input() vol:VolunteerComponent;
   constructor() { }
 
   ngOnInit() {

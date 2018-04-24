@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { UserService } from './users/user.service';
 import {Routes, RouterModule} from '@angular/router'
+import { AppboolService } from './appbool.service';
+import { VolunteersService } from './volunteer/volunteers.service';
 
 
 
@@ -21,10 +23,14 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { OneVolComponent } from './volunteer/one-vol/one-vol.component';
-import { VolunteerServiceService } from './volunteer/volunteer-service.service';
+import { EventService } from './event/event.service';
+import { FilterPipe } from './event/filter.pipe';
 const appRoutes:Routes=[
   {path:'volenteer',component:VolunteerComponent},
   {path:'',component:LoginComponent},
+  {path:'users',component:UsersComponent},
+  {path:'main',component:DashBoardComponent},
+  {path:'volenteer-events',component:EventComponent}
   
 ];
 
@@ -45,15 +51,18 @@ const appRoutes:Routes=[
     UsersListComponent,
     EditUserComponent,
     OneVolComponent,
-    AddUserComponent
-  ],
+    AddUserComponent,
+    FilterPipe
+
+    ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule
-  ],
+    ],
   providers: [UserService,
-    VolunteerServiceService],
+    VolunteersService,
+  AppboolService,EventService],
   bootstrap: [AppComponent]
 
   

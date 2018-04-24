@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { volunteer } from '../volunteer.model';
-import { VolunteerServiceService } from '../volunteer-service.service';
+import { VolunteerModel } from '../volunteer.model';
+
+import { VolunteersService } from '../volunteers.service';
 
 @Component({
   selector: 'app-create-vol',
@@ -8,12 +9,12 @@ import { VolunteerServiceService } from '../volunteer-service.service';
   styleUrls: ['./create-vol.component.css']
 })
 export class CreateVolComponent implements OnInit {
-private vol:volunteer;
+private vol:VolunteerModel;
 private gender;
 private car;
 private incar;
 
-  constructor(public volservice:VolunteerServiceService) { }
+  constructor(public volservice:VolunteersService) { }
 
   ngOnInit() {
   }
@@ -38,7 +39,7 @@ private incar;
        }else{
         this.incar="no";
        }
-      this.vol=new volunteer(Name,familyname,ID,address,this.gender,date,mail,tel,tel1,tel2,type,career,this.car,this.incar,!sunday,!monday,!tuesday,!wednesday,!thursday,!friday);
+      // this.vol=new VolunteerModel(Name,familyname,ID,address,this.gender,date,mail,tel,tel1,tel2,type,career,this.car,this.incar,!sunday,!monday,!tuesday,!wednesday,!thursday,!friday);
    this.volservice.add(this.vol);
 
   }

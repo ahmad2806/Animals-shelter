@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { VolunteerModel } from '../volunteer/volunteer.model';
-import { VolunteersService } from '../volunteer/volunteers.service';
 import { EventService } from './event.service';
 import { EventModel } from './event.model';
+import { VolunteersService } from '../volunteer/volunteers.service';
 
 @Component({
   selector: 'app-event',

@@ -8,18 +8,27 @@ import { Component, OnInit } from '@angular/core';
 export class VolunteerComponent implements OnInit {
 addVol=false;
 VolList=true;
+eventList=false;
   constructor() { }
 
   ngOnInit() {
   }
 
   add(){
-   this.addVol=true;
+   this.addVol=!this.addVol;
    this.VolList=false;
+   this.eventList=false;
   }
   list(){
     this.addVol=false;
-    this.VolList=true;
+    this.VolList=!this.VolList;
+    this.eventList=false;
   }
+  events(){
+    this.addVol=false;
+    this.VolList=false;
+    this.eventList=!this.VolList;
+  }
+
 
 }
