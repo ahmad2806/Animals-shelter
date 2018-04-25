@@ -20,7 +20,6 @@ import { CreateVolComponent } from './volunteer/create-vol/create-vol.component'
 import { VolListComponent } from './volunteer/vol-list/vol-list.component';
 import { VolNavbarComponent } from './volunteer/vol-navbar/vol-navbar.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
-import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { OneVolComponent } from './volunteer/one-vol/one-vol.component';
 import { EventService } from './event/event.service';
@@ -49,7 +48,6 @@ const appRoutes:Routes=[
     VolListComponent,
     VolNavbarComponent,
     UsersListComponent,
-    EditUserComponent,
     OneVolComponent,
     AddUserComponent,
     FilterPipe

@@ -11,8 +11,7 @@ export class UsersComponent implements OnInit {
   constructor(private UserService:UserService ) { }
     
   ngOnInit() {
+    
   }
-  onCreate(){
-    this.UserService.isCreating=!this.UserService.isCreating;
-  }
+  
 }

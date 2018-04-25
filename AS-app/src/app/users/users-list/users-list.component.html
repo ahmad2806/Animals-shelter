@@ -1,36 +1,114 @@
-<div class="row">
-  <div class="col-sm-4" dir="rtl" id="table">
+<br>
+<br>
+<div class="container" dir="rtl">
+<div class="row" dir="rtl">
+   <div class="col-sm-9" id="cont" dir="rtl">
       <table class="table table-hover">
-        <thead >
-          <tr dir="rtl"> 
-            <th scope="col">שם</th>
-            <th scope="col">טלפון</th>
-            <th scope="col">אי-מייל</th>
-            <th scope="col">שם משתמש</th>
-            <th scope="col">סיסמה</th>
-            <th scope="col">למחיקה</th>
-            <th scope="col">לעדכון</th>
-
-          </tr>
-        </thead>
-        <tbody dir="rtl">
-          <tr *ngFor="let us of userService.usersList" dir="rtl">
-            <td>{{ us.name }} </td>
-            <td>{{ us.phone }} </td>
-            <td>{{ us.email }} </td>
-            <td>{{ us.username }} </td>
-            <td>{{ us.password }} </td>
-            <!-- <td>{{us.VolPer}}</td>
-            <td>{{us.DonorPer}}</td>
-            <td>{{us.AdoptPer}}</td> -->
-           <td>
-            <button type="button" class="btn btn-danger" (click)="onRemove(us)">מחיקה</button>
-           </td>
-            <td>
-            <button type="button" class="btn btn-info" (click)="onEdit(us)">עדכן</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>  
-  </div>
+         <thead>
+            <tr dir="rtl">
+               <th scope="col">שם</th>
+               <th scope="col">טלפון</th>
+               <th scope="col">אי-מייל</th>
+               <th scope="col">שם משתמש</th>
+               <th scope="col">סיסמה</th>
+               <th scope="col">למחיקה</th>
+               <th scope="col">לעדכון</th>
+            </tr>
+         </thead>
+         <tbody dir="rtl">
+            <tr *ngFor="let us of userService.usersList" dir="rtl">
+               <td>{{ us.name }} </td>
+               <td>{{ us.phone }} </td>
+               <td>{{ us.email }} </td>
+               <td>{{ us.username }} </td>
+               <td>{{ us.password }} </td>
+               <!-- <td>{{us.VolPer}}</td>
+                  <td>{{us.DonorPer}}</td>
+                  <td>{{us.AdoptPer}}</td> -->
+               <td>
+                  <button type="button" class="btn btn-danger" (click)="onRemove(us)">מחיקה</button>
+               </td>
+               <td>
+                  <button type="button" class="btn btn-info" (click)="onEdit(us)">עדכן</button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div class="col-sm-3" dir="rtl">
+      <button type="button" class="btn btn-info" (click)="onCreate()">הוספת משתמש חדש</button>
+   </div>
 </div>
+<hr>
+<div *ngIf="userService.isEditing" class="row" dir="rtl">
+   <div class="col-sm-9" id="cont1" dir="rtl">
+      <div class="col-xs-12 text-center h1 btn-warning">עדכון משתמש</div>
+      <div class="row"  dir="rtl">
+         <div class="col-sm-5" dir="rtl">
+            <form >
+               <div>
+                  <label class="radiolabel" for="volpermission"><b> הרשאה למתדבים  </b></label>
+                  <div class="inpudiv"> 
+                     <input class="radioinp" type="radio" name="name1"  value="כן" #Vper required> כן 
+                     <input class="radioinp" type="radio" name="name1" value="לא" required> לא 
+                  </div>
+                  <br>
+                  <br>
+                  <label class="radiolabel" for="volpermission"><b> הרשאה לתורמים  </b></label>
+                  <div class="inpudiv"> 
+                     <input class="radioinp" type="radio" name="name2"  value="כן" #Dper required> כן 
+                     <input class="radioinp" type="radio" name="name2" value="לא" required> לא 
+                  </div>
+                  <br>
+                  <br>
+                  <label class="radiolabel" for="volpermission"><b> הרשאה למאומצים  </b></label>
+                  <div class="inpudiv"> 
+                     <input class="radioinp" type="radio" name="name3"  value="כן" #Aper required> כן 
+                     <input class="radioinp" type="radio" name="name3" value="לא" required> לא 
+                  </div>
+                  <br>
+                  <br>
+                  <label class="radiolabel" for="freeze"><b>להקפיא חשבון</b></label>
+                  <div class="inpudiv"> 
+                     <input class="radioinp" type="radio" name="name4"  value="כן" #Freeze required> כן 
+                     <input class="radioinp" type="radio" name="name4" value="לא" required> לא 
+                  </div>
+                  <br>
+                  <br>
+               </div>
+               <br> 
+               <br>
+            </form>
+         </div>
+         <div class="col-sm-6">
+            <form #f="ngForm">
+               <table class="table table-sm" dir="rtl">
+                  <tr>
+                     <td> <label for="name" id="label">שם</label></td>
+                     <td> <input type="text" class="form-control" id="name" [ngModel]="EditingUser.name" [ngModelOptions]="{standalone: true}"></td>
+                  </tr>
+                  <tr>
+                     <td> <label for="phone" id="label">תלפון</label></td>
+                     <td><input type="tel" class="form-control" id="phone" [ngModel]="EditingUser.phone" [ngModelOptions]="{standalone: true}"></td>
+                  </tr>
+                  <tr>
+                     <td> <label for="email" id="label">אי-מייל</label></td>
+                     <td><input type="text" class="form-control" id="email" [ngModel]="EditingUser.email" [ngModelOptions]="{standalone: true}"></td>
+                  </tr>
+                  <tr>
+                     <td> <label for="username" id="label">שם משתמש</label></td>
+                     <td><input type="text" class="form-control" id="username" [ngModel]="EditingUser.username" [ngModelOptions]="{standalone: true}"></td>
+                  </tr>
+                  <tr>
+                     <td> <label for="password" id="label">סיסמה</label></td>
+                     <td><input type="password" class="form-control" id="password" [ngModel]="EditingUser.password" [ngModelOptions]="{standalone: true}"></td>
+                  </tr>
+               </table>
+               <br> 
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<br>
+<br>

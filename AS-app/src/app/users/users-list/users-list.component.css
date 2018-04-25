@@ -3,5 +3,31 @@
     float: right;
 }
 button{
-    width:100%;
+    width:80%;
 }
+th,td{
+    text-align: center;
+}
+#cont{
+    border-style: solid; 
+    height:40vh;
+    overflow-y: scroll; 
+ }
+ #cont1{
+     border-style: solid; 
+     height:50vh;  
+ }
+
+th,td{
+    text-align: center;
+}
+#label{
+    width:50%;
+}
+.radiolabel{
+    width: auto;
+    float: right;
+    margin-left: 2%;
+}
+
+ 
