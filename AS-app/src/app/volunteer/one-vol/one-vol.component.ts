@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { VolunteerModel} from '../volunteer.model';
 import { VolunteerComponent } from '../volunteer.component';
 
+
 @Component({
   selector: 'app-one-vol',
   templateUrl: './one-vol.component.html',
@@ -10,6 +11,7 @@ import { VolunteerComponent } from '../volunteer.component';
 export class OneVolComponent implements OnInit {
  @Input() vol:VolunteerComponent;
 s=false;
+
   constructor() { }
 
   ngOnInit() {
