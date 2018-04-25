@@ -1,6 +1,6 @@
 <form #f="ngForm">
     <div class="container">
-        <p class="par">בבקשה למלא את הטופס הבא</p>
+            <div class="col-xs-12 text-center h1 btn-primary">הוספת משתמש</div>
         <hr>
         <label for="fName"><b> שם מלא </b></label>
         <input class="inp" type="text" placeholder="הזן שם מלא"  name="name" [(ngModel)]="name" required>
@@ -9,7 +9,7 @@
         <input class="inp" type="text" placeholder="הזן אי-מייל" name="email" [(ngModel)]="email" >
         
             <label for="phones"><b>תלפון נייד </b></label>
-            <input class="inp" type="number" placeholder="הזן טלפון נייד" name="Tel" [(ngModel)]="tel" required>
+            <input class="inp" type="tel" placeholder="הזן טלפון נייד" name="Tel" [(ngModel)]="tel" required>
        
         <label for="username"><b> שם משתמש</b></label>
         <input class="inp" type="text" placeholder=" הזן שם משתמש" name="username" [(ngModel)]="username"  required>
@@ -48,8 +48,13 @@
             <button type="button" class="btn btn-primary"
             [disabled]="!f.valid"
             (click)="onSumbit(Vper.checked,Dper.checked,Aper.checked)">שמור </button>
-            <button type="reset" class="btn btn-warning">איפוס</button>
-            <button type="button" class="btn btn-danger" (click)="onBack()">חזור</button>
+            <button type="reset" 
+            class="btn btn-warning">איפוס
+            </button>
+            <button type="button" 
+            class="btn btn-danger" 
+            (click)="onBack()">חזור
+            </button>
         </div>
     </div>
 </form>

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-import { EditUserComponent } from '../edit-user/edit-user.component';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -10,11 +10,15 @@ import { EditUserComponent } from '../edit-user/edit-user.component';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-  public users:User[];
+  @ViewChild('f') newUserForm: NgForm;
+  private EditingUser:User;
   constructor(private userService:UserService) {
   }
   ngOnInit() {
     
+  }
+  onCreate(){
+    this.userService.isCreating=!this.userService.isCreating;
   }
   onRemove(removeUser:User){
     if(removeUser.username=="admin"){
@@ -25,15 +29,8 @@ export class UsersListComponent implements OnInit {
     }
   }
   onEdit(editUser:User){
-    if(this.userService.isEditing==true){
-      this.userService.isEditing=false;
-    }
-    if(editUser.username=="admin"){
-      alert("the admin cannot be edited");
-    }else{
-      let index=this.userService.UsersList.indexOf(editUser);
-      this.userService.userToEdit=index;
-      this.userService.isEditing=true;
-    }
+   this.userService.isEditing=true;
+   let temp=editUser;
+   this.EditingUser=editUser;
   }
 }
