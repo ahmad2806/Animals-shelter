@@ -25,10 +25,18 @@ import { OneVolComponent } from './volunteer/one-vol/one-vol.component';
 import { EventService } from './event/event.service';
 import { FilterPipe } from './event/filter.pipe';
 const appRoutes:Routes=[
-  {path:'volenteer',component:VolunteerComponent},
+  {path:'Header',component:HeaderComponent ,children:[
+      {path:'volenteer',component:VolunteerComponent,children:[
+      {path:'addVolunteer',component:CreateVolComponent},
+      {path:'VolunteerEvents',component:EventComponent},
+      {path:'VolunteersList',component:VolListComponent}
+    ]},
+    {path:'users',component:UsersComponent},
+    {path:'main',component:DashBoardComponent}
+]},
+  
   {path:'',component:LoginComponent},
-  {path:'users',component:UsersComponent},
-  {path:'main',component:DashBoardComponent},
+
   {path:'volenteer-events',component:EventComponent}
   
 ];

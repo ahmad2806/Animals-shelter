@@ -41,6 +41,8 @@ private oneid=false;
   ,this.week,this.car,this.incar,form.value.job);
 
   this.volservice.add(this.volunteer);
+  this.router.navigate(["/Header/volenteer/VolunteersList"]);
+
   // console.log(form.value.date);
 }else{
   this.oneid=true;
