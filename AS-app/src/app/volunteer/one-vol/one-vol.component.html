@@ -1,7 +1,7 @@
 <div class="panel panel-default">
-  <div class="panel-heading" >
-    <h4 class="panel-title" >
-      <a data-toggle="collapse"  data-parent="#accordion" href="#{{vol.id}}">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#{{vol.id}}">
         <label class="lab" for="Name">{{vol.name}}</label>
         <label class="lab" for="ID"> {{vol.id}}</label>
         <label class="lab" for="Mail">{{vol.email}}</label>
@@ -20,7 +20,7 @@
                 <tbody>
                   <!-- <tr> -->
 
-                    <!-- <td>
+                  <!-- <td>
                       <div class="im">
                         <div class="span2">
                           <img src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm" class="img-circle">
@@ -28,96 +28,96 @@
                         <h3>{{vol.name}}</h3>
                       </div>
                     </td> -->
-                    <td>
+                  <td>
 
-                      <tr>
-                        <th scope="row">שם:</th>
-                        <th>{{vol.name}}</th>
-                      </tr>
-                      <tr>
-                        <th scope="row">ת"ז:</th>
-                        <th>{{vol.id}}</th>
+                    <tr>
+                      <th scope="row">שם:</th>
+                      <th>{{vol.name}}</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">ת"ז:</th>
+                      <th>{{vol.id}}</th>
 
-                      </tr>
+                    </tr>
 
-                    
-                      <!-- <tr>
+
+                    <!-- <tr>
                                                     <th scope="row">מין:</th>
                                                     <th>{{vol.gender}}</th>
                                                   </tr> -->
-                      <tr>
-                        <th scope="row">תאריך לידה:</th>
-                        <th>{{ vol.date }}</th>
-                      </tr>
-                      <tr>
-                        <th scope="row"> טלפון נייח:</th>
-                        <th>{{vol.homePhone}}</th>
-                      </tr>
-                      <tr>
-                        <th scope="row"> טלפון נייד:</th>
-                        <th>{{vol.telePhone}}</th>
-                      </tr>
+                    <tr>
+                      <th scope="row">תאריך לידה:</th>
+                      <th>{{ vol.date }}</th>
+                    </tr>
+                    <tr>
+                      <th scope="row"> טלפון נייח:</th>
+                      <th>{{vol.homePhone}}</th>
+                    </tr>
+                    <tr>
+                      <th scope="row"> טלפון נייד:</th>
+                      <th>{{vol.telePhone}}</th>
+                    </tr>
 
-                      <tr>
-                        <th scope="row"> טלפון נוסף:</th>
-                        <th>{{vol.phone}}</th>
-                      </tr>
-                   
+                    <tr>
+                      <th scope="row"> טלפון נוסף:</th>
+                      <th>{{vol.phone}}</th>
+                    </tr>
 
-                    </td>
-                    <td>
-                        <tr>
-                            <th scope="row">דוא"ל:</th>
-                            <th>{{vol.email}}</th>
-                          </tr>
-                          <tr>
-                            <th scope="row">כתובת:</th>
-                            <th>{{vol.address}}</th>
-                          </tr>
-                        <tr>
-                            <th scope="row">סוג התנדבות :</th>
-                            <th>{{vol.volunteerType}}</th>
-                          </tr>
-                          <tr>
-                            <th scope="row">עבודה:</th>
-                            <th>{{vol.job}}</th>
-                          </tr>
-                          <tr>
-                            <th scope="row">ברשותו רכב:</th>
-                            <th #carr>
-                              <div *ngIf="vol.hasCar;else nocar">yes</div>
-                              <ng-template #nocar>no</ng-template>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th scope="row">האם הוא מעלה חיות ברכב:</th>
-                            <th #carr>
-                                <div *ngIf="vol.agreeToLeft;else notagree">yes</div>
-                                <ng-template #notagree>no</ng-template>
-                              
 
-                            </th>
-                          </tr>
-                    </td>
-                    <td>
-                      <tr>
-                        <th scope="row">
-                          <tr class="week">ימים הוא יכול להתנדב</tr>
-                          <tr *ngIf="vol.freeDays.sunday" class="center">ראשון</tr>
-                          <tr *ngIf="vol.freeDays.monday" class="center">שני</tr>
-                          <tr *ngIf="vol.freeDays.tuesday" class="center">שלישי</tr>
-                          <tr *ngIf="vol.freeDays.wednesday" class="center">רביעי</tr>
-                          <tr *ngIf="vol.freeDays.thursday" class="center">חמישי</tr>
-                          <tr *ngIf="vol.freeDays.friday" class="center">שישי</tr>
-                          <tr *ngIf="vol.freeDays.saturday" class="center">שבת</tr>
-                         
-                        
-                          <!-- <!-- <tr *ngIf="[vol.sunday]">ראשון</tr>
+                  </td>
+                  <td>
+                    <tr>
+                      <th scope="row">דוא"ל:</th>
+                      <th>{{vol.email}}</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">כתובת:</th>
+                      <th>{{vol.address}}</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">סוג התנדבות :</th>
+                      <th>{{vol.volunteerType}}</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">עבודה:</th>
+                      <th>{{vol.job}}</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">ברשותו רכב:</th>
+                      <th #carr>
+                        <div *ngIf="vol.hasCar;else nocar">yes</div>
+                        <ng-template #nocar>no</ng-template>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="row">האם הוא מעלה חיות ברכב:</th>
+                      <th #carr>
+                        <div *ngIf="vol.agreeToLeft;else notagree">yes</div>
+                        <ng-template #notagree>no</ng-template>
+
+
+                      </th>
+                    </tr>
+                  </td>
+                  <td>
+                    <tr>
+                      <th scope="row">
+                        <tr class="week">ימים הוא יכול להתנדב</tr>
+                        <tr *ngIf="vol.freeDays.sunday" class="center">ראשון</tr>
+                        <tr *ngIf="vol.freeDays.monday" class="center">שני</tr>
+                        <tr *ngIf="vol.freeDays.tuesday" class="center">שלישי</tr>
+                        <tr *ngIf="vol.freeDays.wednesday" class="center">רביעי</tr>
+                        <tr *ngIf="vol.freeDays.thursday" class="center">חמישי</tr>
+                        <tr *ngIf="vol.freeDays.friday" class="center">שישי</tr>
+                        <tr *ngIf="vol.freeDays.saturday" class="center">שבת</tr>
+
+
+                        <!-- <!-- <tr *ngIf="[vol.sunday]">ראשון</tr>
                                                 <tr *ngIf="[(vol.monday)]">ראשון</tr> -->
-                        </th>
+                      </th>
 
-                      </tr>
-                    </td>
+                    </tr>
+                  </td>
 
 
 
