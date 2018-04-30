@@ -11,12 +11,31 @@
         <div class="panel-group" id="accordion">
 
 
-            <span *ngFor="let item of volservice.volunteers">
+            <span *ngFor="let item of volunteersToView">
 
                 <app-one-vol class="volunteer" [vol]="item"></app-one-vol>
             </span>
-
-
+           
+           
+            <p class="text-muted pull-left">page: {{CurrentPageNumber+1}}</p>
         </div>
+        
     </div>
+
+</div>
+
+<div class="container">
+<ul class="pager">
+      
+        <li  [class]="pdisabled" (click)="ChangePage(previousPage)"><a>Previous</a></li>
+       
+        <li [class]="ndisabled"  (click)="ChangePage(nextPage)"><a>Next</a></li>
+     
+<ul class="pagination" >
+        <li *ngFor="let item of Pages;index as i" (click)="ChangePage(i)"><a>{{Pages[i]}}</a></li>
+
+    
+      </ul>
+
+    </ul>
 </div>

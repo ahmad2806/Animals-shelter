@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     if(userForm.value.username=="m" && userForm.value.password=="m")
     {
 
-      this.router.navigate(["/Header/volenteer"]);
+      this.router.navigate(["/Header/main"]);
       this.app.logged=true;
     }
     else{
