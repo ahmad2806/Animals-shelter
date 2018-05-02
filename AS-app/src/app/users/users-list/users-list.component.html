@@ -1,196 +1,148 @@
 <br>
 <div class="container" dir="rtl">
-   <div class="row" dir="rtl">
-      <div class="col-sm-9" id="cont" dir="rtl">
-         <div class="table-responsive">
-            <table class="table table-sm">
-               <thead>
-                  <tr dir="rtl">
-                     <th scope="col">שם</th>
-                     <th scope="col">טלפון</th>
-                     <th scope="col">אי-מייל</th>
-                     <th scope="col">שם משתמש</th>
-                     <th scope="col">סיסמה</th>
-                     <th scope="col">פעולות</th>
-                     <!-- <th scope="col">לעדכון</th> -->
-                  </tr>
-               </thead>
-               <tbody dir="rtl">
-                  <tr *ngFor="let us of userService.usersList" dir="rtl">
-                     <td>{{ us.name }} </td>
-                     <td>{{ us.phone }} </td>
-                     <td>{{ us.email }} </td>
-                     <td>{{ us.username }} </td>
-                     <td>{{ us.password }} </td>
-                     <!-- <td>{{ us.VolPer }} </td>
+    <div class="row" dir="rtl">
+        <div class="col-sm-9" id="cont" dir="rtl">
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                        <tr dir="rtl">
+                            <th scope="col">שם</th>
+                            <th scope="col">טלפון</th>
+                            <th scope="col">אי-מייל</th>
+                            <th scope="col">שם משתמש</th>
+                            <th scope="col">סיסמה</th>
+                            <th scope="col">פעולות</th>
+                            <!-- <th scope="col">לעדכון</th> -->
+                        </tr>
+                    </thead>
+                    <tbody dir="rtl">
+                        <tr *ngFor="let us of userService.usersList" dir="rtl">
+                            <td>{{ us.name }} </td>
+                            <td>{{ us.phone }} </td>
+                            <td>{{ us.email }} </td>
+                            <td>{{ us.username }} </td>
+                            <td>{{ us.password }} </td>
+                            <!-- <td>{{ us.VolPer }} </td>
                         <td>{{ us.AdoptPer }} </td>
                         <td>{{ us.DonorPer }} </td>
                         <td>{{ us.Freeze }} </td> -->
-                     <td>
-                        <button type="button" class="btn btn-danger" (click)="onRemove(us)">מחיקה</button>
-                        <button type="button" class="btn btn-info" (click)="onEdit(us)">עדכן</button>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-         </div>
-      </div>
-      <div class="col-sm-3" dir="ltr">
-         <button type="button" class="btn btn-info" (click)="onCreate()"> הוספת משתמש חדש</button>
-      </div>
-   </div>
-<<<<<<< HEAD
-</div>
-<hr>
-<div *ngIf="userService.isEditing" class="row" dir="rtl">
-   <div class="col-xs-9" id="cont1" dir="rtl">
-      <div class="col-xs-12 text-center h1 btn-warning">עדכון משתמש</div>
-      <div class="row"  dir="rtl">
-         <div class="col-xs-5" dir="rtl">
-            <form >
-               <div>
-                  <label class="radiolabel" for="volpermission"><b> הרשאה למתדבים  </b></label>
-                  <div class="inpudiv"> 
-                     <input class="radioinp" type="radio" name="name1"  value="כן" #Vper required> כן 
-                     <input class="radioinp" type="radio" name="name1" value="לא" required> לא 
-                  </div>
-                  <br>
-                  <br>
-                  <label class="radiolabel" for="volpermission"><b> הרשאה לתורמים  </b></label>
-                  <div class="inpudiv"> 
-                     <input class="radioinp" type="radio" name="name2"  value="כן" #Dper required> כן 
-                     <input class="radioinp" type="radio" name="name2" value="לא" required> לא 
-                  </div>
-                  <br>
-                  <br>
-                  <label class="radiolabel" for="volpermission"><b> הרשאה למאומצים  </b></label>
-                  <div class="inpudiv"> 
-                     <input class="radioinp" type="radio" name="name3"  value="כן" #Aper required> כן 
-                     <input class="radioinp" type="radio" name="name3" value="לא" required> לא 
-                  </div>
-                  <br>
-                  <br>
-                  <label class="radiolabel" for="freeze"><b>להקפיא חשבון</b></label>
-                  <div class="inpudiv"> 
-                     <input class="radioinp" type="radio" name="name4"  value="כן" #Freeze required> כן 
-                     <input class="radioinp" type="radio" name="name4" value="לא" required> לא 
-                  </div>
-                  <br>
-                  <br>
-               </div>
-               <br> 
-               <br>
+                            <td>
+                                <button type="button" class="btn btn-danger" (click)="onRemove(us)">מחיקה</button>
+                                <button type="button" class="btn btn-info" (click)="onEdit(us)">עדכן</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-3" dir="ltr">
+            <button type="button" class="btn btn-info" (click)="onCreate()"> הוספת משתמש חדש</button>
+        </div>
+    </div>
+    <hr>
+    <div *ngIf="userService.isEditing" class="row" dir="rtl">
+        <div class="col-sm-10" id="cont1" dir="rtl">
+            <div class="row">
+                <div class="col-sm-12 text-center h1 btn-warning">עדכון משתמש</div>
+            </div>
+            <form #f="ngForm" (ngSubmit)="onSumbit(f,Vper.checked,Dper.checked,Aper.checked,Freeze.checked)">
+                <div class="row" dir="rtl">
+                    <div class="col-sm-6" id="formdiv">
+                        <table class="table table-sm" dir="rtl">
+                            <tr>
+                                <td>
+                                    <label for="name" id="label">שם</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" ngModel name="name" [ngModel]="EditingUser.name" value="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="phone" id="label">תלפון</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control" ngModel name="phone" [ngModel]="EditingUser.phone" value="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="email" id="label">אי-מייל</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" ngModel name="email" [ngModel]="EditingUser.email" value="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="username" id="label">שם משתמש</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" ngModel name="username" [ngModel]="EditingUser.username" value="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="password" id="label">סיסמה</label>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" ngModel name="password" [ngModel]="EditingUser.password" value="">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                    </div>
+                    <div class="col-sm-6" id="radiodiv" dir="rtl">
+                        <label class="radiolabel" for="volpermission">
+                            <b> הרשאה למתדבים </b>
+                        </label>
+                        <div>
+                            <input type="radio" name="name1" value="כן" [checked]="EditingUser.VolPer" #Vper required> כן
+                            <input type="radio" name="name1" value="לא" [checked]="!EditingUser.VolPer" required> לא
+                        </div>
+                        <br>
+                        <label class="radiolabel" for="volpermission">
+                            <b> הרשאה לתורמים </b>
+                        </label>
+                        <div>
+                            <input type="radio" name="name2" value="כן" [checked]="EditingUser.DonorPer" #Dper required> כן
+                            <input type="radio" name="name2" value="לא" [checked]="!EditingUser.DonorPer" required> לא
+                        </div>
+                        <br>
+                        <label class="radiolabel" for="volpermission">
+                            <b> הרשאה למאומצים </b>
+                        </label>
+                        <div>
+                            <input type="radio" name="name3" value="כן" [checked]="EditingUser.AdoptPer" #Aper required> כן
+                            <input type="radio" name="name3" value="לא" [checked]="!EditingUser.AdoptPer" required> לא
+                        </div>
+                        <br>
+                        <label class="radiolabel" for="freeze">
+                            <b>להקפיא חשבון</b>
+                        </label>
+                        <div>
+                            <input type="radio" name="name4" value="כן" [checked]="EditingUser.Freeze" #Freeze required> כן
+                            <input type="radio" name="name4" value="לא" [checked]="!EditingUser.Freeze" required> לא
+                        </div>
+                        <br>
+                        <div>
+                            <input name="Submit" type="submit" value="שמור" class="btn btn-primary">
+                            <button type="button" class="btn btn-danger" (click)="onClose()">ביטול</button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
             </form>
-         </div>
-         <div class="col-xs-6">
-            <form #f="ngForm">
-=======
-   <hr>
-   <div *ngIf="userService.isEditing" class="row" dir="rtl">
-      <div class="col-sm-10" id="cont1" dir="rtl">
-         <div class="row">
-            <div class="col-sm-12 text-center h1 btn-warning">עדכון משתמש</div>
-         </div>
-         <form #f="ngForm" (ngSubmit)="onSumbit(f,Vper.checked,Dper.checked,Aper.checked,Freeze.checked)">
-         <div class="row" dir="rtl">
-            <div class="col-sm-6" id="formdiv">
->>>>>>> aeb0fa4c8bf8587f5dba27c61428521e49b34d47
-               <table class="table table-sm" dir="rtl">
-                  <tr>
-                     <td>
-                        <label for="name" id="label">שם</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="text" class="form-control" ngModel name="name" [ngModel]="EditingUser.name" value="">
-                        </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="phone" id="label">תלפון</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="tel" class="form-control" ngModel name="phone" [ngModel]="EditingUser.phone" value="">
-                        </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="email" id="label">אי-מייל</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="text" class="form-control" ngModel name="email" [ngModel]="EditingUser.email" value="">
-                        </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="username" id="label">שם משתמש</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="text" class="form-control" ngModel name="username" [ngModel]="EditingUser.username" value="">
-                        </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="password" id="label">סיסמה</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="password" class="form-control" ngModel name="password" [ngModel]="EditingUser.password" value="">
-                        </div>
-                     </td>
-                  </tr>
-               </table>
-               <br>
-            </div>
-            <div class="col-sm-6" id="radiodiv" dir="rtl">
-               <label class="radiolabel" for="volpermission">
-               <b> הרשאה למתדבים </b>
-               </label>
-               <div>
-                  <input type="radio" name="name1" value="כן" [checked]="EditingUser.VolPer" #Vper required> כן
-                  <input type="radio" name="name1" value="לא" [checked]="!EditingUser.VolPer" required> לא
-               </div>
-               <br>
-               <label class="radiolabel" for="volpermission">
-               <b> הרשאה לתורמים </b>
-               </label>
-               <div>
-                  <input type="radio" name="name2" value="כן" [checked]="EditingUser.DonorPer" #Dper required> כן
-                  <input type="radio" name="name2" value="לא" [checked]="!EditingUser.DonorPer" required> לא
-               </div>
-               <br>
-               <label class="radiolabel" for="volpermission">
-               <b> הרשאה למאומצים </b>
-               </label>
-               <div>
-                  <input type="radio" name="name3" value="כן" [checked]="EditingUser.AdoptPer" #Aper required> כן
-                  <input type="radio" name="name3" value="לא" [checked]="!EditingUser.AdoptPer" required> לא
-               </div>
-               <br>
-               <label class="radiolabel" for="freeze">
-               <b>להקפיא חשבון</b>
-               </label>
-               <div>
-                  <input type="radio" name="name4" value="כן" [checked]="EditingUser.Freeze" #Freeze required> כן
-                  <input type="radio" name="name4" value="לא" [checked]="!EditingUser.Freeze" required> לא
-               </div>
-               <br>
-               <div>
-                  <input name="Submit" type="submit" value="שמור" class="btn btn-primary">
-                  <button type="button" class="btn btn-danger" (click)="onClose()">ביטול</button>
-               </div>
-               <br>
-            </div>
-         </div>
-         </form>
-      </div>
-   </div>
+        </div>
 </div>
 <br>
