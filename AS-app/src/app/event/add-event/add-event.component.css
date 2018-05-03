@@ -1,0 +1,21 @@
+
+.customDiv{
+    margin-top: 10px;
+    width: 100%;
+    float: left;
+}
+.container{
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+.pre-scrollable{
+    max-height: 160px;
+}
+.btn-lg{
+    margin-top: 200
+}
+
+textarea {
+    resize: none;
+ }

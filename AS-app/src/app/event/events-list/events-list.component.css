@@ -1,0 +1,15 @@
+.row{
+cursor: pointer;
+}
+
+.font{
+    font-weight: bold;
+}
+.pre-scrollable{
+    max-height: 100px;
+}
+
+.no-border {
+    border: 0;
+    box-shadow: none;
+}
