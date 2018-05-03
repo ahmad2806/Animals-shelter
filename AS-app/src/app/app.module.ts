@@ -24,6 +24,7 @@ import { AddUserComponent } from './users/add-user/add-user.component';
 import { OneVolComponent } from './volunteer/one-vol/one-vol.component';
 import { EventService } from './event/event.service';
 import { FilterPipe } from './event/filter.pipe';
+import { DonorComponent } from './donor/donor.component';
 const appRoutes:Routes=[
   {path:'Header',component:HeaderComponent ,children:[
       {path:'volenteer',component:VolunteerComponent,children:[
@@ -58,7 +59,8 @@ const appRoutes:Routes=[
     UsersListComponent,
     OneVolComponent,
     AddUserComponent,
-    FilterPipe
+    FilterPipe,
+    DonorComponent
 
     ],
   imports: [

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from '../event/event.service';
 @Component({
   selector: 'app-dash-board',
   templateUrl: './dash-board.component.html',
@@ -6,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashBoardComponent implements OnInit {
 
-  constructor() { }
-  public OldEvents=135;
-  public EventsInProgress=60;
-  public DeletedEvents=15;
-  public CommingEvents;
+  constructor(private events: EventService) { }
+  public OldEvents=this.events.OldEvents.length;
+  public EventsInProgress=this.events.InProgressEvents.length;
+  public DeletedEvents=this.events.DeletedEvents.length;
+  public CommingEvents=this.events.commingSoonEvents.length;
   
   ngOnInit() {
   }

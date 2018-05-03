@@ -26,4 +26,7 @@ export class NavBarComponent implements OnInit {
   EventsonClick(){
     this.router.navigate(["/event"]);
   }
+  donoronClick(){
+    this.router.navigate(["/donor"]);
+  }
 }
