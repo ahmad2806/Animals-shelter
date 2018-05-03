@@ -22,7 +22,7 @@ export class UsersListComponent implements OnInit {
     this.userService.isCreating = !this.userService.isCreating;
   }
   onRemove(removeUser: User) {
-    if (removeUser.username == "admin" || (removeUser.VolPer==removeUser.AdoptPer==removeUser.DonorPer==true)) {
+    if (removeUser.username == "admin" && (removeUser.VolPer==removeUser.AdoptPer==removeUser.DonorPer==true)) {
       alert("the admin cannot be removed");
     } else {
       let index = this.userService.UsersList.indexOf(removeUser);
