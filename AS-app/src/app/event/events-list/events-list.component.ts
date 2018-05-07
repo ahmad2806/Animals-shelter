@@ -13,6 +13,7 @@ export class EventsListComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('dateInput') dateInputRef: ElementRef;
   @ViewChild('descriptionInput') desInputRef: ElementRef;
+  @ViewChild('closeAddExpenseModal') closeAddExpenseModal: ElementRef;
   i=0;
   // for edit modal
   name="";
@@ -24,11 +25,14 @@ export class EventsListComponent implements OnInit {
   relatedTo: VolunteerModel[] = [];
 
   private eventList:EventModel[] = [];
+  private eventListOnSearch:EventModel[] = [];
   private volunteersList:VolunteerModel[]=[];
   private relevantVolunteersToEvent:VolunteerModel[]=[];
 
   constructor(private volunteerService: VolunteersService, private eventService: EventService) {
+    // if()
     this.eventList=eventService.commingSoonEvents;
+    this.eventListOnSearch=eventService.commingSoonEvents;
     this.volunteersList=volunteerService.volunteers;
     console.log(this.eventList);
     
@@ -67,7 +71,7 @@ export class EventsListComponent implements OnInit {
   }
 
   arrayOfVolunteers(i){
-    console.log(i);
+    // console.log(i);
     
     this.i=i;
     this.name=this.eventList[i].name;
@@ -110,6 +114,7 @@ export class EventsListComponent implements OnInit {
       this.eventList[i].description=eventDescription;
       this.eventList[i].type=this.modelType;
       this.eventList[i].relativeTo=this.relatedTo;
+     
       
 
     
@@ -120,8 +125,41 @@ export class EventsListComponent implements OnInit {
     this.i=i;
   }
   removeEvent(){
-    console.log(this.i);
+    // console.log(this.i);
     this.eventList.splice(this.i,1);
   }
+
+  update(thisdate){
+    this.eventList=[];
+    if(thisdate.value==""){
+      this.eventList=this.eventListOnSearch;
+    }
+    else{
+    for(let i=0;i<this.eventListOnSearch.length;i++){
+      for(let j=0;j<10;j++){
+        if(this.eventListOnSearch[i].date==undefined)
+        break;
+        if(thisdate.value[j]!=this.eventListOnSearch[i].date[j] && thisdate.value[j]!='-')
+          break;
+        else if(j==9){
+          this.eventList.push(this.eventListOnSearch[i]);
+        }
+      }
+    }
+  }
+//     for(let i=0;i<this.eventList[0].date.length;i++){
+//       console.log(this.eventList[0].date[i]);
+
+//     }
+//     console.log("asdasdasd");
+//     for(let i=0;i<thisdate.value.length;i++){
+//       console.log(thisdate.value[i]);
+      
+//     }
+//  let  time = this.eventList[0].date[0];
+
+  }
+
+  // formatDate(value: string | number | Date, format: string, locale: string, timezone?: string): string;
 
 }

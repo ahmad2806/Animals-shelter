@@ -1,21 +1,55 @@
-<div class="container">
-    <div class="panel panel-default">
-        <button type="button" [routerLink]="['/Header/volenteer/VolunteerEvents/addEvent']" class="btn btn-primary btn-lg btn-block pull-right">אירוע חדש</button>
-        <br>
-        <br>
-        <br>
 
-        <!-- <div class="col-xs-4 pull-right text-right">
-            שם האירוע
+<div class="container">
+
+  
+    <div class="panel panel-default">
+        
+        
+      
+          
+       
+            <div class="panel-heading">
+                    <button type="button" data-toggle="modal"  data-target="#addModal" class="btn btn-primary col-xs-1   	glyphicon glyphicon-plus"></button>
+                    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" #closeAddExpenseModal>
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-body">
+
+                                    <app-add-event></app-add-event>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                  
+                    
+                    <div class="form-group col-xs-3">
+                            <div class='input-group date' id='datetimepicker1'>
+                                    <input type="date" (change)="update(thisdate)" #thisdate   class="date-time form-control">
+                                    
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                                
+                            </div>
+                        </div>
+        <div class="col-xs-4 btn-lg    text-right">
+          <strong >תאריך</strong>
         </div>
-        <div class="col-xs-4 center-block text-right">
-                תאריך
+        
+        <div class="col-xs-4 btn-lg   text-right">
+           <strong>שם האירוע</strong>
             </div>
-            <br> -->
+       
+            <br>
+            <br>
+ 
+        
+            </div>
+            <div class="panel-body">
             <div class="panel-group" id="accordion">
         <span  *ngFor="let event of eventList;let i=index" >
             <span class="row">
-            <hr>
+           
             <div class="col-xs-4 pull-right text-right ">
                 <p class="font"> {{event.name}}</p>
             </div>
@@ -23,7 +57,7 @@
                     <button type="button" class="btn btn-info" aria-controls="collapseOne"  data-toggle="collapse" data-parent="#accordion" [attr.data-target]="'#'+i">הצג</button>
                     <button type="button" class="btn btn-warning" data-toggle="modal" (click)="arrayOfVolunteers(i)" data-target="#editModal">עדכן</button>
                     <!--  -->
-                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" #closeAddExpenseModal>
                             <div class="modal-dialog modal-dialog-centered" role="document">
                               <div class="modal-content">
                                   <div class="modal-header text-center">
@@ -139,7 +173,7 @@
                                             <div class="modal-footer ">
                                                 <div class="row text-center">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">חזור</button>
-                                                <button  type="submit" class="btn btn-primary" >שמור</button>
+                                                <button  type="submit" class="btn btn-primary"  >שמור</button>
                                             </div>
                                               </div>
                                         </form>
@@ -170,7 +204,7 @@
                 <!--  -->
             </div>
          
-                <input type="date " data-provide="" disabled value="{{event.date}}" class="col-xs-4 text-right no-border">
+                <input type="date " data-provide="" disabled value="{{event.date | date:'short'}}" class="col-xs-4 text-right no-border">
 
       
                 <!-- <ion-datetime>{{event.date}}</ion-datetime> -->
@@ -239,5 +273,6 @@
 
         </span>
     </div>
+</div>
     </div>
 </div>
