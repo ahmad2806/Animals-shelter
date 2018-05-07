@@ -15,6 +15,8 @@ export class EventService {
   arrived1: VolunteerModel[] = [];
   didntarrived: VolunteerModel[] = [];
   date : DateTimeFormatPartTypes ;
+
+  clicked : string = "";
   constructor() {
     
     this.relatedTo=[    
@@ -73,7 +75,9 @@ this.didntarrived=this.relatedTo;
     this.commingSoonEvents.push(event);
    }
 
-
+   public get Clicked(){
+     return this.clicked;
+   }
 
 }
 

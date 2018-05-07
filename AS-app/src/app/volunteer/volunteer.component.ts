@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from '../event/event.service';
 
 @Component({
   selector: 'app-volunteer',
@@ -9,7 +10,7 @@ export class VolunteerComponent implements OnInit {
 addVol=false;
 VolList=true;
 eventList=false;
-  constructor() { }
+  constructor(private eventService : EventService) { }
 
   ngOnInit() {
   }
@@ -29,6 +30,8 @@ eventList=false;
     this.VolList=false;
     this.eventList=!this.VolList;
   }
-
+  onclick(){
+    this.eventService.clicked = 'mainList';
+  }
 
 }

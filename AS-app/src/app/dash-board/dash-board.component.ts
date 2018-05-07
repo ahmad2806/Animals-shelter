@@ -28,20 +28,24 @@ export class DashBoardComponent implements OnInit {
   // event: EventModel[]=[];
   View(type) {
     this.EventType = type;
+    this.event=[];
     if (type == "OldEvents") {
-      for(var i = 0 ; i < this.events.commingSoonEvents.length ; i++)
-      { 
-        this.event.push(this.events.commingSoonEvents[i]);
-      }  
+      this.events.clicked = 'old';
     }
 
     if (type == "EventsInProgress") {
+    
+      this.events.clicked = 'inProgress'; 
      }
 
     if (type == "DeletedEvents") { 
+      
+      this.events.clicked = 'deleted'; 
     }
 
     if (type == "CommingEvents") { 
+      
+      this.events.clicked = 'commingSoon';  
     }
 
   }
