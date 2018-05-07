@@ -23,5 +23,4 @@ export class NavBarComponent implements OnInit {
   HomeonClick(){
     this.router.navigate(["/main"]);
   }
-
 }

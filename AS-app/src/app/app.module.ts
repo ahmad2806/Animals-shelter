@@ -28,6 +28,7 @@ import { EventService } from './event/event.service';
 import { FilterPipe } from './event/filter.pipe';
 import { AddEventComponent } from './event/add-event/add-event.component';
 import { EventsListComponent } from './event/events-list/events-list.component';
+import { DonorComponent } from './donor/donor.component';
 import { MatButtonModule,MatInputModule} from "@angular/material"
 import {MatExpansionModule} from '@angular/material/expansion';
 
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
     AddUserComponent,
     FilterPipe,
     AddEventComponent,
-    EventsListComponent
+    EventsListComponent,
+    DonorComponent
 
   ],
   imports: [
