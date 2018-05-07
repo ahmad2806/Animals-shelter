@@ -7,7 +7,7 @@
       <br>
       <hr>
       <span>
-        <a href="#">
+        <a (click)=View(old.id) id="OldEvents" #old data-toggle="modal" data-target="#events">
               <h2>ראה פרטים</h2>
         </a>
       </span>
@@ -17,7 +17,7 @@
         <br>
         <hr>
         <span>
-          <a href="#">
+          <a (click)=View(InProgress.id) id="EventsInProgress" #InProgress data-toggle="modal" data-target="#events">
                 <h2>ראה פרטים</h2>
           </a>
         </span>
@@ -31,7 +31,7 @@
         <br>
         <hr>
         <span>
-          <a href="#">
+          <a (click)=View(deleted.id) id="DeletedEvents" #deleted data-toggle="modal" data-target="#events">
                 <h2>ראה פרטים</h2>
           </a>
         </span>
@@ -41,10 +41,35 @@
           <br>
           <hr>
           <span>
-            <a href="#">
+            <a (click)=View(comming.id) id="CommingEvents" #comming data-toggle="modal" data-target="#events">
                   <h2>ראה פרטים</h2>
             </a>
           </span>
         </div>
     </div>
 </div>
+
+
+
+
+<!--  -->
+<div class="modal fade" id="events"  >
+  <div class="modal-dialog modal-dialog-centered"  >
+    <div class="modal-content"> 
+      <div class="modal-body">
+        <h1 >{{ EventType}}</h1>
+        <div class=" pre-scrollable">
+            <div class="col-xs-10" *ngFor="let item of event"
+            >
+                {{ item.name }}
+                <span class="glyphicon glyphicon-arrow-right pull-right text-success" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
+                </span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <app-donor></app-donor> -->

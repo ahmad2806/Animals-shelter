@@ -8,4 +8,6 @@ import { AppboolService } from './appbool.service';
 })
 export class AppComponent {
   constructor(private app:AppboolService){}
+  panelOpenState: boolean = false;
+
 }

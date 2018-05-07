@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { UserService } from './users/user.service';
-import {Routes, RouterModule} from '@angular/router'
+import { Routes, RouterModule } from '@angular/router'
 import { AppboolService } from './appbool.service';
 import { VolunteersService } from './volunteer/volunteers.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -24,22 +26,34 @@ import { AddUserComponent } from './users/add-user/add-user.component';
 import { OneVolComponent } from './volunteer/one-vol/one-vol.component';
 import { EventService } from './event/event.service';
 import { FilterPipe } from './event/filter.pipe';
+import { AddEventComponent } from './event/add-event/add-event.component';
+import { EventsListComponent } from './event/events-list/events-list.component';
 import { DonorComponent } from './donor/donor.component';
-const appRoutes:Routes=[
-  {path:'Header',component:HeaderComponent ,children:[
-      {path:'volenteer',component:VolunteerComponent,children:[
-      {path:'addVolunteer',component:CreateVolComponent},
-      {path:'VolunteerEvents',component:EventComponent},
-      {path:'VolunteersList',component:VolListComponent}
-    ]},
-    {path:'users',component:UsersComponent},
-    {path:'main',component:DashBoardComponent}
-]},
-  
-  {path:'',component:LoginComponent},
+import { MatButtonModule,MatInputModule} from "@angular/material"
+import {MatExpansionModule} from '@angular/material/expansion';
 
-  {path:'volenteer-events',component:EventComponent}
-  
+const appRoutes: Routes = [
+  {
+    path: 'Header', component: HeaderComponent, children: [
+      {
+        path: 'volenteer', component: VolunteerComponent, children: [
+          { path: 'addVolunteer', component: CreateVolComponent },
+          {
+            path: 'VolunteerEvents', component: EventComponent, children: [{ path: 'addEvent', component: AddEventComponent },
+            { path: 'eventsList', component: EventsListComponent }]
+          },
+          { path: 'VolunteersList', component: VolListComponent }
+        ]
+      },
+      { path: 'users', component: UsersComponent },
+      { path: 'main', component: DashBoardComponent }
+    ]
+  },
+
+  { path: '', component: LoginComponent },
+
+  { path: 'volenteer-events', component: EventComponent }
+
 ];
 
 
@@ -60,21 +74,28 @@ const appRoutes:Routes=[
     OneVolComponent,
     AddUserComponent,
     FilterPipe,
+    AddEventComponent,
+    EventsListComponent,
     DonorComponent
 
-    ],
+  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
-    ],
+    FormsModule,
+    MatButtonModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
   providers: [UserService,
     VolunteersService,
-  AppboolService,EventService],
+    AppboolService, EventService],
   bootstrap: [AppComponent]
 
-  
- 
- 
+
+
+
 })
 export class AppModule { }
