@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">שם</div>
+    <div class="col-xs-4">סוג תורם</div>
+    <div class="col-xs-4">דוא"ל</div>
+  </div>
+  <div class="row" *ngFor="let item from donorList">
+    <div class="col-xs-4">{{ item.name }}</div>
+  </div>
+</div>

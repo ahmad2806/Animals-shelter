@@ -31,6 +31,7 @@ import { EventsListComponent } from './event/events-list/events-list.component';
 import { DonorComponent } from './donor/donor.component';
 import { MatButtonModule,MatInputModule} from "@angular/material"
 import {MatExpansionModule} from '@angular/material/expansion';
+import { DonorListComponent } from './donor/donor-list/donor-list.component';
 
 const appRoutes: Routes = [
   {
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     FilterPipe,
     AddEventComponent,
     EventsListComponent,
-    DonorComponent
+    DonorComponent,
+    DonorListComponent
 
   ],
   imports: [
