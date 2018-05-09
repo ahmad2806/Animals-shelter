@@ -40,11 +40,9 @@ export class AddUserComponent implements OnInit {
     else{ //on Success
       newUser=new User(this.name,this.tel,this.email,this.username,this.password,Vper,Dper,Aper,false);
       this.UserService.usersList.push(newUser);
-      this.UserService.isCreating=!this.UserService.isCreating;
     }
   }
   onBack(){
-    this.UserService.isCreating=!this.UserService.isCreating;
   }
   
   

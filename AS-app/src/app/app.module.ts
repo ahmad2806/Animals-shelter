@@ -33,6 +33,7 @@ import { MatButtonModule,MatInputModule} from "@angular/material"
 import {MatExpansionModule} from '@angular/material/expansion';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
 
 const appRoutes: Routes = [
   {
@@ -78,7 +79,8 @@ const appRoutes: Routes = [
     FilterPipe,
     AddEventComponent,
     EventsListComponent,
-    DonorComponent
+    DonorComponent,
+    EditUserComponent
 
   ],
   imports: [
