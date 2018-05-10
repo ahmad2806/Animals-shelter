@@ -10,7 +10,9 @@ export class VolunteerComponent implements OnInit {
 addVol=false;
 VolList=true;
 eventList=false;
-  constructor(private eventService : EventService) { }
+  constructor(private eventService : EventService) { 
+    this.eventService.setClicked('commingSoon'); 
+  }
 
   ngOnInit() {
   }

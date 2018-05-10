@@ -35,7 +35,7 @@
       </span>
     </div>
     <div class="col-xs-5 pull-right" style="border-style: solid; text-align: center; background-color: #8f8e8f;">
-      <h1>{{CommingEvents}} אירועים קרובים</h1>
+      <h1>{{events.commingSoonEvents.length}} אירועים קרובים</h1>
       <br>
       <hr>
       <span>
@@ -47,8 +47,9 @@
   </div>
 </div>
 
+<app-events-list #m class="modal" id="events"></app-events-list>
 
 
-<app-events-list id="events"></app-events-list>
+<!-- <app-events-list id="events"></app-events-list> -->
 
-<app-donor></app-donor>
+<!-- <app-donor></app-donor> -->

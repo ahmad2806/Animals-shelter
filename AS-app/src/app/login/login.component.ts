@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppboolService } from '../appbool.service';
 import { UserService } from '../users/user.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { UserService } from '../users/user.service';
 export class LoginComponent implements OnInit {
   clicked='';
   @Output() Loginform=true;
-  constructor(private router: Router,private app:AppboolService, private usServer: UserService) { }
+  constructor(private router: Router,private app:AppboolService, private usServer: UserService,private auth:AuthService) { }
 
   ngOnInit() {
   }
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
         if (this.usServer.usersList[index].password == userForm.value.password) {
           if (this.usServer.usersList[index].Freeze == false) {
             this.router.navigate(["/Header/main"]);
-            this.app.logged = true;
+            this.auth.login();
             return;
           } else {
             alert("please contact the admin");

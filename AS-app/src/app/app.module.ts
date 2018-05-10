@@ -32,10 +32,12 @@ import { DonorComponent } from './donor/donor.component';
 import { MatButtonModule,MatInputModule} from "@angular/material"
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DonorListComponent } from './donor/donor-list/donor-list.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 
 const appRoutes: Routes = [
   {
-    path: 'Header', component: HeaderComponent, children: [
+    path: 'Header',canActivate:[AuthGuard], component: HeaderComponent, children: [
       {
         path: 'volenteer', component: VolunteerComponent, children: [
           { path: 'addVolunteer', component: CreateVolComponent },
@@ -93,7 +95,9 @@ const appRoutes: Routes = [
   ],
   providers: [UserService,
     VolunteersService,
-    AppboolService, EventService],
+    AppboolService, EventService,
+    AuthService,AuthGuard
+  ],
   bootstrap: [AppComponent]
 
 

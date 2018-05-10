@@ -1,4 +1,6 @@
-
+.container{
+    background-color: silver;
+}
 h3{
     border-style:inset;
     color: white;

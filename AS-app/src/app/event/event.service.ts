@@ -3,9 +3,11 @@ import { EventModel } from './event.model';
 import {VolunteerModel } from '../volunteer/volunteer.model';
 import { empty } from 'rxjs/Observer';
 import { FreeDayes } from '../volunteer/free-days.model';
+import { EventEmitter } from 'protractor';
 
 @Injectable()
 export class EventService {
+  generalEvents: EventModel[] = [];
   commingSoonEvents: EventModel[] = [];
   oldEvents: EventModel[] = [];
   deletedEvents: EventModel[] = [];
@@ -19,6 +21,7 @@ export class EventService {
   clicked : string = "";
   constructor() {
     
+  
     this.relatedTo=[    
       new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
     "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
@@ -57,6 +60,8 @@ this.didntarrived=this.relatedTo;
        new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
        new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
     ];
+
+    this.generalEvents=this.commingSoonEvents;
   }
   public get CommingSoonEvents(){
     return this.commingSoonEvents.slice;
@@ -76,7 +81,19 @@ this.didntarrived=this.relatedTo;
    }
 
    public get Clicked(){
-     return this.clicked;
+    console.log(this.clicked);
+    return this.clicked;
+   }
+   public setClicked(input: string){
+    if (input === 'old')
+      this.generalEvents = this.oldEvents;
+    else if (input === 'inProgress')
+      this.generalEvents = this.inProgressEvents;
+    else if (input === 'deleted')
+      this.generalEvents = this.deletedEvents;
+    else {
+      this.generalEvents = this.commingSoonEvents;
+    }
    }
 
 }
