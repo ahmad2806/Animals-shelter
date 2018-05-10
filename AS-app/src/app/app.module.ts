@@ -7,6 +7,7 @@ import { AppboolService } from './appbool.service';
 import { VolunteersService } from './volunteer/volunteers.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -29,11 +30,13 @@ import { FilterPipe } from './event/filter.pipe';
 import { AddEventComponent } from './event/add-event/add-event.component';
 import { EventsListComponent } from './event/events-list/events-list.component';
 import { DonorComponent } from './donor/donor.component';
-import { MatButtonModule,MatInputModule} from "@angular/material"
+import { MatButtonModule,MatInputModule} from "@angular/material";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+
+
 
 const appRoutes: Routes = [
   {
@@ -91,7 +94,8 @@ const appRoutes: Routes = [
     MatExpansionModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [UserService,
     VolunteersService,
