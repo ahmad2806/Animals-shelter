@@ -2,20 +2,18 @@
 <div class="container">
   <ul class="nav nav-pills pull-right">
     <li class="nav-item">
-      <a class="nav-link" id="button" (click)="add()">הוספת טורמים</a>
+      <a class="nav-link" id="button" (click)="add()">הוספת תורמים</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="button" (click)="events()">אירועים</a>
+      <a class="nav-link" [routerLink]="['/Header/donor/donorEvent']">אירועים</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="button" (click)="list()">רשימת טורמים</a>
+      <a class="nav-link"  [routerLink]="['/Header/donor/donorList']">רשימת תורמים</a>
     </li>
   </ul>
   <br>
   <br>
   <hr>
-  <app-donor-list></app-donor-list>
-
 
 
 
@@ -25,3 +23,4 @@
 </div>
 
 
+<router-outlet></router-outlet>

@@ -18,7 +18,7 @@ export class DonorComponent implements OnInit {
   }
 
   list(){
-
+    
   }
   
   ngOnInit() {

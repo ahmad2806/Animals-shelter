@@ -5,7 +5,7 @@ import { EventModel } from '../event/event.model';
 @Injectable()
 export class DonorService {
 
-  Donor:DonorModel[]=[
+  public Donor:DonorModel[]=[
     new DonorModel("name","id",new Date,"address","phone","homePhone","email","donorType",[]),
     new DonorModel("ibra","id",new Date,"address","phone","homePhone","email","donorType",[]),
     new DonorModel("victor","id",new Date,"address","phone","homePhone","email","donorType",[]),
@@ -18,10 +18,11 @@ export class DonorService {
 
   constructor() { }
   public get donor(){
-    return this.donor.slice;
+    return this.Donor;
   }
   
    public add(don:DonorModel){
-    this.donor.push(don);
+    this.Donor.push(don);
    }
+
 }

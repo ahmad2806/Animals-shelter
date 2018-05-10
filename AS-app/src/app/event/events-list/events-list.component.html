@@ -1,278 +1,236 @@
-
 <div class="container">
-
-  
     <div class="panel panel-default">
-        
-        
-      
-          
-       
-            <div class="panel-heading">
-                    <button type="button" data-toggle="modal"  data-target="#addModal" class="btn btn-primary col-xs-1   	glyphicon glyphicon-plus"></button>
-                    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" #closeAddExpenseModal>
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                              <div class="modal-content">
-                                <div class="modal-body">
-
-                                    <app-add-event></app-add-event>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                  
-                    
-                    <div class="form-group col-xs-3">
-                            <div class='input-group date' id='datetimepicker1'>
-                                    <input type="date" (change)="update(thisdate)" #thisdate   class="date-time form-control">
-                                    
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </span>
-                                
-                            </div>
+        <div class="panel-heading">
+            <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-primary col-xs-1   	glyphicon glyphicon-plus"></button>
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <app-add-event></app-add-event>
                         </div>
-        <div class="col-xs-4 btn-lg    text-right">
-          <strong >תאריך</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-xs-3">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type="date" (change)="update(thisdate)" #thisdate class="date-time form-control">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-4 btn-lg    text-right">
+                <strong>תאריך</strong>
+            </div>
+            <div class="col-xs-4 btn-lg   text-right">
+                <strong>שם האירוע</strong>
+            </div>
+            <br>
+            <br>
         </div>
-        
-        <div class="col-xs-4 btn-lg   text-right">
-           <strong>שם האירוע</strong>
-            </div>
-       
-            <br>
-            <br>
- 
-        
-            </div>
-            <div class="panel-body">
+        <div class="panel-body">
             <div class="panel-group" id="accordion">
-        <span  *ngFor="let event of eventList;let i=index" >
-            <span class="row">
-           
-            <div class="col-xs-4 pull-right text-right ">
-                <p class="font"> {{event.name}}</p>
-            </div>
-            <div class="col-xs-4 text-right">
-                    <button type="button" class="btn btn-info" aria-controls="collapseOne"  data-toggle="collapse" data-parent="#accordion" [attr.data-target]="'#'+i">הצג</button>
-                    <button type="button" class="btn btn-warning" data-toggle="modal" (click)="arrayOfVolunteers(i)" data-target="#editModal">עדכן</button>
-                    <!--  -->
-                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" #closeAddExpenseModal>
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                              <div class="modal-content">
-                                  <div class="modal-header text-center">
-                                  {{name}}
-                                  </div>
-                                
-                                <div class="modal-body">
-                                        
-
-                                     
-                                      
-                                        <div class="col-xs-10 col-xs-offset-1  text-center btn-primary">
-                                            מידע על האירוע
+                <span *ngFor="let event of eventList;let i=index">
+                    <span class="row">
+                        <div class="col-xs-4 pull-right text-right ">
+                            <p class="font"> {{event.name}}</p>
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <button type="button" class="btn btn-info" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" [attr.data-target]="'#'+i">הצג</button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" (click)="arrayOfVolunteers(i)" data-target="#editModal">עדכן</button>
+                            <!--  -->
+                            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+                                #closeAddExpenseModal>
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header text-center">
+                                            {{name}}
                                         </div>
-                                        <form (ngSubmit)="onAddEvent()" #form>
-                                            <div class="form-group">
-                                                <div class="col-md-9 col-md-offset-1">
-                                                    <div class="customDiv ">
-                                                        <div class="pull-right">
-                                                            <span class="pull-right">שם האירוע</span>
-                                                            <span class="text-danger ">*</span>
-                                                        </div>
-                                                        <input type="text " placeholder="שם" value="{{name}}" dir="rtl" class="col-xs-6  pull-right small form-control" required #nameInput>
-                                                    </div>
-                                                </div>
+                                        <div class="modal-body">
+                                            <div class="col-xs-10 col-xs-offset-1  text-center btn-primary">
+                                                מידע על האירוע
                                             </div>
-                                      
-                                            <div class="form-group">
-                                                <div class="col-md-9 col-md-offset-1">
-                                                    <div class="customDiv">
-                                                        <div class="pull-right">
-                                                            <span class="pull-right " dir="rtl">סוג האירוע</span>
-                                                            <span class="text-danger">*</span>
-                                                        </div>
-                                                        <select class=" col-xs-6 pull-right form-control"  dir="rtl" [(ngModel)]="modelType" name="type">
-                                                            <option value="volunteer-Model"  dir="rtl" class=" pull-right">מתנדבים</option>
-                                                            <option value="donar-Model" dir="rtl" class="pull-right">טורמים</option>
-                                                            <option value="adopted-Model" dir="rtl" class="pull-right">אימוצים</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                      
-                                            <div class="form-group">
-                                                <div class="col-md-9 col-md-offset-1">
-                                                    <div class="customDiv">
-                                                        <div class="pull-right">
-                                                            <span class="pull-right " dir="rtl">תאריך האירוע</span>
-                                                            <span class="text-danger">*</span>
-                                                        </div>
-                                                        <input type="datetime-local" value="{{date}}" class="col-xs-6 pull-right date-time form-control" required #dateInput>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                      
-                                            <div class="form-group">
-                                                <div class="col-md-9 col-md-offset-1">
-                                                    <div class="customDiv">
-                                                        <div class="col-xs-3 pull-right">
-                                                            <span class="pull-right" dir="rtl">פרטים</span>
-                                                        </div>
-                                                        <textarea class="col-xs-6 pull-right form-control" value="{{description}}" id="description" rows="3" dir="rtl" #descriptionInput></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                      
-                                            <div class="row">
-                                                <div class="row">
-                                                    <div class="h3 text-center btn-primary col-xs-10 col-xs-offset-1">בחר בעלי עניין</div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="all-Div col-xs-4 col-xs-offset-2">
-                                                        <div class="form-group changethisone">
-                                                            <div class=" input-group changethisone">
-                                                                <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryIn" name="search-query-in">
-                                                                <span class="input-group-addon">
-                                                                    <i class="glyphicon glyphicon-search"></i>
-                                                                </span>
+                                            <form (ngSubmit)="onAddEvent()" #form>
+                                                <div class="form-group">
+                                                    <div class="col-md-9 col-md-offset-1">
+                                                        <div class="customDiv ">
+                                                            <div class="pull-right">
+                                                                <span class="pull-right">שם האירוע</span>
+                                                                <span class="text-danger ">*</span>
                                                             </div>
-                                                            <div class=" pre-scrollable">
-                                                                <div class="col-xs-10" *ngFor="let item of relevantVolunteersToEvent  | filter:queryIn" (click)="addToRelativeList(item,i)" (mouseover)="hover=true"
-                                                                    (mouseleave)="hover=false">
-                                                                    {{ item.name }}
-                                                                    <span class="glyphicon glyphicon-arrow-right pull-right text-success" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
+                                                            <input type="text " placeholder="שם" value="{{name}}" dir="rtl" class="col-xs-6  pull-right small form-control" required
+                                                                #nameInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-9 col-md-offset-1">
+                                                        <div class="customDiv">
+                                                            <div class="pull-right">
+                                                                <span class="pull-right " dir="rtl">סוג האירוע</span>
+                                                                <span class="text-danger">*</span>
+                                                            </div>
+                                                            <select class=" col-xs-6 pull-right form-control" dir="rtl" [(ngModel)]="modelType" name="type">
+                                                                <option value="volunteer-Model" dir="rtl" class=" pull-right">מתנדבים</option>
+                                                                <option value="donar-Model" dir="rtl" class="pull-right">טורמים</option>
+                                                                <option value="adopted-Model" dir="rtl" class="pull-right">אימוצים</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-9 col-md-offset-1">
+                                                        <div class="customDiv">
+                                                            <div class="pull-right">
+                                                                <span class="pull-right " dir="rtl">תאריך האירוע</span>
+                                                                <span class="text-danger">*</span>
+                                                            </div>
+                                                            <input type="datetime-local" value="{{date}}" class="col-xs-6 pull-right date-time form-control" required #dateInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-9 col-md-offset-1">
+                                                        <div class="customDiv">
+                                                            <div class="col-xs-3 pull-right">
+                                                                <span class="pull-right" dir="rtl">פרטים</span>
+                                                            </div>
+                                                            <textarea class="col-xs-6 pull-right form-control" value="{{description}}" id="description" rows="3" dir="rtl" #descriptionInput></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="h3 text-center btn-primary col-xs-10 col-xs-offset-1">בחר בעלי עניין</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="all-Div col-xs-4 col-xs-offset-2">
+                                                            <div class="form-group changethisone">
+                                                                <div class=" input-group changethisone">
+                                                                    <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryIn" name="search-query-in">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-search"></i>
                                                                     </span>
+                                                                </div>
+                                                                <div class=" pre-scrollable">
+                                                                    <div class="col-xs-10" *ngFor="let item of relevantVolunteersToEvent  | filter:queryIn" (click)="addToRelativeList(item,i)"
+                                                                        (mouseover)="hover=true" (mouseleave)="hover=false">
+                                                                        {{ item.name }}
+                                                                        <span class="glyphicon glyphicon-arrow-right pull-right text-success" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selected-Div col-xs-4">
+                                                            <div class=" form-group">
+                                                                <div class=" input-group changethisone">
+                                                                    <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryOut" name="search-query-out">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-search"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class=" pre-scrollable">
+                                                                    <div class=" col-xs-10 " *ngFor="let item of relatedTo| filter:queryOut" (click)="delFromRelativeList(item,i)" (mouseover)="hover=true"
+                                                                        (mouseleave)="hover=false">
+                                                                        <div class="pull-right ">{{ item.name }} </div>
+                                                                        <span class="glyphicon glyphicon-arrow-left pull-left text-danger" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                      
-                                                    <div class="selected-Div col-xs-4">
-                                                        <div class=" form-group">
-                                                            <div class=" input-group changethisone">
-                                                                <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryOut" name="search-query-out">
-                                                                <span class="input-group-addon">
-                                                                    <i class="glyphicon glyphicon-search"></i>
-                                                                </span>
-                                                            </div>
-                                                            <div class=" pre-scrollable">
-                                                                <div class=" col-xs-10 " *ngFor="let item of relatedTo| filter:queryOut" (click)="delFromRelativeList(item,i)" (mouseover)="hover=true"
-                                                                    (mouseleave)="hover=false">
-                                                                    <div class="pull-right ">{{ item.name }} </div>
-                                                                    <span class="glyphicon glyphicon-arrow-left pull-left text-danger" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                                <br>
+                                                <div class="modal-footer ">
+                                                    <div class="row text-center">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">חזור</button>
+                                                        <button type="submit" class="btn btn-primary">שמור</button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <br>
-       
-                                            <div class="modal-footer ">
-                                                <div class="row text-center">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">חזור</button>
-                                                <button  type="submit" class="btn btn-primary"  >שמור</button>
-                                            </div>
-                                              </div>
-                                        </form>
-                                      
-                                 
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                              
-                              </div>
                             </div>
-                          </div>
-                    <!--  -->
-                <button type="button" class="btn btn-danger"  data-toggle="modal" (click)="index(i)" data-target="#exampleModalCenter">מחק</button>
-                <!--  -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                          <div class="modal-content">
-                          
-                            <div class="modal-body">
-                              ? למחוק את האירוע
+                            <!--  -->
+                            <button type="button" class="btn btn-danger" data-toggle="modal" (click)="index(i)" data-target="#exampleModalCenter">מחק</button>
+                            <!--  -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            ? למחוק את האירוע
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">לא</button>
+                                            <button type="button" class="btn btn-primary" (click)="removeEvent()" data-dismiss="modal">כן</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">לא</button>
-                              <button type="button" class="btn btn-primary" (click)="removeEvent()" data-dismiss="modal">כן</button>
-                            </div>
-                          </div>
+                            <!--  -->
                         </div>
-                      </div>
-                <!--  -->
-            </div>
-         
-                <input type="date " data-provide="" disabled value="{{event.date | date:'short'}}" class="col-xs-4 text-right no-border">
-
-      
-                <!-- <ion-datetime>{{event.date}}</ion-datetime> -->
-      
-        </span>
-
-        
-            <br>
-            <div [id]="i" class="collapse text-center">
-              
-                
-                <div class="col-nd-8  text-center">
-                        <div class="alert alert-info">
+                        <input type="date " data-provide="" disabled value="{{event.date | date:'short'}}" class="col-xs-4 text-right no-border">
+                        <!-- <ion-datetime>{{event.date}}</ion-datetime> -->
+                    </span>
+                    <br>
+                    <div [id]="i" class="collapse text-center">
+                        <div class="col-nd-8  text-center">
+                            <div class="alert alert-info">
                                 <strong>{{event.description}}</strong>
-                              </div>
-                        
-                   
-                </div>
-                <div>
-                <div class="all-Div col-xs-4 col-xs-offset-2">
-                        <div class="form-group changethisone">
-                            <div class=" input-group changethisone">
-                                <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryIn" name="search-query-in">
-                                <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-search"></i>
-                                </span>
                             </div>
-                            <div class=" pre-scrollable">
-                                <div class="col-xs-10" *ngFor="let volunteer of event.didntArrived  | filter:queryIn" (click)="addToList(volunteer,i)" (mouseover)="hover=true"
-                                    (mouseleave)="hover=false">
-                                    
-                                    {{ volunteer.name }}
-                                    <span class="glyphicon glyphicon-arrow-right pull-right text-success" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
-                                    </span>
+                        </div>
+                        <div>
+                            <div class="all-Div col-xs-4 col-xs-offset-2">
+                                <div class="form-group changethisone">
+                                    <div class=" input-group changethisone">
+                                        <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryIn" name="search-query-in">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </span>
+                                    </div>
+                                    <div class=" pre-scrollable">
+                                        <div class="col-xs-10" *ngFor="let volunteer of event.didntArrived  | filter:queryIn" (click)="addToList(volunteer,i)" (mouseover)="hover=true"
+                                            (mouseleave)="hover=false">
+                                            {{ volunteer.name }}
+                                            <span class="glyphicon glyphicon-arrow-right pull-right text-success" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selected-Div col-xs-4">
+                                <div class=" form-group">
+                                    <div class=" input-group changethisone">
+                                        <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryOut" name="search-query-out">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </span>
+                                    </div>
+                                    <div class=" pre-scrollable">
+                                        <div class=" col-xs-10 " *ngFor="let volunteer of event.arrived | filter:queryOut" (click)="delFromList(volunteer,i)" (mouseover)="hover=true"
+                                            (mouseleave)="hover=false">
+                                            {{ volunteer.name }}
+                                            <span class="glyphicon glyphicon-arrow-left pull-left text-danger" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <hr>
                     </div>
-      
-                    <div class="selected-Div col-xs-4">
-                        <div class=" form-group">
-                            <div class=" input-group changethisone">
-                                <input type="text" title="חפס שם" class="form-control text-right" placeholder="...חפס" [(ngModel)]="queryOut" name="search-query-out">
-                                <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-search"></i>
-                                </span>
-                            </div>
-                            <div class=" pre-scrollable">
-                                <div class=" col-xs-10 " *ngFor="let volunteer of event.arrived | filter:queryOut" (click)="delFromList(volunteer,i)" (mouseover)="hover=true"
-                                    (mouseleave)="hover=false">
-                                    {{ volunteer.name }}
-                                    <span class="glyphicon glyphicon-arrow-left pull-left text-danger" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br><br><br>
-                    <br>
-                    <hr>
+                </span>
             </div>
-
-        </span>
-    </div>
-</div>
+        </div>
     </div>
 </div>

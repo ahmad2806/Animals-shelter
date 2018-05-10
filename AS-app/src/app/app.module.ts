@@ -34,6 +34,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { DonorListComponent } from './donor/donor-list/donor-list.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { DonorService } from './donor/donor.service';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +49,14 @@ const appRoutes: Routes = [
           },
           { path: 'VolunteersList', component: VolListComponent }
         ]
+       
       },
+      {path:'donor',component: DonorComponent,children: [
+        {path:'donorList',component:DonorListComponent},
+        {path: 'donorEvent', component: EventsListComponent}
+      ]
+      },
+
       { path: 'users', component: UsersComponent },
       { path: 'main', component: DashBoardComponent }
     ]
@@ -80,7 +89,8 @@ const appRoutes: Routes = [
     AddEventComponent,
     EventsListComponent,
     DonorComponent,
-    DonorListComponent
+    DonorListComponent,
+    EditUserComponent
 
   ],
   imports: [
@@ -96,7 +106,7 @@ const appRoutes: Routes = [
   providers: [UserService,
     VolunteersService,
     AppboolService, EventService,
-    AuthService,AuthGuard
+    AuthService,AuthGuard,DonorService
   ],
   bootstrap: [AppComponent]
 
