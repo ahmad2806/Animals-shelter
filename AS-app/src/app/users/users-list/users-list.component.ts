@@ -23,9 +23,7 @@ export class UsersListComponent implements OnInit {
   onEdit(editUser: User) {
     this.userService.UserEditing = editUser;
   }
-  onView(viewUser: User) {
-    this.userService.UserViewing = viewUser;
-  }
+ 
   SumbitRemove() {
     if(this.userService.usersList[this.userService.UserRemoving].username=="admin"){
       alert("the admin cannot be removed");

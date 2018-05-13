@@ -18,4 +18,15 @@ export class DonorListComponent implements OnInit {
   ngOnInit() {
   }
 
+  edit(item){
+    const index = this.donors.indexOf(item);
+    
+
+  }
+
+  delete(item){
+    const index = this.donors.indexOf(item);
+    this.donors.splice(index, 1);
+  }
+
 }

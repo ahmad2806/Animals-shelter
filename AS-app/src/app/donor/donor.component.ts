@@ -13,13 +13,7 @@ export class DonorComponent implements OnInit {
 
   }
 
-  events(){
 
-  }
-
-  list(){
-    
-  }
   
   ngOnInit() {
   }

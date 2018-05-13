@@ -1,60 +1,85 @@
-<form #f="ngForm">
-    <div class="container">
-        <div class="col-xs-12 text-center h2 btn-primary">הוספת משתמש</div>
-        <hr>
-        <label for="fName"><b> שם מלא </b></label>
-        <input class="inp" type="text" placeholder="הזן שם מלא"  name="name" [(ngModel)]="name" required>
-        <br>
-        <label for="E-mail"><b>אי-מייל</b></label>
-        <input class="inp" type="text" placeholder="הזן אי-מייל" name="email" [(ngModel)]="email" >
-        
-            <label for="phones"><b>תלפון נייד </b></label>
-            <input class="inp" type="tel" placeholder="הזן טלפון נייד" name="Tel" [(ngModel)]="tel" required>
-       
-        <label for="username"><b> שם משתמש</b></label>
-        <input class="inp" type="text" placeholder=" הזן שם משתמש" name="username" [(ngModel)]="username"  required>
-        <label for="password"><b>סיסמה</b></label>
-        <input class="inp" type="password" placeholder=" הזן סיסמה "name="password" [(ngModel)]="password" required>
-        <label for="password1"><b>אימות סיסמה</b></label>
-        <input class="inp" type="password" placeholder="הזן סיסמה שוב"name="password" [(ngModel)]="password2" required>
-        <form>
-            <div>
-            <label class="radiolabel" for="volpermission"><b> הרשאה למתדבים  </b></label>
-            <div class="inpudiv"> 
-                <input class="radioinp" type="radio" name="name1"  value="כן" #Vper required> כן 
-                <input class="radioinp" type="radio" name="name1" value="לא" required> לא 
-            </div>
-            <br>
-            <br>
-            <label class="radiolabel" for="volpermission"><b> הרשאה לתורמים  </b></label>
-            <div class="inpudiv"> 
-                <input class="radioinp" type="radio" name="name2"  value="כן" #Dper required> כן 
-                <input class="radioinp" type="radio" name="name2" value="לא" required> לא 
-            </div>
-            <br>
-            <br>
-            <label class="radiolabel" for="volpermission"><b> הרשאה למאומצים  </b></label>
-            <div class="inpudiv"> 
-                <input class="radioinp" type="radio" name="name3"  value="כן" #Aper required> כן 
-                <input class="radioinp" type="radio" name="name3" value="לא" required> לא 
-            </div>
-            <br>
-            <br>
-            </div>
-            <br> 
-            <br>
-        </form>
-        <div class="clearfix">
-            <button type="button" class="btn btn-primary"
-            [disabled]="!f.valid"
-            (click)="onSumbit(Vper.checked,Dper.checked,Aper.checked)">שמור </button>
-            <button type="reset" 
-            class="btn btn-warning">איפוס
-            </button>
-            <button type="button" 
-            class="btn btn-danger" 
-            (click)="onBack()">חזור
-            </button>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title text-center">
+                <span class="text-right">הוספת משתמש חדש</span>
+                <button type="button text-left" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h3>
         </div>
+        <form #f="ngForm">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-7 example-container pull-right" dir="rtl">
+                        <mat-form-field>
+                            <input matInput placeholder="שם פרטי" name="name" value=" " [(ngModel)]="name" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="טלפון" type="number" name="phone" [(ngModel)]="tel" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="אי-מייל" name="email" [(ngModel)]="email" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="שם משתמש" name="username" [(ngModel)]="username" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="סיסמה" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password" required>
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="אימות סיסמה" [type]="disappear ? 'password' : 'text'" name="password2" [(ngModel)]="password2"
+                                required>
+                            <mat-icon matSuffix (click)="disappear = !disappear">{{disappear ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-5 text-center" dir="rtl">
+                        <br>
+                        <br>
+                        <div class="row">
+                            <label for="per"> הרשאה למתנדבים</label>
+                        </div>
+                        <div class="row">
+                            <mat-radio-group class="text-right">
+                                <mat-radio-button value="1" #Vper required>כן</mat-radio-button>
+                                <mat-radio-button value="2">לא</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <label for="per"> הרשאה לתורמים</label>
+                        </div>
+                        <div class="row">
+                            <mat-radio-group class="text-right">
+                                <mat-radio-button value="1" #Dper required>כן</mat-radio-button>
+                                <mat-radio-button value="2">לא</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <label for="per"> הרשאה למאומצים</label>
+                        </div>
+                        <div class="row">
+                            <mat-radio-group class="text-right">
+                                <mat-radio-button value="1" #Aper required>כן</mat-radio-button>
+                                <mat-radio-button value="2">לא</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="reset" class="btn btn-warning">איפוס
+                </button>
+                <button type="button" class="btn btn-primary" [disabled]="!f.valid" 
+                (click)="onSumbit(Vper.checked,Dper.checked,Aper.checked)"
+                data-dismiss="modal">שמור
+                </button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
