@@ -34,10 +34,13 @@ import { EventsListComponent } from './event/events-list/events-list.component';
 import { DonorComponent } from './donor/donor.component';
 import { MatButtonModule,MatInputModule} from "@angular/material";
 import {MatExpansionModule} from '@angular/material/expansion';
+import { DonorListComponent } from './donor/donor-list/donor-list.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { DonorService } from './donor/donor.service';
 import {MatRadioModule} from '@angular/material/radio';
+import { AddDonorComponent } from './donor/add-donor/add-donor.component';
 
 
 
@@ -53,7 +56,14 @@ const appRoutes: Routes = [
           },
           { path: 'VolunteersList', component: VolListComponent }
         ]
+       
       },
+      {path:'donor',component: DonorComponent,children: [
+        {path:'donorList',component:DonorListComponent},
+        {path: 'donorEvent', component: EventsListComponent}
+      ]
+      },
+
       { path: 'users', component: UsersComponent },
       { path: 'main', component: DashBoardComponent }
     ]
@@ -86,7 +96,9 @@ const appRoutes: Routes = [
     AddEventComponent,
     EventsListComponent,
     DonorComponent,
-    EditUserComponent
+    DonorListComponent,
+    EditUserComponent,
+    AddDonorComponent
 
   ],
   imports: [
@@ -105,7 +117,7 @@ const appRoutes: Routes = [
   providers: [UserService,
     VolunteersService,
     AppboolService, EventService,
-    AuthService,AuthGuard
+    AuthService,AuthGuard,DonorService
   ],
   bootstrap: [AppComponent]
 

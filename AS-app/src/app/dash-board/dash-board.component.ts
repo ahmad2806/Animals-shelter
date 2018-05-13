@@ -20,12 +20,7 @@ export class DashBoardComponent implements OnInit {
   }
 
   @Input() event: EventModel[] = [];
-  // @ViewChild('deleted') deleted;
-  // @ViewChild('old') old;
-  // @ViewChild('InProgress') inProgress;
-  // @ViewChild('comming') comming;
 
-  // event: EventModel[]=[];
   View(type) {
     this.EventType = type;
     this.event=[];

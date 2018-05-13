@@ -9,6 +9,12 @@ export class DonorComponent implements OnInit {
 
   constructor() { }
 
+  add(){
+
+  }
+
+
+  
   ngOnInit() {
   }
 
