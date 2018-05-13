@@ -38,13 +38,15 @@
                         <br>
                         <br>
                         <div class="row">
-                            <label for="per"> הרשאה למתנדבים</label>
-                        </div>
-                        <div class="row">
-                            <mat-radio-group class="text-right">
-                                <mat-radio-button value="1" #Vper required>כן</mat-radio-button>
-                                <mat-radio-button value="2">לא</mat-radio-button>
-                            </mat-radio-group>
+                            <div class="col-xs-12">
+                                <label for="per"> הרשאה למתנדבים</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <mat-radio-group class="text-right">
+                                    <mat-radio-button value="1" #Vper required>כן</mat-radio-button>
+                                    <mat-radio-button value="2">לא</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
                         </div>
                         <br>
                         <br>
@@ -75,9 +77,8 @@
             <div class="modal-footer text-center">
                 <button type="reset" class="btn btn-warning">איפוס
                 </button>
-                <button type="button" class="btn btn-primary" [disabled]="!f.valid" 
-                (click)="onSumbit(Vper.checked,Dper.checked,Aper.checked)"
-                data-dismiss="modal">שמור
+                <button type="button" class="btn btn-primary" [disabled]="!f.valid" (click)="onSumbit(Vper.checked,Dper.checked,Aper.checked)"
+                    data-dismiss="modal">שמור
                 </button>
             </div>
         </form>
