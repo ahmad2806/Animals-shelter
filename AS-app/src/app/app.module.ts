@@ -8,6 +8,8 @@ import { VolunteersService } from './volunteer/volunteers.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 
@@ -35,6 +37,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -95,7 +98,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule,
+    MatIconModule
   ],
   providers: [UserService,
     VolunteersService,

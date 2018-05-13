@@ -1,86 +1,23 @@
-p{
-    font-weight: bold;
-    color:black;
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
     width: 100%;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    padding-right: 16px;
+  }
+  .example-right-align {
     text-align: right;
-}
-.btn{
-    margin-right:4px;
-}
-
-label{
-    width: 100%;
-    text-align: right;
-}
-
-.radiolabel{
-    width: auto;
-    float: right;
-    margin-left: 2%;
-}
-
-.container{
-    margin:auto;
-    margin-top:5%;
-    margin-bottom:2.5%;
-    background-color:white;
-    width :60%;
-    height:80%;
-    -webkit-box-shadow: 0px 0px 25px 14px rgba(153,153,153,1);
-    -moz-box-shadow: 0px 0px 25px 14px rgba(153,153,153,1);
-    box-shadow: 0px 0px 25px 14px rgba(153,153,153,1);
-    border:none;
-    border-radius: 10px;
-    padding: 20px;
-    direction: rtl;
-}
-#tel{
-    width: 100%;
-    
-
-}
-.inp2{
-    width: 32.5%;
-    text-align: center;
-}
-.inp1{
-    width: 32.5%;
-    padding: 15px;
-    margin: 5px 0 5px 0;
-    display: inline-block;
-    border: none;
-    direction: rtl;
-    background: #f1f1f1;
-}
-.inp {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    direction: rtl;
-    background: #f1f1f1;
-}
-.container button:hover {
-    opacity:1;
-    float: left;
-}
-.inpudiv{
-  float: right;
-}
-.container button{
-    margin:auto;
-    width:100%;
-    margin-bottom: 1%;
-}
-
-.clearfix {
-    margin:auto;
-    width:50%;
-}
-#gh{
-    direction: rtl;
-}
-img{
-    margin:auto;
-}
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
