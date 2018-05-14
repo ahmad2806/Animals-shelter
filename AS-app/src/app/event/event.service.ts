@@ -24,29 +24,13 @@ export class EventService {
   
     this.relatedTo=[    
       new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
+    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering",""),
     new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
+    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering",""),
     new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
-    new VolunteerModel("אחמד","20541774",new Date,"beit-hanina","0524651749","",
-    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering"),
+    "025859294","AHMADLOXIZ@gmail.com","cat",new FreeDayes(true,false,true,true,true,false,false),true,false,"software engineering",""),
+
+
     ];
 
 this.didntarrived=this.relatedTo;

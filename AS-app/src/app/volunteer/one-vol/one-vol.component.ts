@@ -9,12 +9,15 @@ import { VolunteerComponent } from '../volunteer.component';
   styleUrls: ['./one-vol.component.css']
 })
 export class OneVolComponent implements OnInit {
- @Input() vol:VolunteerComponent;
+ @Input() vol:VolunteerModel;
 s=false;
 
-  constructor() { }
+  constructor() {
+  
+   }
 
   ngOnInit() {
+ 
   }
 
 }

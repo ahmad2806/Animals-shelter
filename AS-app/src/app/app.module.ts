@@ -7,6 +7,8 @@ import { AppboolService } from './appbool.service';
 import { VolunteersService } from './volunteer/volunteers.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ImageUploadModule } from "angular2-image-upload";
+
 
 
 
@@ -30,7 +32,9 @@ import { AddEventComponent } from './event/add-event/add-event.component';
 import { EventsListComponent } from './event/events-list/events-list.component';
 import { DonorComponent } from './donor/donor.component';
 import { MatButtonModule,MatInputModule} from "@angular/material"
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 
@@ -89,7 +93,10 @@ const appRoutes: Routes = [
     MatExpansionModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    ImageUploadModule.forRoot(),
+    MatInputModule,
+    MatToolbarModule,
+    MatCheckboxModule
   ],
   providers: [UserService,
     VolunteersService,

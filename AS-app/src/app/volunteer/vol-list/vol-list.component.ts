@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { VolunteersService } from '../volunteers.service';
 import { VolunteerModel } from '../volunteer.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-vol-list',
@@ -20,7 +21,10 @@ export class VolListComponent implements OnInit {
   nextPage=1;
   Pages:number[]=[];
   thereIsBaki=false;
-
+  editingVolunteer:VolunteerModel;
+  DeletedVolunteer=0;
+  mdlSampleIsOpen=false;
+  index=0;
 
 
   
@@ -37,7 +41,7 @@ export class VolListComponent implements OnInit {
     // console.log(this.number);
     // console.log(this.bakiNumber);
     // console.log(this.lenght);
-
+this.editingVolunteer=this.volservice.volunteers[0];
   
 if(this.number<1){
   if(this.bakiNumber>0){
@@ -70,6 +74,49 @@ if(this.number<1){
    
   }
 
+
+  setDeletedVolunteer(item){
+    this.DeletedVolunteer = this.volservice.volunteers.indexOf(item);
+    
+  }
+  removeVolunteer(){
+    this.volservice.volunteers.splice(this.DeletedVolunteer, 1);
+    this.ChangePage(this.CurrentPageNumber);
+  }
+
+  volunteerForEdit(item,button){
+    this.index = this.volservice.volunteers.indexOf(item);
+    this.editingVolunteer=item;
+    console.log(item.freeDays.sunday);
+    button.click();
+  }
+
+  days(sunday,monday,tuesday,wednesday,thursday,friday,car,incar,back){
+    this.editingVolunteer.freeDays.sunday=sunday;
+    this.editingVolunteer.freeDays.monday=monday;
+    this.editingVolunteer.freeDays.tuesday=tuesday;
+    this.editingVolunteer.freeDays.wednesday=wednesday;
+    this.editingVolunteer.freeDays.thursday=thursday;
+    this.editingVolunteer.freeDays.friday=friday;
+    this.editingVolunteer.hasCar=car;
+    this.editingVolunteer.agreeToLeft=incar;
+    this.volservice.volunteers[this.index]=this.editingVolunteer;
+    back.click();
+  }
+  onSubmit(form:NgForm){
+    this.editingVolunteer.name=form.value.name;
+    this.editingVolunteer.id=form.value.ID;
+   this.editingVolunteer.address= form.value.address;
+   this.editingVolunteer.phone= form.value.extranum;
+    this.editingVolunteer.telePhone=form.value.phonenum;
+    this.editingVolunteer.homePhone=form.value.homenum;
+    this.editingVolunteer.job=form.value.job;
+    this.editingVolunteer.email=form.value.email;
+    this.editingVolunteer.volunteerType=form.value.type;
+
+
+  }
+
   ChangePage(pressedPage){
   
     this.CurrentPageNumber=pressedPage;
@@ -96,6 +143,7 @@ if(this.number<1){
     }
     this.volunteersToView= [];
     for (let i = 0; i < n; i++) {
+      if(this.volservice.volunteers[i+(pressedPage*15)]!=undefined)
      this.volunteersToView[i]=this.volservice.volunteers[i+(pressedPage*15)];
       
     }

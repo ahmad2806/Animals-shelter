@@ -1,41 +1,390 @@
-<div class="container" dir="rtl">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <label for="Name">שם</label>
+<div class="container">
+    <div class="col-xs-12">
+        <mat-toolbar>
+
+            <div class="col-xs-4 col-xs-offset-4 text-right">
                 <label for="ID"> ת"ז</label>
-               
-            </h4>
-        </div>
+            </div>
+            <div class="col-xs-4 text-right ">
+                <label for="Name">שם</label>
+            </div>
 
-        <div class="panel-group" id="accordion">
+        </mat-toolbar>
 
 
-            <span *ngFor="let item of volunteersToView">
 
-                <app-one-vol class="volunteer" [vol]="item"></app-one-vol>
-            </span>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let item of volunteersToView">
+
+                <mat-expansion-panel-header dir="rtl" cols="2">
+
+                    <mat-panel-title>
+                        {{item.name}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{item.id}}
+                    </mat-panel-description>
+
+                </mat-expansion-panel-header>
+                <hr>
+                <div class="row">
+
+                    <div class="col-sm-12 text-right ">
+                        <div class="col-sm-3 pull-right">
+                            <img src="{{item.avatar}}" width="50%" #img class="img-circle img-responsive center-block">
+    
+                        </div>
+    
+                        <div class="col-sm-6 pull-right">
+                            <div class="row">
+                                <div class="col-sm-2 pull-right">
+                                    :שמ
+                                </div>
+                                <div class="col-sm-4 pull-left text-left">{{item.name}}</div>
+    
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2 pull-right">:ת"ז</div>
+                                <div class="col-sm-4 pull-left text-left">{{item.id}}</div>
+    
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2 pull-right">:דוא"ל</div>
+                                <div class="col-sm-4 pull-left text-left">{{item.email}}</div>
+    
+                            </div>
+    
+    
+                            <div class="row ">
+                                <div class="col-sm-3 pull-right">:תאריך לידה</div>
+                                <div class="col-sm-3 pull-left text-left">{{item.birthday | date:"dd/MM/yyyy"}}</div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-3 pull-right">:טל נייד</div>
+                                <div class="col-sm-3 pull-left text-left">{{item.telePhone}}</div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-3 pull-right">:טל נייח</div>
+                                <div class="col-sm-3 pull-left text-left">{{item.homePhone}}</div>
+                            </div>
+    
+                            <div class="row ">
+                                <div class="col-sm-3 pull-right">:טל נוסף</div>
+                                <div class="col-sm-3 pull-left text-left">{{item.phone}}</div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-3 pull-right">:כתובת</div>
+                                <div class="col-sm-3 pull-left text-left">{{item.address}}</div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-3 pull-right">:סוג התנדבות</div>
+                                <div class="col-sm-3 pull-left text-left">{{item.volunteerType}}</div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-2 pull-right">:עבודה</div>
+                                <div class="col-sm-4 pull-left text-left">{{item.job}}</div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-3 pull-right">:ברשותו רכב</div>
+                                <div class="col-sm-3 pull-left text-left">
+                                    <div *ngIf="item.hasCar;else nocar">yes</div>
+                                    <ng-template #nocar>no</ng-template>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-5 pull-right">:האם הוא מעלה חיות ברכב</div>
+                                <div class="col-sm-1 pull-left text-left">
+                                    <div *ngIf="item.agreeToLeft;else notagree">yes</div>
+                                    <ng-template #notagree>no</ng-template>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+    
+                        <div class="col-sm-3 pull-left">
+                            <div class="row text-center">ימים הוא יכול להתנדב</div>
+                            <hr>
+                            <div *ngIf="item.freeDays.sunday" class="col-sm-12 text-center">ראשון</div>
+                            <div *ngIf="item.freeDays.monday" class="col-sm-12 text-center">שני</div>
+                            <div *ngIf="item.freeDays.tuesday" class="col-sm-12 text-center">שלישי</div>
+                            <div *ngIf="item.freeDays.wednesday" class="col-sm-12 text-center">רביעי</div>
+                            <div *ngIf="item.freeDays.thursday" class="col-sm-12 text-center">חמישי</div>
+                            <div *ngIf="item.freeDays.friday" class="col-sm-12 text-center">שישי</div>
+                            <div *ngIf="item.freeDays.saturday" class="col-sm-12 text-center">שבת</div>
+    
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <button type="button" class="btn btn-warning" data-toggle="modal" (click)="volunteerForEdit(item,hideEditeButton)" >עדכן</button>
            
-           
-            <p class="text-muted pull-left">page: {{CurrentPageNumber+1}}</p>
-        </div>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" (click)="setDeletedVolunteer(item)" data-target="#exampleModalCenter">מחק</button>
+                        <button type="button" #hideEditeButton class="invisible" data-toggle="modal" data-target="#editModal"  >עדכן</button>
+                    </div>
+                </div>
+
+            
         
+            </mat-expansion-panel>
+        </mat-accordion>
+
+       
+        <p class="text-muted pull-left">page: {{CurrentPageNumber+1}}</p>
+
+
     </div>
 
 </div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+          
+            <div class="modal-body">
+              ? למחוק את המתנדב
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">לא</button>
+              <button type="button" class="btn btn-primary" (click)="removeVolunteer()" data-dismiss="modal">כן</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="modal fade"  id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" #closeAddExpenseModal>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-body">
+                  
+<!------ Include the above in your HEAD tag ---------->
+
+
+        <div class="row ">
+                <div class="col-sm-12">
+                      
+                           
+                                <hr>
+                                <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm" method="post" name="signup" id="signup" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            
+                                              
+                                                <div class="col-md-8 col-md-offset-3">
+                                                        <div class="input-group">
+                                                                <input type="text" class="form-control text-right" name="name" id="nameid" required  ngModel [ngModel]="editingVolunteer.name"  value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-user"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group">
+                  
+                                                <div class="col-md-8 col-md-offset-3">
+                                                        <div class="input-group">
+                                                                <input type="text" required ngModel class="form-control text-right" name="ID" id="nameid" [ngModel]="editingVolunteer.id" value="">
+
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-user"></i>
+                                                                </span>
+                                                        </div>
+                                                   
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                          
+                                                <div class="col-md-8 col-md-offset-3">
+                                                        <div class="input-group">
+                                                                <input type="email" email ngModel required class="form-control text-right" #email="ngModel" name="email" id="emailid" [ngModel]="editingVolunteer.email" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-envelope"></i>
+                                                                </span>
+                                                                
+
+                                                        </div>
+                                                        <span class="help-block pull-right" *ngIf="!email.valid && email.touched">דוא"ל לא תקין</span>
+                                                </div>
+                                        </div>
+
+                                        <!-- <div class="form-group">
+                         
+                                                <div class="col-xs-8 col-md-offset-3">
+                                                        <div class="input-group">
+                                                                <input type="date" required  ngModel name="date" [ngModel]="editingVolunteer.birthday"  class="date-time form-control pull-right col-xs-12 text-right">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-calendar"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div> -->
+
+                                        <div class="form-group">
+                                               
+                                                <div class="col-md-8 col-md-offset-3">
+                                                        <div class="input-group">
+                                                                <input type="text" required  ngModel class="form-control text-right" name="address" id="mem_name"[ngModel]="editingVolunteer.address" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-road"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                               
+                                                <div class="col-md-8 col-md-offset-3 ">
+                                                        <div class="input-group">
+                                                                <input  type="text" class="form-control text-right" required  ngModel  name="phonenum" id="PhoneNumber" [ngModel]="editingVolunteer.telephone" value="">
+                                                                <input type="text" class="form-control text-right" required  ngModel name="homenum" id="HomeNumber" [ngModel]="editingVolunteer.homePhone" value="">
+                                                                <input type="text" class="form-control text-right" ngModel name="extranum" id="ExtraNumber" [ngModel]="editingVolunteer.phone" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-phone"></i>
+                                                                </span>
+
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group" dir="ltr">
+                         
+                                                <div class="col-md-8 col-md-offset-3">
+                                                        <div class="input-group">
+                                                                <input type="text" required  ngModel class="form-control text-right" name="job" id="job" [ngModel]="editingVolunteer.job" value="">
+                                                                <span class="input-group-addon">
+                                                                        <i class="	glyphicon glyphicon-briefcase"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group" dir="ltr">
+                                              
+                                                <div class="col-md-8 col-md-offset-3">
+
+                                                        <input type="text" required  ngModel class="form-control text-right" name="type" id="type" [ngModel]="editingVolunteer.volunteerType" value="">
+
+                                                </div>
+                                        </div>
+
+
+
+
+
+
+
+
+                                     
+                                                      <!-- <img [src]="volunteerIMG" class="img-rounded" alt="Cinque Terre"> -->
+
+                                        <!-- <div class="form-group">
+                                                <label class="control-label col-sm-3">תמונה
+                                                        <br>
+
+                                                </label>
+                                                <div class="col-md-8 col-sm-9">
+                                                        <div class="input-group">
+
+                                                                <input type="file" ngModel name="file_nm" id="file_nm" class="form-control upload " placeholder="" aria-describedby="file_upload">
+                                                                <span class="input-group-addon">
+                                                                        <i class="glyphicon glyphicon-picture"></i>
+                                                                </span>
+                                                        </div>
+                                                </div>
+                                        </div> -->
+
+                                        <div class="form-group" >
+                                                        <label class="control-label col-md-4 pull-right text-right"> *ימים הוא יכול להתנדב
+                                                                        <span class="text-danger"></span>
+                                                                </label>
+                                                          
+                                        <div class="col-md-8" >
+                
+                        
+                                               
+                                                    
+                                               
+                                            
+                                                    <mat-checkbox [checked]="editingVolunteer.freeDays.sunday" #sunday>ראשון</mat-checkbox>
+                                               
+                                                    <mat-checkbox [checked]="editingVolunteer.freeDays.monday" #monday>שני</mat-checkbox>
+                                            
+                                                    <mat-checkbox [checked]="editingVolunteer.freeDays.tuesday" #tuesday>שלישי</mat-checkbox>
+                                                    <mat-checkbox [checked]="editingVolunteer.freeDays.wednesday" #wednesday>רביעי</mat-checkbox>
+                                                    <mat-checkbox [checked]="editingVolunteer.freeDays.thursday" #thursday>חמישי</mat-checkbox>
+                                                    <mat-checkbox [checked]="editingVolunteer.freeDays.friday" #friday>שישי</mat-checkbox>
+                                            
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" >
+                                            
+                                                <div class="col-md-8  text-right">
+                                                        <label>
+                                                                <input name="type" type="radio" #car value="yes" [checked]="editingVolunteer.hasCar" #car> כן </label>
+
+                                                        <label>
+                                                                <input name="type" type="radio" value="no" [checked]="!editingVolunteer.hasCar"> לא </label>
+                                                </div>
+                                                <label class="control-label col-md-4">*ברושתו רכב
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                        </div>
+                                        <div class="form-group" >
+                                            
+                                                <div class="col-md-8 text-right">
+                                                        <label>
+                                                                <input name="incar" type="radio" #incar value="yes" [checked]="editingVolunteer.agreeToLeft" #incar> כן </label>
+
+                                                        <label>
+                                                                <input name="incar" type="radio" value="no"[checked]="!editingVolunteer.agreeToLeft"> לא </label>
+                                                </div>
+                                                <label class="control-label col-md-4">*האם הוא מכניס חיות ברכב
+                                                        <span class="text-danger"></span>
+                                                </label>
+                                        </div>
+                                    
+
+
+
+
+                                        <div class="modal-footer ">
+                                                <div class="row text-center">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" #back>חזור</button>
+                                                <button  type="submit" class="btn btn-primary" (click)="days(sunday.checked,monday.checked,tuesday.checked,wednesday.checked,thursday.checked,friday.checked,car.checked,incar.checked,back)" >שמור</button>
+                                            </div>
+                                              </div>
+                                                </form>
+                                                </div>
+                                                </div>
+                                               
+                                        
+                  
+              </div>
+
+            </div>
+            </div>
+            </div>
+
 
 <div class="container">
-<ul class="pager">
-      
-        <li  [class]="pdisabled" (click)="ChangePage(previousPage)"><a>Previous</a></li>
-       
-        <li [class]="ndisabled"  (click)="ChangePage(nextPage)"><a>Next</a></li>
-     
-<ul class="pagination" >
-        <li *ngFor="let item of Pages;index as i" (click)="ChangePage(i)"><a>{{Pages[i]}}</a></li>
+    <ul class="pager">
 
-    
-      </ul>
+        <li [class]="pdisabled" (click)="ChangePage(previousPage)">
+            <a>Previous</a>
+        </li>
+
+        <li [class]="ndisabled" (click)="ChangePage(nextPage)">
+            <a>Next</a>
+        </li>
+
+        <ul class="pagination">
+            <li *ngFor="let item of Pages;index as i" (click)="ChangePage(i)">
+                <a>{{Pages[i]}}</a>
+            </li>
+
+
+        </ul>
 
     </ul>
 </div>
