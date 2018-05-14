@@ -1,3 +1,5 @@
+
+
 .container{
     background:WhiteSmoke; 
     padding: 2% 2% 2% 2%;
@@ -15,6 +17,8 @@
     -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
     box-shadow:         3px 3px 5px 6px #ccc;
 }
+
+
 input{
   
  

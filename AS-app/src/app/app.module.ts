@@ -45,6 +45,7 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { DonorService } from './donor/donor.service';
 import {MatRadioModule} from '@angular/material/radio';
 import { AddDonorComponent } from './donor/add-donor/add-donor.component';
+import { FigurecardComponent } from './dash-board/figurecard/figurecard.component';
 
 
 
@@ -102,7 +103,8 @@ const appRoutes: Routes = [
     DonorComponent,
     DonorListComponent,
     EditUserComponent,
-    AddDonorComponent
+    AddDonorComponent,
+    FigurecardComponent
 
   ],
   imports: [

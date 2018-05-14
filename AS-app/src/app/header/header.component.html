@@ -1,17 +1,43 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <h3 class="pull-right">דף המנהל</h3>
-            <img src="../../assets/img.jpg" class="img-rounded" alt="logo">
-        </div>
-        <div class="col col-xs-12">
-            <app-nav-bar></app-nav-bar>
-        </div>
-    </div>
+
+<div id="mySidenav" class="sidenav ">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <app-nav-bar (click)="closeNav()"></app-nav-bar>
+      </div>
+   
+      <!-- Use any element to open the sidenav -->
+     
+    
+      <div class="row bg-default col-md-12  nav">
+          <br>
+          <div class="col-md-3 text-center">
+                <button type="button" (click)="openNav()" class="btn btn-default text-success btn-lg glyphicon glyphicon-th-list"></button>
+                <button type="button"  class="btn btn-info text-success btn-lg  glyphicon glyphicon-info-sign"></button>
+                 <button type="button"  class="btn btn-danger text-success btn-lg  glyphicon glyphicon-log-out"></button>
+          </div>
+        
+         
+          <div class="col-md-6 text-center text-success btn-lg">J.S.P.C.A</div>
+
+          <div class=" col-md-3 input-group changethisone">
+                <input type="text" title="חפס שם" class="form-control text-right">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                </span>
+            </div>
+         
+        <br>
+    
+        
+        
+ 
+                
+            </div>  
+            <br>
+            <br>
+      
+      <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+      <div id="main">
+            <router-outlet></router-outlet>
+      </div>
 
 
-
-
-</div>
-<hr>
-<router-outlet></router-outlet>
