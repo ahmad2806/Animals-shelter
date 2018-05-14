@@ -1,0 +1,26 @@
+
+
+#OldEvents{
+    background-color:rgb(206, 134, 190); 
+    cursor: pointer;
+}
+#EventsInProgress{
+    background-color: rgb(235, 183, 224);
+    cursor: pointer;
+ 
+}
+#DeletedEvents{
+    background-color: rgb(143, 64, 126); 
+    cursor: pointer;
+
+}
+#CommingEvents
+{
+    background-color: rgb(160, 83, 143); 
+    cursor: pointer;
+
+}
+#dash{
+    background-color: rgb(196, 164, 189); 
+}
+

@@ -8,6 +8,8 @@ import { VolunteersService } from './volunteer/volunteers.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ImageUploadModule } from "angular2-image-upload";
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -35,8 +37,16 @@ import { MatButtonModule,MatInputModule} from "@angular/material"
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+
+import { DonorListComponent } from './donor/donor-list/donor-list.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { DonorService } from './donor/donor.service';
+import {MatRadioModule} from '@angular/material/radio';
+import { AddDonorComponent } from './donor/add-donor/add-donor.component';
+
+
 
 const appRoutes: Routes = [
   {
@@ -50,7 +60,14 @@ const appRoutes: Routes = [
           },
           { path: 'VolunteersList', component: VolListComponent }
         ]
+       
       },
+      {path:'donor',component: DonorComponent,children: [
+        {path:'donorList',component:DonorListComponent},
+        {path: 'donorEvent', component: EventsListComponent}
+      ]
+      },
+
       { path: 'users', component: UsersComponent },
       { path: 'main', component: DashBoardComponent }
     ]
@@ -82,7 +99,10 @@ const appRoutes: Routes = [
     FilterPipe,
     AddEventComponent,
     EventsListComponent,
-    DonorComponent
+    DonorComponent,
+    DonorListComponent,
+    EditUserComponent,
+    AddDonorComponent
 
   ],
   imports: [
@@ -96,12 +116,15 @@ const appRoutes: Routes = [
     ImageUploadModule.forRoot(),
     MatInputModule,
     MatToolbarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatIconModule
   ],
   providers: [UserService,
     VolunteersService,
     AppboolService, EventService,
-    AuthService,AuthGuard
+    AuthService,AuthGuard,DonorService
   ],
   bootstrap: [AppComponent]
 

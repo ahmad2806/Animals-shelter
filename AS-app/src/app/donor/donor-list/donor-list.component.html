@@ -1,0 +1,61 @@
+<div class="container" dir="rtl">
+  <div class="row">
+      <div class="col-xs-4">
+          <button type="button" data-toggle="modal" data-target="#edit" class="btn btn-primary col-xs-2 glyphicon glyphicon-plus"></button>
+      </div>
+   
+    <div class="col-xs-4">
+      <h3>סוג תורם</h3>
+    </div>
+    <div class="col-xs-4">
+      <h3>שם</h3>
+    </div>
+  </div>
+</div>
+
+
+ <div class="container">
+    <mat-accordion dir="rtl" class="example-headers-align">
+    <mat-expansion-panel  *ngFor="let item of donors">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+           {{item.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{item.donorType}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-sm-4 pull-right">
+          <h5>דוא"ל: {{item.email }}</h5>
+          <h5>נייד: {{item.phone}}</h5>
+          <h5>מספר נוסף: {{item.homePhone}}</h5>
+
+
+        </div>
+        <div class="col-sm-4 pull-right">
+            <h5>תאריך לידה: {{ item.birthday | date:"dd/MM/yyyy" }}</h5>
+            <h5>כתובת: {{item.address}}</h5>
+            <h5>ת"ז: {{item.id}}</h5>
+
+        </div>
+      </div>
+      
+        <div class="pull-left">
+          <button class="btn btn-warning" data-toggle="modal" data-target="#edit">עדכן</button>
+          <button class="btn btn-danger" (click)="delete(item)">מחק</button>
+        </div>
+        <br>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="modal" id="edit" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+              <app-add-donor></app-add-donor>
+            </div>
+        </div>
+    </div>
+</div>

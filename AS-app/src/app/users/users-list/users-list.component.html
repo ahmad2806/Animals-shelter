@@ -1,152 +1,96 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <br>
-<div class="container" dir="rtl">
-   <div class="row" dir="rtl">
-      <div class="col-sm-9" id="cont" dir="rtl">
-         <div class="table-responsive">
-            <table class="table table-sm">
-               <thead>
-                  <tr dir="rtl">
-                     <th scope="col">שם</th>
-                     <th scope="col">טלפון</th>
-                     <th scope="col">אי-מייל</th>
-                     <th scope="col">שם משתמש</th>
-                     <th scope="col">סיסמה</th>
-                     <th scope="col">פעולות</th>
-                     <!-- <th scope="col">לעדכון</th> -->
-                  </tr>
-               </thead>
-               <tbody dir="rtl">
-                  <tr *ngFor="let us of userService.usersList" dir="rtl">
-                     <td>{{ us.name }} </td>
-                     <td>{{ us.phone }} </td>
-                     <td>{{ us.email }} </td>
-                     <td>{{ us.username }} </td>
-                     <td>{{ us.password }} </td>
-                     <!-- <td>{{ us.VolPer }} </td>
-                        <td>{{ us.AdoptPer }} </td>
-                        <td>{{ us.DonorPer }} </td>
-                        <td>{{ us.Freeze }} </td> -->
-                     <td>
-                        <button type="button" class="btn btn-danger" (click)="onRemove(us)">מחיקה</button>
-                        <button type="button" class="btn btn-info" (click)="onEdit(us)">עדכן</button>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-         </div>
-      </div>
-      <div class="col-sm-3" dir="ltr">
-         <button type="button" class="btn btn-info" (click)="onCreate()"> הוספת משתמש חדש</button>
-      </div>
-   </div>
-   <hr>
-   <div *ngIf="userService.isEditing" class="row" dir="rtl">
-      <div class="col-sm-10" id="cont1" dir="rtl">
-         <div class="row">
-            <div class="col-sm-12 text-center h1 btn-warning">עדכון משתמש</div>
-         </div>
-         <form #f="ngForm" (ngSubmit)="onSumbit(f,Vper.checked,Dper.checked,Aper.checked,Freeze.checked)">
-         <div class="row" dir="rtl">
-            <div class="col-sm-6" id="formdiv">
-               <table class="table table-sm" dir="rtl">
-                  <tr>
-                     <td>
-                        <label for="name" id="label">שם</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="text" class="form-control" ngModel name="name" [ngModel]="EditingUser.name" value="">
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-primary col-xs-2 glyphicon glyphicon-plus" title="Hooray!"></button>
+                    <app-add-user class="modal fade" id="addModal" tabindex="-1" role="dialog"></app-add-user>
+
+                    <div class="form-group col-xs-3">
+                        <div class='input-group text'>
+                            <input type="text" class="text form-control  text-right">
+
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </span>
                         </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="phone" id="label">תלפון</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="tel" class="form-control" ngModel name="phone" [ngModel]="EditingUser.phone" value="">
-                        </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="email" id="label">אי-מייל</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="text" class="form-control" ngModel name="email" [ngModel]="EditingUser.email" value="">
-                        </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="username" id="label">שם משתמש</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="text" class="form-control" ngModel name="username" [ngModel]="EditingUser.username" value="">
-                        </div>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <label for="password" id="label">סיסמה</label>
-                     </td>
-                     <td>
-                        <div class="form-group">
-                           <input type="password" class="form-control" ngModel name="password" [ngModel]="EditingUser.password" value="">
-                        </div>
-                     </td>
-                  </tr>
-               </table>
-               <br>
+                    </div>
+                    <div class="col-xs-4 btn-lg pull-right text-right">
+                        <strong>שם פרטי</strong>
+                    </div>
+
+                    <div class="col-xs-3 btn-lg pull-right text-right">
+                        <strong>שם משתמש</strong>
+                    </div>
+                    <br>
+                    <br>
+                </div>
             </div>
-            <div class="col-sm-6" id="radiodiv" dir="rtl">
-               <label class="radiolabel" for="volpermission">
-               <b> הרשאה למתדבים </b>
-               </label>
-               <div>
-                  <input type="radio" name="name1" value="כן" [checked]="EditingUser.VolPer" #Vper required> כן
-                  <input type="radio" name="name1" value="לא" [checked]="!EditingUser.VolPer" required> לא
-               </div>
-               <br>
-               <label class="radiolabel" for="volpermission">
-               <b> הרשאה לתורמים </b>
-               </label>
-               <div>
-                  <input type="radio" name="name2" value="כן" [checked]="EditingUser.DonorPer" #Dper required> כן
-                  <input type="radio" name="name2" value="לא" [checked]="!EditingUser.DonorPer" required> לא
-               </div>
-               <br>
-               <label class="radiolabel" for="volpermission">
-               <b> הרשאה למאומצים </b>
-               </label>
-               <div>
-                  <input type="radio" name="name3" value="כן" [checked]="EditingUser.AdoptPer" #Aper required> כן
-                  <input type="radio" name="name3" value="לא" [checked]="!EditingUser.AdoptPer" required> לא
-               </div>
-               <br>
-               <label class="radiolabel" for="freeze">
-               <b>להקפיא חשבון</b>
-               </label>
-               <div>
-                  <input type="radio" name="name4" value="כן" [checked]="EditingUser.Freeze" #Freeze required> כן
-                  <input type="radio" name="name4" value="לא" [checked]="!EditingUser.Freeze" required> לא
-               </div>
-               <br>
-               <div>
-                  <input name="Submit" type="submit" value="שמור" class="btn btn-primary">
-                  <button type="button" class="btn btn-danger" (click)="onClose()">ביטול</button>
-               </div>
-               <br>
+            <mat-accordion dir="rtl" class="example-headers-align">
+                <mat-expansion-panel *ngFor="let us of userService.usersList" class="text-right">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="text-right">
+                            {{us.name}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{us.username}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-sm-4  pull-right text-right">
+                            <p>אי-מייל: {{us.email}}</p>
+                        </div>
+                        <div class="col-sm-4  pull-right text-right">
+                            <p>טלפון: {{us.phone}}</p>
+                        </div>
+                        <div class="col-sm-4  pull-right text-right">
+                            <p>סיסמה: {{us.password}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 pull-right text-right">
+                            <p> הרשאה למתנדבים : {{us.VolPer }}</p>
+                        </div>
+                        <div class="col-sm-3 pull-right text-right">
+                            <p>הרשאה לתורמים : {{us.DonorPer }}</p>
+                        </div>
+                        <div class="col-sm-3 pull-right text-right">
+                            <p> הרשאה למאומצים : {{us.AdoptPer }}</p>
+                        </div>
+                        <div class="col-sm-3 pull-right text-right">
+                            <p> מוקפא : {{us.Freeze }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="col-xs-6 text-right">
+                                <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#deleteModal" (click)="onRemove(us)">מחק</button>
+                            </div>
+                            <div class="col-xs-6 text-left">
+                                <button type="button" data-toggle="modal" data-target="#editModal" class="btn btn-warning" (click)="onEdit(us)">עדכן</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog text-right" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h5 class="h5">למחוק את המשתמש</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">לא</button>
+                            <button type="button" class="btn btn-primary" (click)="SumbitRemove()" data-dismiss="modal">כן</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-         </form>
-      </div>
-   </div>
+            <app-edit-user class="modal fade" id="editModal" tabindex="-1" role="dialog"></app-edit-user>
+        </div>
+    </div>
 </div>
 <br>
