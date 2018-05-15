@@ -9,7 +9,7 @@ export class VolunteerModel {
         public email: string,
         public volunteerType: string,
         public freeDays: FreeDayes, public hasCar: boolean,
-        public agreeToLeft: boolean, public job: string) {
+        public agreeToLeft: boolean, public job: string,public avatar) {
 
     }
 }

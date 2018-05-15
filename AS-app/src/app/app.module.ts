@@ -7,6 +7,7 @@ import { AppboolService } from './appbool.service';
 import { VolunteersService } from './volunteer/volunteers.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ImageUploadModule } from "angular2-image-upload";
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 
@@ -32,8 +33,11 @@ import { FilterPipe } from './event/filter.pipe';
 import { AddEventComponent } from './event/add-event/add-event.component';
 import { EventsListComponent } from './event/events-list/events-list.component';
 import { DonorComponent } from './donor/donor.component';
-import { MatButtonModule,MatInputModule} from "@angular/material";
+import { MatButtonModule,MatInputModule} from "@angular/material"
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 import { DonorListComponent } from './donor/donor-list/donor-list.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
@@ -41,6 +45,7 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { DonorService } from './donor/donor.service';
 import {MatRadioModule} from '@angular/material/radio';
 import { AddDonorComponent } from './donor/add-donor/add-donor.component';
+import { FigurecardComponent } from './dash-board/figurecard/figurecard.component';
 
 
 
@@ -98,7 +103,8 @@ const appRoutes: Routes = [
     DonorComponent,
     DonorListComponent,
     EditUserComponent,
-    AddDonorComponent
+    AddDonorComponent,
+    FigurecardComponent
 
   ],
   imports: [
@@ -109,7 +115,10 @@ const appRoutes: Routes = [
     MatExpansionModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
+    ImageUploadModule.forRoot(),
     MatInputModule,
+    MatToolbarModule,
+    MatCheckboxModule,
     MatSelectModule,
     MatRadioModule,
     MatIconModule

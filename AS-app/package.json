@@ -24,9 +24,11 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "angular-font-awesome": "^3.1.2",
+    "angular2-image-upload": "^1.0.0-rc.1",
     "bootstrap": "^4.1.0",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "mdbootstrap": "^4.5.2",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
