@@ -1,32 +1,62 @@
-  <ol>
-    <mat-form-field>
-      <input matInput  placeholder="שם התורם">
-    </mat-form-field>
-    <br>
-    <!-- <mat-radio-group>
-      <mat-radio-button value="1">Option 1</mat-radio-button>
-      <mat-radio-button value="2">Option 2</mat-radio-button>
-    </mat-radio-group>
-     -->
+<span class="container">
+  <mat-radio-group>
+    <mat-radio-button value="1" (click)="radioChoice('Foundation')">קרן</mat-radio-button>
+    <mat-radio-button value="2" (click)="radioChoice('private')">פרטי</mat-radio-button>
+  </mat-radio-group>
+</span>
+<ol *ngIf="private">
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="שם התורם"  [(ngModel)]="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="תז של התורם"  [(ngModel)]="id">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="מספר נייד"  [(ngModel)]="phone">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="מספר נוסף"  [(ngModel)]="extraphone">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="תאריך לידה" class="date-time form-control pull-right col-xs-12 text-right"  [(ngModel)]="birthday">
+  </mat-form-field>
+  <br>
 
+  <mat-form-field>
+    <input matInput placeholder="סכום התרומה"  [(ngModel)]="amount">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button [routerLink]="['/Header/donor']" (click)="save()">שמור</button>
+</ol>
 
-    <mat-form-field>
-      <input matInput  placeholder="תז של התורם">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput  placeholder="מספר נייד">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput  placeholder="מספר נוסף">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput  placeholder="תאריך לידה">
-    </mat-form-field>
-    <br>
-    <button mat-raised-button>שמור</button>
-    
+<ol *ngIf="Foundation">
+  <mat-form-field>
+    <input matInput placeholder="שם הקרן">
+  </mat-form-field>
 
-  </ol>
+  <mat-form-field>
+    <input matInput placeholder="כתובת">
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <input matInput placeholder="מספר פלפון">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="מספר נוסף">
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <input matInput placeholder="דוא'ל">
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <input matInput placeholder="סכום התרומה">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button (click)="save()"  [routerLink]="['/Header/donor/donorList']">שמור</button>
+
+</ol>
