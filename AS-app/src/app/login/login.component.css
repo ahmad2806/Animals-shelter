@@ -1,50 +1,9 @@
-<<<<<<< HEAD
 body, html {
     height: 100%;
-=======
-
-
-.container{
-    background:WhiteSmoke; 
-    padding: 2% 2% 2% 2%;
-    width: 40%;
-    float: auto;
-    margin-top: 5%;
-    height: 40%;
-    float: auto;
-
-    
-  
-    border: none;
-    background: linear-gradient(to right,#F5F5F5, #C0C0C0);
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
-    box-shadow:         3px 3px 5px 6px #ccc;
-}
-
-
-input{
-  
- 
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    width: 50%;
-   text-align: center;
-    border-radius: 5px;
-    margin-top:1%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-button a{
-    
-   color: white;
->>>>>>> 704b2feba02658c8f4680c84a9136f210ab2e265
 }
 .bg { 
  
-    background-image: url("../../assets/img1.jpg");
+    background-image: url("../../assets/img1.jpeg");
     height: max-content;
     
 
