@@ -51,7 +51,7 @@
                     </td>
                     <td>
                       <div class="form-group">
-                        <input type="text" class="form-control" ngModel name="username" [ngModel]="usServer.UserEditing.username" [disabled]="usServer.UserEditing.username == admin"
+                        <input type="text" class="form-control" ngModel name="username" [ngModel]="usServer.UserEditing.username" [disabled]="usServer.UserEditing.username == 'admin' "
                           value="">
                       </div>
                     </td>
@@ -67,83 +67,51 @@
                     </td>
                   </tr>
                 </table>
-                <br>
               </div>
               <div class="col-sm-4 text-center" dir="rtl">
-                <br>
-                <br>
-                <br>
-                <label class="radiolabel" for="volpermission">
-                  <b> הרשאה למתדבים </b>
-                </label>
-                <div>
-                  <input type="radio" name="name1" value="כן" [checked]="usServer.UserEditing.VolPer" #Vper required> כן
-                  <input type="radio" name="name1" value="לא" [checked]="!usServer.UserEditing.VolPer" required> לא
-                </div>
-                <br>
-                <label class="radiolabel" for="volpermission">
-                  <b> הרשאה לתורמים </b>
-                </label>
-                <div>
-                  <input type="radio" name="name2" value="כן" [checked]="usServer.UserEditing.DonorPer" #Dper required> כן
-                  <input type="radio" name="name2" value="לא" [checked]="!usServer.UserEditing.DonorPer" required> לא
-                </div>
-                <br>
-                <label class="radiolabel" for="volpermission">
-                  <b> הרשאה למאומצים </b>
-                </label>
-                <div>
-                  <input type="radio" name="name3" value="כן" [checked]="usServer.UserEditing.AdoptPer" #Aper required> כן
-                  <input type="radio" name="name3" value="לא" [checked]="!usServer.UserEditing.AdoptPer" required> לא
-                </div>
-                <br>
-                <label class="radiolabel" for="freeze">
-                  <b>להקפיא חשבון</b>
-                </label>
-                <div>
-                  <input type="radio" name="name4" value="כן" [checked]="usServer.UserEditing.Freeze" #Freeze required> כן
-                  <input type="radio" name="name4" value="לא" [checked]="!usServer.UserEditing.Freeze" required> לא
-                </div>
-                <br>
-
-                <br>
-
-                <!-- <br>
                 <br>
                 <div class="row">
                   <div class="col-xs-12">
                     <label for="per"> הרשאה למתנדבים</label>
                   </div>
                   <div class="col-xs-12">
-                    <mat-radio-group class="text-right">
+                    <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
                       <mat-radio-button value="1" name="name1" [checked]="usServer.UserEditing.VolPer" #Vper required>כן</mat-radio-button>
                       <mat-radio-button value="2" name="name1" [checked]="!usServer.UserEditing.VolPer" required>לא</mat-radio-button>
                     </mat-radio-group>
                   </div>
                 </div>
                 <br>
-                <br>
                 <div class="row">
                   <label for="per"> הרשאה לתורמים</label>
                 </div>
                 <div class="row">
-                  <mat-radio-group class="text-right">
+                  <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
                     <mat-radio-button value="1" name="name2" [checked]="usServer.UserEditing.DonorPer" #Dper required>כן</mat-radio-button>
                     <mat-radio-button value="2" name="name2" [checked]="!usServer.UserEditing.DonorPer" required>לא</mat-radio-button>
                   </mat-radio-group>
                 </div>
                 <br>
-                <br>
                 <div class="row">
                   <label for="per"> הרשאה למאומצים</label>
                 </div>
                 <div class="row">
-                  <mat-radio-group class="text-right">
+                  <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
                     <mat-radio-button value="1" name="name3" [checked]="usServer.UserEditing.AdoptPer" #Aper required>כן</mat-radio-button>
                     <mat-radio-button value="2" name="name3" [checked]="!usServer.UserEditing.AdoptPer" required>לא</mat-radio-button>
                   </mat-radio-group>
                 </div>
-                <br> -->
+                <br>
+                <div class="row">
+                  <label for="per">להקפיא חשבון </label>
+                </div>
+                <div class="row">
+                  <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
+                    <mat-radio-button value="1" name="name4" [checked]="usServer.UserEditing.Freeze" #Freeze required>כן</mat-radio-button>
+                    <mat-radio-button value="2" name="name4" [checked]="!usServer.UserEditing.Freeze" #Freeze>לא</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <br>
               </div>
             </div>
             <div class="modal-footer">

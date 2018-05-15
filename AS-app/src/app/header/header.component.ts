@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,18 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
-   openNav() {
+  openNav() {
     document.getElementById("mySidenav").style.width = "240px";
-}
+  }
 
-/* Set the width of the side navigation to 0 */
- closeNav() {
+  closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-}
-
+  }
+  signOut() {
+    this.auth.logout();
+    this.router.navigate(["/"]);
+    console.log(this.auth.loggedIn);
+  }
 }
