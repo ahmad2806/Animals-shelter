@@ -4,6 +4,7 @@ import { User } from './user.model';
 export class UserService {
   UserEditing: User;
   UserRemoving: number;
+  activeUser:User;
   public usersList: User[] = [];
   constructor() {
     this.usersList = [ // users collection

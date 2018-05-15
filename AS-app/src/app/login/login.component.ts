@@ -11,6 +11,10 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   clicked='';
+  username:"";
+  password:"";
+  hide = true;
+
   @Output() Loginform=true;
   constructor(private router: Router,private app:AppboolService, private usServer: UserService,private auth:AuthService) { }
 
@@ -29,13 +33,14 @@ export class LoginComponent implements OnInit {
   clk(){
     
   }
-  onFormSubmit(userForm){
+  onSubmit(){
     for (let index = 0; index < this.usServer.usersList.length; index++) {
-      if (this.usServer.usersList[index].username == userForm.value.username) {
-        if (this.usServer.usersList[index].password == userForm.value.password) {
+      if (this.usServer.usersList[index].username == this.username) {
+        if (this.usServer.usersList[index].password == this.password) {
           if (this.usServer.usersList[index].Freeze == false) {
             this.router.navigate(["/Header/main"]);
             this.auth.login();
+            this.usServer.activeUser=this.usServer.usersList[index];
             return;
           } else {
             alert("please contact the admin");
