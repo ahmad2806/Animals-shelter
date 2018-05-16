@@ -41,7 +41,7 @@
 
 
         <mat-accordion>
-            <mat-expansion-panel *ngFor="let item of volunteersToView | filter:queryIn:volservice.volunteers ">
+            <mat-expansion-panel *ngFor="let item of volunteersToView | filter:queryIn:volservice.volunteers:searchFor ">
 
                 <mat-expansion-panel-header dir="rtl" cols="2">
 

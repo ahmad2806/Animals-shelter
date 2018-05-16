@@ -11,6 +11,7 @@ import { equal } from 'assert';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
+  searchFor = 'users'
   constructor(private userService: UserService) {
   }
   ngOnInit() {

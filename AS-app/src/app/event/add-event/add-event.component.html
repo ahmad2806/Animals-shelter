@@ -73,7 +73,7 @@
                           </span>
                       </div>
                       <div class=" pre-scrollable">
-                          <div class="col-xs-10" *ngFor="let item of volunteerService.volunteers  | filter:queryIn:volunteerService.volunteers" (click)="addToList(item)" (mouseover)="hover=true"
+                          <div class="col-xs-10" *ngFor="let item of volunteerService.volunteers  | filter:queryIn:volunteerService.volunteers:searchFor" (click)="addToList(item)" (mouseover)="hover=true"
                               (mouseleave)="hover=false">
                               {{ item.name }}
                               <span class="glyphicon glyphicon-arrow-right pull-right text-success" [ngStyle]="{opacity: hover==true ? '1' : '0'}">
