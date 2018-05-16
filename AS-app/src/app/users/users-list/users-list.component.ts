@@ -22,6 +22,7 @@ export class UsersListComponent implements OnInit {
   }
   onEdit(editUser: User) {
     this.userService.UserEditing = editUser;
+    console.log(this.userService.usersList.indexOf(this.userService.UserEditing));
   }
  
   SumbitRemove() {
