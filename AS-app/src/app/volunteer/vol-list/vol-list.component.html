@@ -1,8 +1,35 @@
 <div class="container">
     <div class="col-xs-12">
         <mat-toolbar>
+                                <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-primary col-xs-1   	glyphicon glyphicon-plus"></button>
+                                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-body">
+                                                <app-create-vol volunteersToView="volunteersToView"></app-create-vol>
+                                        </div>
+                                        </div>
+                                </div>
+                                </div>
+                                <div class="all-Div col-xs-3">
+                                                <div class=" changethisone">
+                                                    <div class=" input-group changethisone" >
+                                                        <input type="text" title="חפס שם"  class="form-control text-right" #search  placeholder="...חפס" [(ngModel)]="queryIn" name="search-query-in">
+                                                        <span class="input-group-addon">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </span>
+                                                    </div>
+                                                    <!-- <div class=" pre-scrollable">
+                                                        <div class="col-xs-10" *ngFor="let item of volunteersToView  | filter:queryIn" (click)="addToList(item)" (mouseover)="hover=true"
+                                                            (mouseleave)="hover=false">
+                                                          
+                                                          
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
 
-            <div class="col-xs-4 col-xs-offset-4 text-right">
+            <div class="col-xs-4  text-right">
                 <label for="ID"> ת"ז</label>
             </div>
             <div class="col-xs-4 text-right ">
@@ -14,7 +41,7 @@
 
 
         <mat-accordion>
-            <mat-expansion-panel *ngFor="let item of volunteersToView">
+            <mat-expansion-panel *ngFor="let item of volunteersToView | filter:queryIn:volservice.volunteers ">
 
                 <mat-expansion-panel-header dir="rtl" cols="2">
 

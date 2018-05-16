@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { VolunteerModel } from '../volunteer.model';
 
 import { VolunteersService } from '../volunteers.service';
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-vol.component.css']
 })
 export class CreateVolComponent implements OnInit {
+  @Input() volunteersToView:VolunteerModel[];
 private volunteer:VolunteerModel;
 private week:FreeDayes;
 private gender;
@@ -60,7 +61,7 @@ image(im){
   ,this.week,this.car,this.incar,form.value.job,this.volunteerIMG);
 
   this.volservice.add(this.volunteer);
-  this.router.navigate(["/Header/volenteer/VolunteersList"]);
+
 
   // console.log(this.volunteer.date);
 }else{

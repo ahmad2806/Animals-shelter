@@ -104,7 +104,7 @@ export class EventsListComponent implements OnInit,DoCheck {
 
   }
 
-  onAddEvent() {
+  onAddEvent(back) {
     // console.log(this.i);
 
     let i = this.i;
@@ -113,7 +113,7 @@ export class EventsListComponent implements OnInit,DoCheck {
     // console.log(eventName);
     const eventDate = this.dateInputRef.nativeElement.value;
     const eventDescription = this.desInputRef.nativeElement.value;
-    if (eventName == "" || eventDate == "") {
+    if (eventName == "") {
       alert("תשלים את הנתונים הנדרשים");
     }
     else {
@@ -123,7 +123,7 @@ export class EventsListComponent implements OnInit,DoCheck {
       this.eventList[i].description = eventDescription;
       this.eventList[i].type = this.modelType;
       this.eventList[i].relativeTo = this.relatedTo;
-
+back.click();
 
 
 

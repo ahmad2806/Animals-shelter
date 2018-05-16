@@ -1,9 +1,9 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container ">
+
         <div class="row ">
-                <div class="col-md-8">
+                <div class="col-md-12">
                       
                                 <h1 class="entry-title text-right">
                                         <span>הוספת מתנדב חדש</span>
@@ -151,14 +151,12 @@
                                         </div> -->
 
                                         <div class="form-group" >
-                                                        <label class="control-label col-sm-3"> *ימים הוא יכול להתנדב
+                                                        <label class="control-label col-md-4"> *ימים הוא יכול להתנדב
                                                                         <span class="text-danger"></span>
                                                                 </label>
-                                        <div class="col-md-8 col-sm-9" data-toggle="buttons">
+                                        <div class="col-md-8" data-toggle="buttons">
 
-                                                        <label class="btn btn-primary  form-check-label">
-                                                                        <input type="checkbox"  ngModel name="saturday"  class="form-check-input"  autocomplete="off" #saturday> שבת
-                                                                    </label>
+                                                   
                                         
                                                 <label class="btn btn-primary  form-check-label">
                                                     <input type="checkbox" class="form-check-input"  ngModel name="sunday"autocomplete="off" #sunday> ראשון
@@ -180,6 +178,9 @@
                                                     <label class="btn btn-primary form-check-label">
                                                         <input type="checkbox" class="form-check-input" ngModel name="friday" autocomplete="off" #friday> שישי
                                                     </label>
+                                                    <label class="btn btn-primary invisible  form-check-label">
+                                                                <input type="checkbox"  ngModel name="saturday"  class="form-check-input "  autocomplete="off" #saturday> שבת
+                                                            </label>
                                             
                                             </div>
                                         </div>
@@ -188,7 +189,7 @@
                                                 <label class="control-label col-sm-3">*ברושתו רכב
                                                         <span class="text-danger"></span>
                                                 </label>
-                                                <div class="col-md-8 col-sm-9">
+                                                <div class="col-md-8 ">
                                                         <label>
                                                                 <input name="type" type="radio" #car value="yes" checked> כן </label>
 
@@ -197,7 +198,7 @@
                                                 </div>
                                         </div>
                                         <div class="form-group" dir="ltr">
-                                                <label class="control-label col-sm-3">*האם הוא מכניס חיות ברכב
+                                                <label class="control-label col-md-4"> הוא מכניס חיות ברכב
                                                         <span class="text-danger"></span>
                                                 </label>
                                                 <div class="col-md-8 col-sm-9">
@@ -223,4 +224,4 @@
                                                         [disabled]="!f.valid" type="submit" value="שמור" class="btn btn-primary">
                                                 </div>
                                                
-                                        </div>
+           </div></form>            

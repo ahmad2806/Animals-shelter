@@ -74,6 +74,12 @@ if(this.number<1){
    
   }
 
+  // setArr(search){
+  
+  //     this.volunteersToView=this.volservice.volunteers;
+    
+  // }
+
 
   setDeletedVolunteer(item){
     this.DeletedVolunteer = this.volservice.volunteers.indexOf(item);

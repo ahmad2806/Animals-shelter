@@ -50,7 +50,7 @@
                                             <div class="col-xs-10 col-xs-offset-1  text-center btn-primary">
                                                 מידע על האירוע
                                             </div>
-                                            <form (ngSubmit)="onAddEvent()" #form>
+                                            <form (ngSubmit)="onAddEvent(back)" #form>
                                                 <div class="form-group">
                                                     <div class="col-md-9 col-md-offset-1">
                                                         <div class="customDiv ">
@@ -85,7 +85,7 @@
                                                                 <span class="pull-right " dir="rtl">תאריך האירוע</span>
                                                                 <span class="text-danger">*</span>
                                                             </div>
-                                                            <input type="datetime-local" value="{{date}}" class="col-xs-6 pull-right date-time form-control" required #dateInput>
+                                                            <input type="date" value="{{date}}" class="col-xs-6 pull-right date-time form-control" required #dateInput>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -145,8 +145,8 @@
                                                 <br>
                                                 <div class="modal-footer ">
                                                     <div class="row text-center">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">חזור</button>
-                                                        <button type="submit" class="btn btn-primary">שמור</button>
+                                                        <button type="button" class="btn btn-secondary" #back data-dismiss="modal">חזור</button>
+                                                        <button type="submit"  class="btn btn-primary">שמור</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -172,7 +172,7 @@
                             </div>
                             <!--  -->
                         </div>
-                        <input type="date " data-provide="" disabled value="{{event.date | date:'short'}}" class="col-xs-4 text-right no-border">
+                        <input type="date " data-provide="" disabled value="{{event.date | date:'dd/MM/yyyy'}}" class="col-xs-4 text-right no-border">
                         <!-- <ion-datetime>{{event.date}}</ion-datetime> -->
                     </span>
                     <br>

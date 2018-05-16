@@ -8,11 +8,11 @@ export class FilterPipe implements PipeTransform {
 
   constructor() { }
 
-  transform(value: any, query: string): any {
+  transform(value: any, query: string,arr: any): any {
     if(value === null)
         return null;
     else{
-      return query ? value.reduce((prev, next) => {
+      return query ? arr.reduce((prev, next) => {
         if (next.name.includes(query)) { prev.push(next); }
         return prev;
       }, []) : value;
