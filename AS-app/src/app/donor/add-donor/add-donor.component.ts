@@ -21,7 +21,7 @@ export class AddDonorComponent implements OnInit {
   amount;
 
 
-  Foundation = false;
+  Foundation = true;
   private = false;
   constructor(private donor: DonorService) { }
 

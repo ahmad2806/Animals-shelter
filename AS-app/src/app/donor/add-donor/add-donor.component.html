@@ -31,7 +31,6 @@
     <input matInput placeholder="תאריך לידה" class="date-time form-control pull-right col-xs-12 text-right" [(ngModel)]="birthday">
   </mat-form-field>
   <br>
-
   <mat-form-field>
     <input matInput placeholder="סכום התרומה" [(ngModel)]="amount">
   </mat-form-field>
@@ -64,6 +63,6 @@
     <input matInput placeholder="סכום התרומה" [(ngModel)]="amount">
   </mat-form-field>
   <br>
-  <button mat-raised-button (click)="save()" data-dismiss="modal" [routerLink]="['/Header/donor/donorList']">שמור</button>
+  <button type="button " class="btn btn-primary center-block" style="width: 30%;"  (click)="save()" data-dismiss="modal" [routerLink]="['/Header/donor/donorList']">שמור</button>
 
 </ol>
