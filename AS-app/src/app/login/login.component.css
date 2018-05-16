@@ -1,47 +1,151 @@
-body, html {
-    height: 100%;
-}
-.bg { 
- 
-    background-image: url("../../assets/img1.jpeg");
-    height: max-content;
-    
 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-  .example-container {
-    display: flex;
-    flex-direction: column;
+*{
+
+  /* margin:0px; */
+  
+  padding:0px;
+  
   }
   
-  .example-container > * {
-    width: 80%;
-    margin-right:10%;
+  body, html {
+  
+  height:
+  100%;
+  
   }
+  
+  .bg {
+  
+  display:
+  block;
+  
+  position:
+  fixed;
+  
+  height:
+  101vh;
+  
+  width:101vw;
+  
+  
+  
+  background-image:url("../../assets/maxresdefault.jpg");
+  
+  background-position:
+  center;
+  
+  background-repeat:
+  no-repeat;
+  
+  background-size:
+  cover;
+  
+  }
+  
+  .example-container {
+  
+  display:
+  flex;
+  
+  flex-direction:
+  column;
+  
+  }
+  
+  
+  .example-container
+  >
+  * {
+  
+  width:
+  80%;
+  
+  margin-right:10%;
+  
+  }
+  
   
   .example-right-align {
-    text-align: right;
+  
+  text-align:
+  right;
+  
   }
+  
   
   input.example-right-align::-webkit-outer-spin-button,
+  
   input.example-right-align::-webkit-inner-spin-button {
-    display: none;
+  
+  display:
+  none;
+  
   }
   
+  
   input.example-right-align {
-    -moz-appearance: textfield;
+  
+  -moz-appearance: textfield;
+  
   }
+  
   #login{
-      border: white;
-      border-style: solid;  
-          
-    }
-    div.card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        text-align: center;
-        background-color:silver;
-      }
-      
-      
+  
+  
+  border:
+  white;
+  
+  border-style:
+  solid;
+  
+  
+  }
+  
+  div.card {
+  
+  display:
+  block;
+  
+  position:absolute;
+  
+  /* width: auto; */
+  
+  height:400px;
+  
+  top:50%;
+  
+  margin-top:-200px;
+  
+  /* margin-top:50%; */
+  
+  box-shadow:
+  0
+  4px
+  8px
+  0
+  rgba(0,
+  0,
+  0,
+  0.2),
+  0
+  6px
+  20px
+  0
+  rgba(0,
+  0,
+  0,
+  0.19);
+  
+  text-align:
+  center;
+  
+  background-color:
+  rgba(256,
+  256,
+  256,0.9);
+  
+  
+  
+  }
+  
+  
