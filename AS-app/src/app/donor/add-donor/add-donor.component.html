@@ -7,56 +7,63 @@
 <ol *ngIf="private">
   <br>
   <mat-form-field>
-    <input matInput placeholder="שם התורם"  [(ngModel)]="name">
+    <input matInput placeholder="שם התורם" [(ngModel)]="name">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="תז של התורם"  [(ngModel)]="id">
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input matInput placeholder="מספר נייד"  [(ngModel)]="phone">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="מספר נוסף"  [(ngModel)]="extraphone">
+    <input matInput placeholder="תז של התורם" [(ngModel)]="id">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="תאריך לידה" class="date-time form-control pull-right col-xs-12 text-right"  [(ngModel)]="birthday">
+    <input matInput placeholder="מספר נייד" [(ngModel)]="phone">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="מספר נוסף" [(ngModel)]="extraphone">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="דוא'ל" [(ngModel)]="email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="כתובת" [(ngModel)]="address">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="תאריך לידה" class="date-time form-control pull-right col-xs-12 text-right" [(ngModel)]="birthday">
   </mat-form-field>
   <br>
 
   <mat-form-field>
-    <input matInput placeholder="סכום התרומה"  [(ngModel)]="amount">
+    <input matInput placeholder="סכום התרומה" [(ngModel)]="amount">
   </mat-form-field>
   <br>
-  <button mat-raised-button [routerLink]="['/Header/donor']" (click)="save()">שמור</button>
+  <button mat-raised-button [routerLink]="['/Header/donor/donorList']" (click)="save()" data-dismiss="modal">שמור</button>
 </ol>
 
 <ol *ngIf="Foundation">
   <mat-form-field>
-    <input matInput placeholder="שם הקרן">
+    <input matInput placeholder="שם הקרן" [(ngModel)]="name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="כתובת">
-  </mat-form-field>
-<br>
-  <mat-form-field>
-    <input matInput placeholder="מספר פלפון">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="מספר נוסף">
-  </mat-form-field>
-<br>
-  <mat-form-field>
-    <input matInput placeholder="דוא'ל">
-  </mat-form-field>
-<br>
-  <mat-form-field>
-    <input matInput placeholder="סכום התרומה">
+    <input matInput placeholder="כתובת" [(ngModel)]="address">
   </mat-form-field>
   <br>
-  <button mat-raised-button (click)="save()"  [routerLink]="['/Header/donor/donorList']">שמור</button>
+  <mat-form-field>
+    <input matInput placeholder="מספר פלפון" [(ngModel)]="phone">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="מספר נוסף" [(ngModel)]="extraphone">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="דוא'ל" [(ngModel)]="email">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="סכום התרומה" [(ngModel)]="amount">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button (click)="save()" data-dismiss="modal" [routerLink]="['/Header/donor/donorList']">שמור</button>
 
 </ol>

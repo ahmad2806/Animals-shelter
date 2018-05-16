@@ -11,6 +11,7 @@ export class DonorModel {
         public homePhone: string,
         public email: string,
         public donorType: string,
+        public amount: number,
         public hisEvent: EventModel[]
     ) { }
 }
