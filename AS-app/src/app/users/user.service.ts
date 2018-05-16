@@ -14,6 +14,7 @@ export class UserService {
       new User("montaser", "0502013213", "montaser@gmail.com", "montaserja", "1995", true, false, true, false),
       new User("ahmad", "0526019121", "ahmad@gmail.com", "ahdhs", "1993", true, false, true, false),
       new User("ahmad", "0526019121", "ahmad@gmail.com", "ahmadhs", "1993", false, false, true, false),
+      
     ]
     this.UserEditing=this.usersList[0];
   }

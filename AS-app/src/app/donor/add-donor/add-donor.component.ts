@@ -10,44 +10,57 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-donor.component.css']
 })
 export class AddDonorComponent implements OnInit {
-  @ViewChild('f') newDonorForm: NgForm;
-  name="";
-  id="";
-  address="";
-  phone="";
-  email="";
-  extraphone="";
-  birthday:Date;
-  amount="";
+
+  name = "";
+  id = "";
+  address = "";
+  phone = "";
+  email = "";
+  extraphone = "";
+  birthday: Date;
+  amount;
 
 
-  Foundation=false;
-  private=false;
-  constructor(private donor:DonorService,private router: Router) { }
+  Foundation = false;
+  private = false;
+  constructor(private donor: DonorService) { }
 
   ngOnInit() {
   }
 
-  radioChoice(choice:string){
-    if(choice=='Foundation'){
-      this.Foundation=true;
-      this.private=false;
+  radioChoice(choice: string) {
+    if (choice == 'Foundation') {
+      this.Foundation = true;
+      this.private = false;
     }
-    if(choice=='private'){
-      this.private=true;
-      this.Foundation=false;
+    if (choice == 'private') {
+      this.private = true;
+      this.Foundation = false;
     }
   }
-  save(){
-    let newDonor:DonorModel;
-    if(this.Foundation==true){
+  reset(){
+    this.name = "";
+    this.id = "";
+    this.address = "";
+    this.phone = "";
+    this.email = "";
+    this.extraphone = "";
+    this.birthday;
+    this.amount;
+    // this.private = false;
+    // this.Foundation = false;
+  }
 
-    }
-    if(this.private==true){
-      newDonor= new DonorModel(this.name,this.id,this.birthday,this.address,this.phone,this.extraphone,this.email,"פרטי",[]);
+  save() {
+    let newDonor: DonorModel;
+    if (this.Foundation == true) {
+      newDonor = new DonorModel(this.name, this.id, this.birthday, this.address, this.phone, this.extraphone, this.email, "קרן", this.amount, []);
       this.donor.donor.push(newDonor);
-      this.router.navigate(["/Header/donor/donorList"]);
-
     }
+    if (this.private == true) {
+      newDonor = new DonorModel(this.name, this.id, this.birthday, this.address, this.phone, this.extraphone, this.email, "פרטי", this.amount,[]);
+      this.donor.donor.push(newDonor);
+    }
+    this.reset();
   }
 }
