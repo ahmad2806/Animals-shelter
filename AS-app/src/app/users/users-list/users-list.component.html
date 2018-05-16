@@ -30,7 +30,7 @@
                 </div>
             </div>
             <mat-accordion dir="rtl" class="example-headers-align">
-                <mat-expansion-panel *ngFor="let us of userService.usersList | filter:queryIn" class="text-right">
+                <mat-expansion-panel *ngFor="let us of userService.usersList | filter:queryIn:userService.usersList" class="text-right">
                     <mat-expansion-panel-header>
                         <mat-panel-title class="text-right">
                             {{us.name}}
