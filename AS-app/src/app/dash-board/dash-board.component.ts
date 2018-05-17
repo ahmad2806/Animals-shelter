@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { EventService } from '../event/event.service';
 import { EventModel } from '../event/event.model';
-import {  VolunteerModel } from "../volunteer/volunteer.model";
+import { VolunteerModel } from "../volunteer/volunteer.model";
 
 @Component({
   selector: 'app-dash-board',
@@ -15,7 +15,7 @@ export class DashBoardComponent implements OnInit {
   public EventsInProgress = this.events.inProgressEvents.length;
   public DeletedEvents = this.events.deletedEvents.length;
   public CommingEvents = this.events.commingSoonEvents.length;
-  constructor(private events: EventService) { 
+  constructor(private events: EventService) {
 
   }
 
@@ -23,25 +23,28 @@ export class DashBoardComponent implements OnInit {
 
   View(type) {
     this.EventType = type;
-    this.event=[];
-    if (type == "OldEvents") {
+    this.event = [];
+    console.log(type);
+    if (type == "done") {
       this.events.setClicked('old');
     }
 
-    if (type == "EventsInProgress") {
+    else if (type == "donut_large") {
+
+      this.events.setClicked('inProgress');
+    }
+
+    else if (type == "clear") {
+
+      this.events.setClicked('deleted');
+    }
+
+    else if (type == "alarm") {
+
+      this.events.setClicked('commingSoon');
+    }
+
     
-      this.events.setClicked('inProgress'); 
-     }
-
-    if (type == "DeletedEvents") { 
-      
-      this.events.setClicked('deleted'); 
-    }
-
-    if (type == "CommingEvents") { 
-      
-      this.events.setClicked('commingSoon');  
-    }
     this.m.nativeElement;
 
 

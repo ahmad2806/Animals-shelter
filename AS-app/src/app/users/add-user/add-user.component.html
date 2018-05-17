@@ -3,7 +3,7 @@
         <div class="modal-header">
             <h3 class="modal-title text-center">
                 <span class="text-right">הוספת משתמש חדש</span>
-                <button type="button text-left" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button text-left" #exit class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </h3>
@@ -75,10 +75,10 @@
                 </div>
             </div>
             <div class="modal-footer text-center">
-                <button type="reset" class="btn btn-warning">איפוס
+                <button type="reset" #reset class="btn btn-warning">איפוס
                 </button>
-                <button type="button" class="btn btn-primary" [disabled]="!f.valid" (click)="onSumbit(Vper.checked,Dper.checked,Aper.checked)"
-                    data-dismiss="modal">שמור
+                <button type="button" class="btn btn-primary" [disabled]="!f.valid" (click)="onSumbit(Vper.checked,Dper.checked,Aper.checked,reset,exit)"
+                >שמור
                 </button>
             </div>
         </form>

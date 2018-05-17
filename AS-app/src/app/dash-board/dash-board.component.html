@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="col-md-5 col-md-offset-1">
-        <app-figurecard (click)=View(old.id) id="OldEvents" #old data-toggle="modal" data-target="#events"
+        <app-figurecard (click)=View(old.headerIcon) id="OldEvents" #old data-toggle="modal" data-target="#events"
           title="אירועים ישנים"
           headerIcon="done"
           category="{{OldEvents}}"
@@ -15,7 +15,7 @@
     
     </div>
     <div class="col-md-5 col-md-offset-1" >
-        <app-figurecard (click)=View(InProgress.id) id="EventsInProgress" #InProgress data-toggle="modal" data-target="#events"
+        <app-figurecard (click)=View(InProgress.headerIcon) id="EventsInProgress" #InProgress data-toggle="modal" data-target="#events"
           title="אירועים בתהליך"
           headerIcon="donut_large"
           category="{{EventsInProgress}}"
@@ -32,7 +32,7 @@
 <div class="row">
     <div class="col-md-12">
       <div class="col-md-5 col-md-offset-1">
-          <app-figurecard (click)=View(deleted.id) id="DeletedEvents" #deleted data-toggle="modal" data-target="#events"
+          <app-figurecard (click)=View(deleted.headerIcon) id="DeletedEvents" #deleted data-toggle="modal" data-target="#events"
             title="אירועים שנמחקו"
             headerIcon="clear"
             category="{{DeletedEvents}}"
@@ -44,7 +44,7 @@
       
       </div>
       <div class="col-md-5 col-md-offset-1">
-          <app-figurecard (click)=View(comming.id) id="CommingEvents" #comming data-toggle="modal" data-target="#events"
+          <app-figurecard (click)=View(comming.headerIcon) id="CommingEvents" #comming data-toggle="modal" data-target="#events"
             title="אירועים קרובים"
             headerIcon="alarm"
             category="{{events.commingSoonEvents.length}}"

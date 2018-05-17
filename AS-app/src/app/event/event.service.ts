@@ -44,6 +44,21 @@ this.didntarrived=this.relatedTo;
        new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
        new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
     ];
+    this.deletedEvents=[
+      new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
+      new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
+
+    ];
+    this.inProgressEvents=[
+      new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
+
+    ];
+    this.oldEvents=[
+      new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
+      new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
+      new EventModel("יום הולדת", "volunteer-Model", this.date , "שלח כרטיס מתנה", this.relatedTo,[],this.didntarrived),
+
+    ];
 
     this.generalEvents=this.commingSoonEvents;
   }

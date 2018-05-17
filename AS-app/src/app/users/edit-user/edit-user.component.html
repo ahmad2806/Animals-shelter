@@ -3,7 +3,7 @@
     <div class="modal-header">
       <h3 class="modal-title text-center">
         <span class="text-right">עדכון משתמש קיים</span>
-        <button type="button text-left" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button text-left" #exit class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </h3>
@@ -11,7 +11,7 @@
     <div class="modal-body">
       <div class="row" dir="rtl">
         <div class="col-sm-12" id="cont1" dir="rtl">
-          <form #f="ngForm" (ngSubmit)="onSumbit(f,Vper.checked,Dper.checked,Aper.checked,Freeze.checked)">
+          <form #f="ngForm" (ngSubmit)="onSumbit(f,Vper.checked,Dper.checked,Aper.checked,Freeze.checked,exit)">
             <div class="row" dir="rtl">
               <div class="col-sm-8 pull-right" id="formdiv">
                 <table class="table table-sm" dir="rtl">
@@ -51,7 +51,7 @@
                     </td>
                     <td>
                       <div class="form-group">
-                        <input type="text" class="form-control" ngModel name="username" [ngModel]="usServer.UserEditing.username" [disabled]="usServer.UserEditing.username == 'admin' "
+                        <input type="text" class="form-control" ngModel name="username" [ngModel]="usServer.UserEditing.username" [disabled]="usServer.UserEditing.username === 'admin' "
                           value="">
                       </div>
                     </td>
@@ -76,8 +76,8 @@
                   </div>
                   <div class="col-xs-12">
                     <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
-                      <mat-radio-button value="1" name="name1" [checked]="usServer.UserEditing.VolPer" #Vper >כן</mat-radio-button>
-                      <mat-radio-button value="2" name="name1" [checked]="!usServer.UserEditing.VolPer" >לא</mat-radio-button>
+                      <mat-radio-button value="1" name="name1" #Vper [checked]="usServer.UserEditing.VolPer" #Vper>כן</mat-radio-button>
+                      <mat-radio-button value="2" name="name1" [checked]="!usServer.UserEditing.VolPer">לא</mat-radio-button>
                     </mat-radio-group>
                   </div>
                 </div>
@@ -87,8 +87,8 @@
                 </div>
                 <div class="row">
                   <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
-                    <mat-radio-button value="1" name="name2" [checked]="usServer.UserEditing.DonorPer" #Dper >כן</mat-radio-button>
-                    <mat-radio-button value="2" name="name2" [checked]="!usServer.UserEditing.DonorPer" >לא</mat-radio-button>
+                    <mat-radio-button value="1" name="name2" #Dper [checked]="usServer.UserEditing.DonorPer" #Dper>כן</mat-radio-button>
+                    <mat-radio-button value="2" name="name2" [checked]="!usServer.UserEditing.DonorPer">לא</mat-radio-button>
                   </mat-radio-group>
                 </div>
                 <br>
@@ -97,8 +97,8 @@
                 </div>
                 <div class="row">
                   <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
-                    <mat-radio-button value="1" name="name3" [checked]="usServer.UserEditing.AdoptPer" #Aper >כן</mat-radio-button>
-                    <mat-radio-button value="2" name="name3" [checked]="!usServer.UserEditing.AdoptPer" >לא</mat-radio-button>
+                    <mat-radio-button value="1" name="name3" #Aper [checked]="usServer.UserEditing.AdoptPer" #Aper>כן</mat-radio-button>
+                    <mat-radio-button value="2" name="name3" [checked]="!usServer.UserEditing.AdoptPer">לא</mat-radio-button>
                   </mat-radio-group>
                 </div>
                 <br>
@@ -107,8 +107,8 @@
                 </div>
                 <div class="row">
                   <mat-radio-group class="text-right" [disabled]="usServer.UserEditing.username == 'admin' ">
-                    <mat-radio-button value="1" name="name4" [checked]="usServer.UserEditing.Freeze" #Freeze >כן</mat-radio-button>
-                    <mat-radio-button value="2" name="name4" [checked]="!usServer.UserEditing.Freeze" >לא</mat-radio-button>
+                    <mat-radio-button value="1" name="name4" [checked]="usServer.UserEditing.Freeze" #Freeze>כן</mat-radio-button>
+                    <mat-radio-button value="2" name="name4" [checked]="!usServer.UserEditing.Freeze">לא</mat-radio-button>
                   </mat-radio-group>
                 </div>
                 <br>

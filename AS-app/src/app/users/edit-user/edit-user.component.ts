@@ -14,7 +14,7 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSumbit(form: NgForm, Vper, Dper, Aper, Freeze) {
+  onSumbit(form: NgForm, Vper, Dper, Aper, Freeze,exit) {
     let newUser: User;
     let swap: boolean = false;
     let currIndex: number =0;
@@ -30,6 +30,7 @@ export class EditUserComponent implements OnInit {
           currIndex = this.usServer.usersList.indexOf(this.usServer.UserEditing);
           newUser = new User(form.value.name, form.value.phone, form.value.email, form.value.username, form.value.password, Vper, Dper, Aper, Freeze);
           this.usServer.usersList[currIndex] = newUser;
+          exit.click();
           return;
         }
         else {
@@ -41,6 +42,7 @@ export class EditUserComponent implements OnInit {
           currIndex = this.usServer.usersList.indexOf(this.usServer.UserEditing);
           newUser = new User(form.value.name, form.value.phone, form.value.email, form.value.username, form.value.password, Vper, Dper, Aper, Freeze);
           this.usServer.usersList[currIndex] = newUser;
+          exit.click();
           return;
         }
       }

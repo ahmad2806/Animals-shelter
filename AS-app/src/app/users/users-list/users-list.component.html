@@ -3,32 +3,31 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-primary col-xs-2 glyphicon glyphicon-plus"
-                        title="Hooray!"></button>
+            <mat-toolbar>
+                <mat-toolbar-row>
+                    <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-primary col-xs-1 glyphicon glyphicon-plus"
+                        title="add new user"></button>
                     <app-add-user class="modal fade" id="addModal" tabindex="-1" role="dialog"></app-add-user>
-
-                    <div class="form-group col-xs-3">
-                        <div class='input-group text'>
-                            <input type="text" class="text form-control  text-right" [(ngModel)]="queryIn">
+                    <div class="col-xs-3">
+                        <div class='input-group'>
+                            <input type="text" class="form-control text-right" [(ngModel)]="queryIn" name="search-query-in">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-search"></span>
                             </span>
                         </div>
                     </div>
-
-                    <div class="col-xs-4 btn-lg pull-right text-right">
-                        <strong>שם פרטי</strong>
+                    <div class="col-xs-4 btn-lg text-right">
+                        <strong> שם משתמש </strong>
                     </div>
-
-                    <div class="col-xs-3 btn-lg pull-right text-right">
-                        <strong>שם משתמש</strong>
+                    <div class="col-xs-4 btn-lg text-right">
+                        <strong>שם </strong>
                     </div>
-                    <br>
-                    <br>
-                </div>
-            </div>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
             <mat-accordion dir="rtl" class="example-headers-align">
                 <mat-expansion-panel *ngFor="let us of userService.usersList | filter:queryIn:userService.usersList:searchFor" class="text-right">
                     <mat-expansion-panel-header>
