@@ -1,43 +1,32 @@
-
 <div id="mySidenav" class="sidenav " style="background-image:url('/assets/background.jpg')">
-        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <app-nav-bar (click)="closeNav()"></app-nav-bar>
-      </div>
-   
-      <!-- Use any element to open the sidenav -->
-     
-    
-      <div class="row bg-default col-md-12  nav" style="background-image:url('/assets/background.jpg')">
-        
-          <div class="col-md-3 text-center">
-                <button type="button" (click)="openNav()" class="btn btn-default text-success  glyphicon glyphicon-th-list"></button>
-                <button type="button"  class="btn btn-info text-success  glyphicon glyphicon-info-sign"></button>
-                 <button type="button"  class="btn btn-danger text-success  glyphicon glyphicon-log-out" (click)="signOut()"></button>
-          </div>
-        
-         
-          <div class="col-md-6 text-center text-success btn-lg">J.S.P.C.A</div>
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+      <app-nav-bar (click)="closeNav()"></app-nav-bar>
+</div>
 
-          <div class=" col-md-3 input-group changethisone">
-                <input type="text" title="חפס שם" class="form-control text-right">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-search"></i>
-                </span>
+<!-- Use any element to open the sidenav -->
+
+<div class="row">
+
+      <div class="bg-default col-xs-12  nav" style="background-image:url('/assets/background.jpg')">
+            
+            <div class="col-xs-3 text-center">
+                  <button type="button" (click)="openNav()" class="btn btn-default text-success  glyphicon glyphicon-th-list"></button>
+                  <button type="button" class="btn btn-info text-success  glyphicon glyphicon-info-sign"></button>
+                  <button type="button" class="btn btn-danger text-success  glyphicon glyphicon-log-out" (click)="signOut()"></button>
+            </div>            
+            <div class="col-xs-6 text-center text-success btn-lg">
+                  <a [routerLink]="['/Header/main']">J.S.P.C.A</a>
             </div>
-         
-        
-    
-        
-        
- 
-                
-            </div>  
-            <br>
-            <br>
+            <div class=" col-xs-3 input-group changethisone">
+                  <input type="text" title="חפס שם" class="form-control text-right">
+                  <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-search"></i>
+                  </span>
+            </div>
+      </div>
+</div>
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-      <div id="main">
-            <router-outlet></router-outlet>
-      </div>
-
-
+<div id="main">
+      <router-outlet></router-outlet>
+</div>
