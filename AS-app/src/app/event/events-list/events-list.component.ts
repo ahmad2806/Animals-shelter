@@ -9,7 +9,7 @@ import { VolunteerModel } from '../../volunteer/volunteer.model';
   templateUrl: './events-list.component.html',
   styleUrls: ['./events-list.component.css']
 })
-export class EventsListComponent implements OnInit,DoCheck {
+export class EventsListComponent implements OnInit, DoCheck {
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('dateInput') dateInputRef: ElementRef;
   @ViewChild('descriptionInput') desInputRef: ElementRef;
@@ -30,26 +30,26 @@ export class EventsListComponent implements OnInit,DoCheck {
   private relevantVolunteersToEvent: VolunteerModel[] = [];
 
   constructor(private volunteerService: VolunteersService, private eventService: EventService) {
- 
-      this.eventList = eventService.generalEvents;
+
+    this.eventList = eventService.generalEvents;
 
     this.eventListOnSearch = eventService.generalEvents;
     this.volunteersList = volunteerService.volunteers;
- 
+
 
   }
- 
-  ngDoCheck(){
+
+  ngDoCheck() {
     //  console.log("asdfasd");
-     if(this.eventService.generalEvents!=this.eventListOnSearch){
-    this.eventList = this.eventService.generalEvents;
+    if (this.eventService.generalEvents != this.eventListOnSearch) {
+      this.eventList = this.eventService.generalEvents;
 
-    this.eventListOnSearch =this.eventService.generalEvents;
-  }
+      this.eventListOnSearch = this.eventService.generalEvents;
+    }
   }
 
   ngOnInit() {
-  
+
   }
 
   addToList(item, i) {
@@ -123,7 +123,7 @@ export class EventsListComponent implements OnInit,DoCheck {
       this.eventList[i].description = eventDescription;
       this.eventList[i].type = this.modelType;
       this.eventList[i].relativeTo = this.relatedTo;
-back.click();
+      back.click();
 
 
 
@@ -141,7 +141,7 @@ back.click();
   update(thisdate) {
     this.eventList = [];
     if (thisdate.value == "") {
-      
+
       this.eventList = this.eventListOnSearch;
     }
     else {
@@ -173,6 +173,5 @@ back.click();
 
   }
 
-  // formatDate(value: string | number | Date, format: string, locale: string, timezone?: string): string;
 
 }

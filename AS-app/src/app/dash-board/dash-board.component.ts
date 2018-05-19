@@ -44,13 +44,10 @@ export class DashBoardComponent implements OnInit {
       this.events.setClicked('commingSoon');
     }
 
-    
+
     this.m.nativeElement;
 
-
   }
-
-
   ngOnInit() {
   }
 

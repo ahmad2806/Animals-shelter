@@ -16,7 +16,7 @@ export class EventService {
   arrived: VolunteerModel[] = [];
   arrived1: VolunteerModel[] = [];
   didntarrived: VolunteerModel[] = [];
-  date : DateTimeFormatPartTypes ;
+  date : Date ;
 
   clicked : string = "";
   constructor() {
