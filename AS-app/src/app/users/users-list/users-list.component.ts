@@ -12,6 +12,8 @@ import { equal } from 'assert';
 })
 export class UsersListComponent implements OnInit {
   searchFor = 'users'
+  today=Date.now();
+
   constructor(private userService: UserService) {
   }
   ngOnInit() {
@@ -23,7 +25,7 @@ export class UsersListComponent implements OnInit {
   }
   onEdit(editUser: User) {
     this.userService.UserEditing = editUser;
-    console.log(this.userService.usersList.indexOf(this.userService.UserEditing));
+    
   }
  
   SumbitRemove() {
