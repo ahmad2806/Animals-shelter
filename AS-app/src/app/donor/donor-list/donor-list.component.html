@@ -19,28 +19,32 @@
     <mat-expansion-panel *ngFor="let item of donorList.donor">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{item.name}}
+          {{item.name}} {{item.lastName}}
         </mat-panel-title>
         <mat-panel-description>
           {{item.donorType}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="row">
-        <div class="col-sm-4 pull-right">
+        <div class="col-sm-3 pull-right">
           <h5>דוא"ל: {{item.email }}</h5>
           <h5>פלפון: {{item.phone}}</h5>
           <h5>מספר נוסף: {{item.homePhone}}</h5>
         </div>
-        <div class="col-sm-4 pull-right">
+        <div class="col-sm-3 pull-right">
           <h5 *ngIf="item.donorType ==='פרטי'">תאריך לידה: {{ item.birthday | date:"dd/MM/yyyy" }}</h5>
           <h5>כתובת: {{item.address}}</h5>
           <h5 *ngIf="item.donorType ==='פרטי'">ת"ז: {{item.id}}</h5>
           <h5>סכום תרומה: {{item.amount}}</h5>
         </div>
+        <div class="col-sm-3 pull-right">
+          <h5>{{item.description}}</h5>
+        </div>
       </div>
       <div class="pull-left">
-        <button class="btn btn-warning" (click)="edit(item)" data-toggle="modal"  data-target="#edit">עדכן</button>
+        <button class="btn btn-warning" (click)="edit(item)" data-toggle="modal" data-target="#edit">עדכן</button>
         <button class="btn btn-danger" (click)="delete(item)">מחק</button>
+        <button class="btn btn-info" (click)="disc(item)" data-toggle="modal" data-target="#disc">הצג</button>
       </div>
       <br>
     </mat-expansion-panel>
@@ -64,6 +68,9 @@
         <ol>
           <mat-form-field>
             <input matInput placeholder="שם" [(ngModel)]="name">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="שם משפחה" [(ngModel)]="lastname">
           </mat-form-field>
           <br>
           <mat-form-field *ngIf="privateDonor">
@@ -94,8 +101,33 @@
             <input matInput placeholder="סכום תרומה" [(ngModel)]="amount">
           </mat-form-field>
           <br>
+          <mat-form-field>
+            <textarea matInput placeholder="פרטים נוספים" [(ngModel)]="description"></textarea>
+          </mat-form-field>
+          <br>
           <button mat-raised-button (click)="save()" data-dismiss="modal">שמור</button>
         </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="add" tabindex="-1" role="dialog" dir="rtl">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-add-donor></app-add-donor>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="disc" tabindex="-1" role="dialog" dir="rtl">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>
+          {{description}}
+        </p>
       </div>
     </div>
   </div>

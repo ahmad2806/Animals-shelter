@@ -10,10 +10,10 @@ import { NgForm } from '@angular/forms';
 })
 export class DonorListComponent implements OnInit {
   @ViewChild('f') newDonorForm: NgForm;
-  ediDonor: DonorModel;
 
-  i:number;
+  i: number;
   name = "";
+  lastname="";
   id = "";
   address = "";
   phone = "";
@@ -21,8 +21,11 @@ export class DonorListComponent implements OnInit {
   extraphone = "";
   birthday: Date;
   amount;
-  privateDonor=false;
-  FoundationDonor=false;
+  privateDonor = false;
+  FoundationDonor = false;
+  description = "";
+
+
   constructor(private donorList: DonorService) {
 
   }
@@ -30,37 +33,44 @@ export class DonorListComponent implements OnInit {
   ngOnInit() {
   }
 
-  edit(item){
+  edit(item) {
     this.i = this.donorList.donor.indexOf(item);
-    this.ediDonor=item.donorType;
-    this.name=item.name;
+    this.name = item.name;
+    this.lastname=item.lastName;
     this.id = item.id;
     this.address = item.address;
     this.phone = item.phone;
     this.email = item.email;
     this.extraphone = item.homePhone;
-    this. amount=item.amount;
-    
-    if(item.donorType==='פרטי'){
-      this.privateDonor=true;
-      this.FoundationDonor=false;
+    this.amount = item.amount;
+    this.description = item.description;
+
+    if (item.donorType === 'פרטי') {
+      this.privateDonor = true;
+      this.FoundationDonor = false;
     }
-    if(item.donorType==='קרן'){
-      this.privateDonor=false;
-      this.FoundationDonor=true;
+    if (item.donorType === 'קרן') {
+      this.privateDonor = false;
+      this.FoundationDonor = true;
     }
+  }
+  disc(item){
+    this.description="";
+    this.description=item.description;
   }
 
   save() {
-  
+
     this.donorList.donor[this.i].name = this.name;
-    this.donorList.donor[this.i].id=this.id;
-    this.donorList.donor[this.i].phone=this.phone;
-    this.donorList.donor[this.i].email=this.email;
-    this.donorList.donor[this.i].homePhone=this.extraphone;
-    this.donorList.donor[this.i].amount=this.amount;
-    this.donorList.donor[this.i].birthday=this.birthday;
-    this.donorList.donor[this.i].address=this.address;
+    this.donorList.donor[this.i].lastName=this.lastname;
+    this.donorList.donor[this.i].id = this.id;
+    this.donorList.donor[this.i].phone = this.phone;
+    this.donorList.donor[this.i].email = this.email;
+    this.donorList.donor[this.i].homePhone = this.extraphone;
+    this.donorList.donor[this.i].amount = this.amount;
+    this.donorList.donor[this.i].birthday = this.birthday;
+    this.donorList.donor[this.i].address = this.address;
+    this.donorList.donor[this.i].description = this.description;
   }
 
   delete(item) {

@@ -3,6 +3,8 @@ import { DonorService } from '../donor.service';
 import { NgForm, FormControl } from '@angular/forms';
 import { DonorModel } from '../donor.model';
 import { Router } from '@angular/router';
+import { EventService } from '../../event/event.service';
+import { EventModel } from '../../event/event.model';
 
 @Component({
   selector: 'app-add-donor',
@@ -12,6 +14,7 @@ import { Router } from '@angular/router';
 export class AddDonorComponent implements OnInit {
 
   name = "";
+  lastname="";
   id = "";
   address = "";
   phone = "";
@@ -19,11 +22,12 @@ export class AddDonorComponent implements OnInit {
   extraphone = "";
   birthday: Date;
   amount;
-
+  discription="";
+  
 
   Foundation = true;
   private = false;
-  constructor(private donor: DonorService) { }
+  constructor(private donor: DonorService,private newEvent: EventService) { }
 
   ngOnInit() {
   }
@@ -40,6 +44,7 @@ export class AddDonorComponent implements OnInit {
   }
   reset(){
     this.name = "";
+    this.lastname="";
     this.id = "";
     this.address = "";
     this.phone = "";
@@ -47,20 +52,23 @@ export class AddDonorComponent implements OnInit {
     this.extraphone = "";
     this.birthday;
     this.amount;
-    // this.private = false;
-    // this.Foundation = false;
+    this.discription="";
+    this.private = false;
+    this.Foundation = true;
   }
 
   save() {
     let newDonor: DonorModel;
     if (this.Foundation == true) {
-      newDonor = new DonorModel(this.name, this.id, this.birthday, this.address, this.phone, this.extraphone, this.email, "קרן", this.amount, []);
+      newDonor = new DonorModel(this.name,this.lastname, this.id, this.birthday, this.address, this.phone, this.extraphone, this.email, "קרן", this.amount, [],this.discription);
       this.donor.donor.push(newDonor);
     }
     if (this.private == true) {
-      newDonor = new DonorModel(this.name, this.id, this.birthday, this.address, this.phone, this.extraphone, this.email, "פרטי", this.amount,[]);
+      newDonor = new DonorModel(this.name,this.lastname, this.id, this.birthday, this.address, this.phone, this.extraphone, this.email, "פרטי", this.amount,[],this.discription);
       this.donor.donor.push(newDonor);
     }
+    this.newEvent.add(new EventModel("לתרום שוב", "donor-Model", new Date(2018, 0, 8), "האם רוצה לתרום שוב",[] , [],[]));
+
     this.reset();
   }
 }
