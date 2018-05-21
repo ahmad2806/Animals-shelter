@@ -10,8 +10,9 @@
     <input matInput placeholder="שם התורם" [(ngModel)]="name">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="תז של התורם" [(ngModel)]="id">
+    <input matInput placeholder="שם משפחה" [(ngModel)]="lastname">
   </mat-form-field>
+
   <br>
   <mat-form-field>
     <input matInput placeholder="מספר נייד" [(ngModel)]="phone">
@@ -30,11 +31,19 @@
   <mat-form-field>
     <input matInput placeholder="תאריך לידה" class="date-time form-control pull-right col-xs-12 text-right" [(ngModel)]="birthday">
   </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="פרטים נוספים" [(ngModel)]="discription"></textarea>
+  </mat-form-field>
   <br>
   <mat-form-field>
     <input matInput placeholder="סכום התרומה" [(ngModel)]="amount">
   </mat-form-field>
   <br>
+  <mat-form-field>
+    <input matInput placeholder="תז של התורם" [(ngModel)]="id">
+  </mat-form-field>
+  <br>
+
   <button mat-raised-button [routerLink]="['/Header/donor/donorList']" (click)="save()" data-dismiss="modal">שמור</button>
 </ol>
 
@@ -52,17 +61,21 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="מספר נוסף" [(ngModel)]="extraphone">
+    <input matInput  placeholder="מספר נוסף" [(ngModel)]="extraphone">
   </mat-form-field>
   <br>
   <mat-form-field>
     <input matInput placeholder="דוא'ל" [(ngModel)]="email">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="פרטים נוספים" [(ngModel)]="discription"></textarea>
   </mat-form-field>
   <br>
   <mat-form-field>
     <input matInput placeholder="סכום התרומה" [(ngModel)]="amount">
   </mat-form-field>
   <br>
-  <button type="button " class="btn btn-primary center-block" style="width: 30%;"  (click)="save()" data-dismiss="modal" [routerLink]="['/Header/donor/donorList']">שמור</button>
+
+  <button type="button " class="btn btn-primary center-block" style="width: 30%;" (click)="save()" data-dismiss="modal" [routerLink]="['/Header/donor/donorList']">שמור</button>
 
 </ol>
