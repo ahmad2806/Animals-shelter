@@ -2,9 +2,6 @@
 <div class="container">
   <ul class="nav nav-pills pull-right">
     <li class="nav-item">
-      <a class="nav-link" id="button"  data-toggle="modal" data-target="#add" >הוספת תורמים</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" [routerLink]="['/Header/donor/donorEvent']">אירועים</a>
     </li>
     <li class="nav-item">
@@ -16,15 +13,6 @@
   <hr>
 </div>
 
-<div class="modal" id="add" tabindex="-1" role="dialog" dir="rtl">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <app-add-donor></app-add-donor>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <router-outlet></router-outlet>

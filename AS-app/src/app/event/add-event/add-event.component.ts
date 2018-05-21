@@ -16,6 +16,7 @@ export class AddEventComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('dateInput') dateInputRef: ElementRef;
   @ViewChild('descriptionInput') desInputRef: ElementRef;
+  searchFor = 'event';
   modelType = '';
   relatedTo: VolunteerModel[] = [];
   arrived: VolunteerModel[] = [];

@@ -26,6 +26,8 @@ export class VolListComponent implements OnInit {
   mdlSampleIsOpen=false;
   index=0;
 
+  searchFor = 'volunteer';
+
 
   
 

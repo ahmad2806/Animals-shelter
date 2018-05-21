@@ -3,10 +3,10 @@
 <div class="row">
   <div class="col-md-12">
     <div class="col-md-5 col-md-offset-1">
-        <app-figurecard (click)=View(old.id) id="OldEvents" #old data-toggle="modal" data-target="#events"
+        <app-figurecard (click)=View(old.headerIcon) id="OldEvents" #old data-toggle="modal" data-target="#events"
           title="אירועים ישנים"
           headerIcon="done"
-          category="{{OldEvents}}"
+          category="{{events.oldEvents.length}}"
           footContent="אירועים ישנים"
           footerIcon="date_range"
           linearColor="linear-gradient(60deg, #ffa726, #fb8c00)"
@@ -15,10 +15,10 @@
     
     </div>
     <div class="col-md-5 col-md-offset-1" >
-        <app-figurecard (click)=View(InProgress.id) id="EventsInProgress" #InProgress data-toggle="modal" data-target="#events"
+        <app-figurecard (click)=View(InProgress.headerIcon) id="EventsInProgress" #InProgress data-toggle="modal" data-target="#events"
           title="אירועים בתהליך"
           headerIcon="donut_large"
-          category="{{EventsInProgress}}"
+          category="{{events.inProgressEvents.length}}"
           footContent="אירועים בתהליך"
           footerIcon="date_range"
           linearColor="linear-gradient(60deg, #66bb6a, #43a047)"
@@ -32,10 +32,10 @@
 <div class="row">
     <div class="col-md-12">
       <div class="col-md-5 col-md-offset-1">
-          <app-figurecard (click)=View(deleted.id) id="DeletedEvents" #deleted data-toggle="modal" data-target="#events"
+          <app-figurecard (click)=View(deleted.headerIcon) id="DeletedEvents" #deleted data-toggle="modal" data-target="#events"
             title="אירועים שנמחקו"
             headerIcon="clear"
-            category="{{DeletedEvents}}"
+            category="{{events.deletedEvents.length}}"
             footContent="אירועים שנמחקו"
             footerIcon="date_range"
             linearColor="linear-gradient(60deg, #ef5350, #e53935)"
@@ -44,10 +44,10 @@
       
       </div>
       <div class="col-md-5 col-md-offset-1">
-          <app-figurecard (click)=View(comming.id) id="CommingEvents" #comming data-toggle="modal" data-target="#events"
+          <app-figurecard (click)=View(comming.headerIcon) id="CommingEvents" #comming data-toggle="modal" data-target="#events"
             title="אירועים קרובים"
             headerIcon="alarm"
-            category="{{events.commingSoonEvents.length}}"
+            category="{{events.CSEDB.length}}"
             footContent="אירועים קרובים"
             footerIcon="date_range"
             linearColor="linear-gradient(60deg, #26c6da, #00acc1)"
@@ -60,56 +60,6 @@
 
 </div>
 <hr>
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-xs-5 pull-left" style="border-style: solid; text-align: center; background-color: #504e50;">
-      <h1>{{OldEvents}} אירועים ישנים</h1>
-      <br>
-      <hr>
-      <span>
-        <a (click)=View(old.id) id="OldEvents" #old data-toggle="modal" data-target="#events">
-          <h2>ראה פרטים</h2>
-        </a>
-      </span>
-    </div>
-    <div class="col-xs-5 pull-right" style="border-style: solid; text-align: center; background-color: #a89fa8;">
-      <h1>{{EventsInProgress}} אירועים בתהליך</h1>
-      <br>
-      <hr>
-      <span>
-        <a (click)=View(InProgress.id) id="EventsInProgress" #InProgress data-toggle="modal" data-target="#events">
-          <h2>ראה פרטים</h2>
-        </a>
-      </span>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-xs-5 pull-left" style="border-style: solid; text-align: center; background-color: #777277;">
-      <h1>{{DeletedEvents}} אירועים שנמחקו</h1>
-      <br>
-      <hr>
-      <span>
-        <a (click)=View(deleted.id) id="DeletedEvents" #deleted data-toggle="modal" data-target="#events">
-          <h2>ראה פרטים</h2>
-        </a>
-      </span>
-    </div>
-    <div class="col-xs-5 pull-right" style="border-style: solid; text-align: center; background-color: #8f8e8f;">
-      <h1>{{events.commingSoonEvents.length}} אירועים קרובים</h1>
-      <br>
-      <hr>
-      <span>
-        <a (click)=View(comming.id) id="CommingEvents" #comming data-toggle="modal" data-target="#events">
-            <h2>ראה פרטים</h2>
-        </a>
-      </span>
-    </div>
-  </div>
-</div> -->
-
 
 <app-events-list #m class="modal" id="events"></app-events-list>
 

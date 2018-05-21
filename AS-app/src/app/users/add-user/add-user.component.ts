@@ -23,7 +23,7 @@ export class AddUserComponent {
   constructor(private UserService: UserService,private router:Router) {
 
   }
-  onSumbit(Vper, Dper, Aper) {
+  onSumbit(Vper, Dper, Aper,reset,exit) {
     let newUser: User;
     for (let index = 0; index < this.UserService.UsersList.length; index++) {
       if (this.username == this.UserService.UsersList[index].username) {
@@ -42,6 +42,8 @@ export class AddUserComponent {
     else { //on Success
       newUser = new User(this.name, this.tel, this.email, this.username, this.password, Vper, Dper, Aper, false);
       this.UserService.usersList.push(newUser);
+      reset.click();
+      exit.click();
     }
   }
 
