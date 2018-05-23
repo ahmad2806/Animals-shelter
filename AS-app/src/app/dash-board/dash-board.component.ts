@@ -11,12 +11,48 @@ import { VolunteerModel } from "../volunteer/volunteer.model";
 export class DashBoardComponent implements OnInit {
   @ViewChild('m') m: ElementRef;
   @Input() EventType: string = "";
-  public OldEvents = this.events.oldEvents.length;
-  public EventsInProgress = this.events.inProgressEvents.length;
-  public DeletedEvents = this.events.deletedEvents.length;
-  public CommingEvents = this.events.commingSoonEvents.length;
+  // public OldEvents = this.events.oldEvents.length;
+  // public EventsInProgress = this.events.inProgressEvents.length;
+  // public DeletedEvents = this.events.deletedEvents.length;
+  // public CommingEvents = this.events.commingSoonEvents.length;
   constructor(private events: EventService) {
 
+  }
+  ngOnInit() {
+    let today: Date = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth();
+    let day = today.getDate();
+    console.log(year, month, day);
+    for (let index = 0; index < this.events.commingSoonEvents.length; index++) {
+      console.log(this.events.commingSoonEvents[index].date.getFullYear(), this.events.commingSoonEvents[index].date.getMonth(), this.events.commingSoonEvents[index].date.getDate());
+      if (this.events.commingSoonEvents[index].date.getFullYear() > year) {// comming soon
+        this.events.CSEDB.push(this.events.commingSoonEvents[index]);
+        console.log("comming soon ");
+      } else if (this.events.commingSoonEvents[index].date.getFullYear() < year) { //  old events
+        this.events.oldEvents.push(this.events.commingSoonEvents[index]);
+        console.log('old');
+      } else if (this.events.commingSoonEvents[index].date.getFullYear() == year) {
+        if (this.events.commingSoonEvents[index].date.getMonth() > month) { //comming soon
+          this.events.CSEDB.push(this.events.commingSoonEvents[index]);
+          console.log("comming soon monthly");
+        }
+        else if (this.events.commingSoonEvents[index].date.getMonth() < month) { // old
+          this.events.oldEvents.push(this.events.commingSoonEvents[index]);
+          console.log('old monthly');
+        } else if (this.events.commingSoonEvents[index].date.getMonth() == month) {
+          if (this.events.commingSoonEvents[index].date.getDay() > day) { // comming soon
+            console.log("comming soon daily");
+          } else if (this.events.commingSoonEvents[index].date.getDate() < day) { //old
+            this.events.oldEvents.push(this.events.commingSoonEvents[index]);
+            console.log('old daily');
+          } else if (this.events.commingSoonEvents[index].date.getDate() == day) { // ingprogress today
+            this.events.inProgressEvents.push(this.events.commingSoonEvents[index]);
+            console.log('inprogress');
+          }
+        }
+      }
+    }
   }
 
   @Input() event: EventModel[] = [];
@@ -24,7 +60,6 @@ export class DashBoardComponent implements OnInit {
   View(type) {
     this.EventType = type;
     this.event = [];
-    console.log(type);
     if (type == "done") {
       this.events.setClicked('old');
     }
@@ -48,7 +83,7 @@ export class DashBoardComponent implements OnInit {
     this.m.nativeElement;
 
   }
-  ngOnInit() {
-  }
+
+
 
 }
