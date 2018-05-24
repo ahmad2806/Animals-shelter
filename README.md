@@ -51,8 +51,8 @@ Please visit our wiki for furthur project info:
 ### Iteration Pages
 - [Iteration 0 - ZFR](https://github.com/ahmad2806/Animals-shelter/wiki/ZFR)
 - [Iteration 1 - MVP](https://github.com/ahmad2806/Animals-shelter/wiki/Iteration-1-MVP)
-- [Iteration 2 - Feature X](https://github.com/ahmad2806/Animals-shelter/wiki/Iteration2-Feature's-Functionality)
-- [Iteration 3 - Feature Y]()
+- [Iteration 2 Feature's Functionality](https://github.com/ahmad2806/Animals-shelter/wiki/Iteration2-Feature's-Functionality)
+- [Iteration 3 - Feature Y](https://github.com/ahmad2806/Animals-shelter/wiki/Iteration-3---Feature-Y)
 - [Iteration 4 - Feature Z]()
 
 
