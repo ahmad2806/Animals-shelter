@@ -12,7 +12,6 @@ addVol=false;
 VolList=true;
 eventList=false;
   constructor(private eventService : EventService,private router: Router) { 
-    this.eventService.setClicked('commingSoon'); 
   }
 
   ngOnInit() {
@@ -35,7 +34,7 @@ eventList=false;
   }
   onclick(){
     this.eventService.clicked = 'mainList';
-    this.eventService.setClicked('inProgress');
+    this.eventService.setClicked(' ');
     this.router.navigate(['/Header/volenteer/VolunteerEvents/eventsList']);
 
   }

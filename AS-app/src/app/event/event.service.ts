@@ -7,7 +7,7 @@ import { EventEmitter } from 'protractor';
 
 @Injectable()
 export class EventService {
-  CSEDB:EventModel[]=[];
+  CSEDB: EventModel[] = [];
   generalEvents: EventModel[] = [];
   commingSoonEvents: EventModel[] = [];
   oldEvents: EventModel[] = [];
@@ -30,23 +30,15 @@ export class EventService {
         "025859294", "AHMADLOXIZ@gmail.com", "cat", new FreeDayes(true, false, true, true, true, false, false), true, false, "software engineering", ""),
       new VolunteerModel("אחמד", "20541774", new Date, "beit-hanina", "0524651749", "",
         "025859294", "AHMADLOXIZ@gmail.com", "cat", new FreeDayes(true, false, true, true, true, false, false), true, false, "software engineering", ""),
-
-
     ];
-
     this.didntarrived = this.relatedTo;
-    let omar: Date = new Date()
     this.commingSoonEvents = [ //year,month,date
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 0, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 1, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 2, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 3, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 4, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
-<<<<<<< HEAD
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 5, 3), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
-=======
-      new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 5, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
->>>>>>> 14caec1b5d2704b41fbce801b9f70f3024009e84
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 6, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 7, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 8, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
@@ -64,9 +56,6 @@ export class EventService {
       new EventModel("יום הולדת", "volunteer-Model", new Date(2019, 0, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2019, 0, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
     ];
-
-
-
     this.generalEvents = this.commingSoonEvents;
   }
   public get CommingSoonEvents() {
@@ -81,11 +70,9 @@ export class EventService {
   public get InProgressEvents() {
     return this.inProgressEvents.slice;
   }
-
   public add(event: EventModel) {
     this.commingSoonEvents.push(event);
   }
-
   public get Clicked() {
     console.log(this.clicked);
     return this.clicked;
@@ -97,10 +84,10 @@ export class EventService {
       this.generalEvents = this.inProgressEvents;
     else if (input === 'deleted')
       this.generalEvents = this.deletedEvents;
-    else {
+    else if (input === 'commingSoon')
       this.generalEvents = this.CSEDB;
-    }
+    else
+      this.generalEvents = this.commingSoonEvents;
   }
-
 }
 

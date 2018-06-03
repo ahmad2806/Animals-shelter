@@ -23,9 +23,10 @@ export class DashBoardComponent implements OnInit {
     let year = today.getFullYear();
     let month = today.getMonth();
     let day = today.getDate();
-    console.log(year, month, day);
+    this.events.oldEvents = [];
+    this.events.inProgressEvents = [];
+    this.events.CSEDB = [];
     for (let index = 0; index < this.events.commingSoonEvents.length; index++) {
-      console.log(this.events.commingSoonEvents[index].date.getFullYear(), this.events.commingSoonEvents[index].date.getMonth(), this.events.commingSoonEvents[index].date.getDate());
       if (this.events.commingSoonEvents[index].date.getFullYear() > year) {// comming soon
         this.events.CSEDB.push(this.events.commingSoonEvents[index]);
         console.log("comming soon ");

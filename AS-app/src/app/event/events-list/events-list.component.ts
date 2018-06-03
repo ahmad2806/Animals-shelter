@@ -31,9 +31,8 @@ export class EventsListComponent implements OnInit, DoCheck {
 
   constructor(private volunteerService: VolunteersService, private eventService: EventService) {
 
-    this.eventList = eventService.generalEvents;
+    this.eventList = this.eventService.generalEvents;
     console.log(eventService.generalEvents);
-
     this.eventListOnSearch = eventService.generalEvents;
     this.volunteersList = volunteerService.volunteers;
 

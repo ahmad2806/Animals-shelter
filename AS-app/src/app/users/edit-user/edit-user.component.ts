@@ -28,7 +28,6 @@ export class EditUserComponent implements OnInit {
           newUser = new User(form.value.name, form.value.phone, form.value.email, this.usServer.UserEditing.username, form.value.password, form.value.Vper, form.value.Dper, form.value.Aper, form.value.Freeze);
           this.usServer.usersList[currIndex] = newUser;
           exit.click();
-          form.reset();
           return;
         }
         else {
@@ -41,7 +40,6 @@ export class EditUserComponent implements OnInit {
           newUser = new User(form.value.name, form.value.phone, form.value.email, this.usServer.UserEditing.username, form.value.password, form.value.Vper, form.value.Dper, form.value.Aper, form.value.Freeze);
           this.usServer.usersList[currIndex] = newUser;
           exit.click();
-          form.reset();
           return;
         }
       }
