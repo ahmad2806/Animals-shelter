@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { VolunteersService } from '../volunteers.service';
 import { VolunteerModel } from '../volunteer.model';
@@ -25,8 +25,11 @@ export class VolListComponent implements OnInit {
   DeletedVolunteer=0;
   mdlSampleIsOpen=false;
   index=0;
-
+  imageClicked;
+  imageVolunteer;
   searchFor = 'volunteer';
+
+  // @ViewChild('jj') fileInput: ElementRef;
 
 
   
@@ -36,6 +39,7 @@ export class VolListComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.imageVolunteer=this.volservice.volunteers[0];
 
     // this.lenght=this.volservice.volunteers.length;
     // this.number =this.lenght/15;
@@ -82,7 +86,37 @@ if(this.number<1){
     
   // }
 
+  viewImage(ImageBtn,item){
+    this.imageClicked=item.avatar;
+    this.imageVolunteer=item;
+    ImageBtn.click();
 
+  }
+  image(im){
+    console.log(im);
+    this.imageVolunteer.avatar = im.target.files[0];
+  
+    let reader = new FileReader();
+  
+    reader.onload = (e: any) => {
+      this.imageVolunteer.avatar  = e.target.result;
+      // this.imageClicked  = e.target.result;
+    }
+  
+    reader.readAsDataURL(im.target.files[0]);
+
+    
+
+   this.imageClicked=this.imageVolunteer.avatar;
+    // im.target.files=[];
+    //im.target.files[0]="";
+    // this.form.get('avatar').setValue(null);
+    // this.fileInput.nativeElement.value = '';
+
+    //this.imageVolunteer.avatar  =this.imageClicked;;
+    
+
+  }
   setDeletedVolunteer(item){
     this.DeletedVolunteer = this.volservice.volunteers.indexOf(item);
     

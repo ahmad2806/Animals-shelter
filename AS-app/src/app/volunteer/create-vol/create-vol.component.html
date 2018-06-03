@@ -1,9 +1,9 @@
 
 <!------ Include the above in your HEAD tag ---------->
-
+<div class="container">
 
         <div class="row ">
-                <div class="col-md-12">
+                <div class="col-md-8 col-md-offset-2">
                       
                                 <h1 class="entry-title text-right">
                                         <span>הוספת מתנדב חדש</span>
@@ -211,7 +211,7 @@
                                         </div>
                                         <div class="form-group">
                                                         <div class="col-md-8 col-sm-9 text-right">
-                                                        <image-upload (change)="image($event)" [buttonCaption]="'בחר תמונה'" [fileTooLargeMessage]="'Image too large!'" [dropBoxMessage]="'תיפול את התמונה פה'"#jj></image-upload>
+                                                        <image-upload (change)="image($event)" [buttonCaption]="'בחר תמונה'" [fileTooLargeMessage]="'Image too large!'" [dropBoxMessage]="'גרור את התמונה פה'"#jj></image-upload>
                                                         </div>
                                                       </div>
 
@@ -224,4 +224,5 @@
                                                         [disabled]="!f.valid" type="submit" value="שמור" class="btn btn-primary">
                                                 </div>
                                                
-           </div></form>            
+           </div></form>   </div></div>     
+        </div>

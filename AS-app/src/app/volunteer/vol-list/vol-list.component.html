@@ -1,17 +1,8 @@
 <div class="container">
     <div class="col-xs-12">
         <mat-toolbar>
-                                <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-primary col-xs-1   	glyphicon glyphicon-plus"></button>
-                                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                        <div class="modal-body">
-                                                <app-create-vol volunteersToView="volunteersToView"></app-create-vol>
-                                        </div>
-                                        </div>
-                                </div>
-                                </div>
-                                <div class="all-Div col-xs-3">
+                              
+                                <div class="all-Div col-xs-4">
                                                 <div class=" changethisone">
                                                     <div class=" input-group changethisone" >
                                                         <input type="text" title="חפס שם"  class="form-control text-right" #search  placeholder="...חפס" [(ngModel)]="queryIn" name="search-query-in">
@@ -59,12 +50,12 @@
                     <div class="col-sm-12 text-right ">
                         <div class="col-sm-3 pull-right">
                                 <div class="row">
-                            <img src="{{item.avatar}}"  #img class="img-circle img-responsive center-block">
+                            <img src="{{item.avatar}}" (click)="viewImage(ImageBtn,item)"  #img class="img-circle img-responsive center-block">
+               
                                   </div>
-                                  <br>
-                                  <div class="row text-center">
-                                                <button type="button" class="btn btn-primary">Change Image</button>
-                                  </div>
+                                  <button class="invisible" data-toggle="modal" data-target="#imageModal" #ImageBtn></button>
+            
+                                 
                         </div>
     
                         <div class="col-sm-6 pull-right">
@@ -171,6 +162,33 @@
     </div>
 
 </div>
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                          <div class="modal-body">
+                                <img src="{{imageVolunteer.avatar}}"  #img class="img-responsive center-block">
+</div>
+<div class="modal-footer">
+                <br>
+                <div class="row text-center">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                               החלף תמונה
+                              </button>
+                        </div>
+<br><br>
+                              <div class="collapse" id="collapseExample">
+                                        <div class="card card-body">
+                                      
+                                                
+                                <image-upload (change)="image($event)" [buttonCaption]="'בחר תמונה'" [fileTooLargeMessage]="'Image too large!'" [dropBoxMessage]="'גרור את התמונה פה'"#jj></image-upload>
+               
+        </div>
+</div>
+</div>
+                          </div>
+                          </div>
+                          </div>
+
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -397,6 +415,7 @@
             </div>
             </div>
             </div>
+            
 
 
 <div class="container">
@@ -405,18 +424,19 @@
         <li [class]="pdisabled" (click)="ChangePage(previousPage)">
             <a>Previous</a>
         </li>
+        <ul class="pagination">
+                <li *ngFor="let item of Pages;index as i" (click)="ChangePage(i)">
+                    <a>{{Pages[i]}}</a>
+                </li>
+    
+    
+            </ul>
 
-        <li [class]="ndisabled" (click)="ChangePage(nextPage)">
+        <li [class]="ndisabled " (click)="ChangePage(nextPage)">
             <a>Next</a>
         </li>
 
-        <ul class="pagination">
-            <li *ngFor="let item of Pages;index as i" (click)="ChangePage(i)">
-                <a>{{Pages[i]}}</a>
-            </li>
-
-
-        </ul>
+       
 
     </ul>
 </div>

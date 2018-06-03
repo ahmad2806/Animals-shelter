@@ -61,7 +61,7 @@ image(im){
   ,this.week,this.car,this.incar,form.value.job,this.volunteerIMG);
 
   this.volservice.add(this.volunteer);
-
+  this.router.navigate(['/Header/volenteer/VolunteersList']);
 
   // console.log(this.volunteer.date);
 }else{

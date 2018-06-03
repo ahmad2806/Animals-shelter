@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event/event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-volunteer',
@@ -10,7 +11,7 @@ export class VolunteerComponent implements OnInit {
 addVol=false;
 VolList=true;
 eventList=false;
-  constructor(private eventService : EventService) { 
+  constructor(private eventService : EventService,private router: Router) { 
     this.eventService.setClicked('commingSoon'); 
   }
 
@@ -34,6 +35,9 @@ eventList=false;
   }
   onclick(){
     this.eventService.clicked = 'mainList';
+    this.eventService.setClicked('inProgress');
+    this.router.navigate(['/Header/volenteer/VolunteerEvents/eventsList']);
+
   }
 
 }
