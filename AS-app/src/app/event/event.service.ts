@@ -42,7 +42,11 @@ export class EventService {
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 2, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 3, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 4, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
+<<<<<<< HEAD
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 5, 3), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
+=======
+      new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 5, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
+>>>>>>> 14caec1b5d2704b41fbce801b9f70f3024009e84
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 6, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 7, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
       new EventModel("יום הולדת", "volunteer-Model", new Date(2018, 8, 8), "שלח כרטיס מתנה", this.relatedTo, [], this.didntarrived),
