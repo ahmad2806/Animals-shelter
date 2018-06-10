@@ -56,12 +56,14 @@ export class EventsListComponent implements OnInit, DoCheck {
     const index = this.eventList[i].didntArrived.indexOf(item);
     this.eventList[i].arrived.push(this.eventList[i].didntArrived[index]);
     this.eventList[i].didntArrived.splice(index, 1);
+    this.eventService.generalEvents =this.eventList ;
     //  console.log(i);
   }
   delFromList(item, i) {
     const index = this.eventList[i].arrived.indexOf(item);
     this.eventList[i].didntArrived.push(this.eventList[i].arrived[index]);
     this.eventList[i].arrived.splice(index, 1);
+    this.eventService.generalEvents =this.eventList ;
   }
 
   addToRelativeList(item, i) {
@@ -123,6 +125,7 @@ export class EventsListComponent implements OnInit, DoCheck {
       this.eventList[i].description = eventDescription;
       this.eventList[i].type = this.modelType;
       this.eventList[i].relativeTo = this.relatedTo;
+      this.eventService.generalEvents =this.eventList ;
       back.click();
 
 
@@ -135,7 +138,9 @@ export class EventsListComponent implements OnInit, DoCheck {
   }
   removeEvent() {
     // console.log(this.i);
+    this.eventService.deletedEvents.push(this.eventList[this.i]);
     this.eventList.splice(this.i, 1);
+    this.eventService.generalEvents =this.eventList ;
   }
 
   update(thisdate) {
@@ -158,7 +163,7 @@ export class EventsListComponent implements OnInit, DoCheck {
           }
         }
       }
-      console.log(this.eventList);
+    
     }
     //     for(let i=0;i<this.eventList[0].date.length;i++){
     //       console.log(this.eventList[0].date[i]);
@@ -170,7 +175,7 @@ export class EventsListComponent implements OnInit, DoCheck {
 
     //     }
     //  let  time = this.eventList[0].date[0];
-
+    this.eventService.generalEvents =this.eventList ;
   }
 
 

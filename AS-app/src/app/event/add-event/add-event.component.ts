@@ -43,12 +43,13 @@ export class AddEventComponent implements OnInit {
 
     const eventName = this.nameInputRef.nativeElement.value;
     const eventDate = this.dateInputRef.nativeElement.value;
+    let d=new Date(eventDate);
     const eventDescription = this.desInputRef.nativeElement.value;
     if(eventName == "" || this.relatedTo.length == 0 ){
       alert("תשלים את הנתונים הנדרשים");
     }
     else{
-      const eventAdded = new EventModel(eventName,this.modelType,eventDate,eventDescription,this.relatedTo,this.arrived,this.relatedTo); 
+      const eventAdded = new EventModel(eventName,this.modelType,d,eventDescription,this.relatedTo,this.arrived,this.relatedTo); 
       this.eventService.add(eventAdded);
       
       dis.click();
